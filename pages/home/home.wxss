@@ -1,0 +1,354 @@
+@import "../../component/authorize/authorize.wxss";
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 24rpx;
+    position: relative;
+}
+
+.h-v1 {
+    display: flex;
+    flex-direction: row;
+    height: 84rpx;
+    line-height: 84rpx;
+    text-align: right;
+    width: 100%;
+    font-size: 26rpx;
+    align-items: center;
+}
+
+.h-v1 .h-v1-1 {
+    line-height: 84rpx;
+    margin-right: 44rpx;
+    color: #404040;
+    font-size: 26rpx;
+    flex: 1;
+}
+
+.h-v-new {
+    width: 100%;
+    margin-top: 25rpx;
+    padding-left: 12rpx;
+    font-size: 24rpx;
+    line-height: 48rpx;
+    align-items: center;
+    color: #808080;
+}
+
+.h-v-new .h-v1-1 {
+    display: flex;
+    justify-content: space-between;
+    color: #404040;
+    font-size: 36rpx;
+    text-align: right;
+}
+
+.h-v-new .h-v1-1-2 {
+    width: 150rpx;
+    height: 50rpx;
+    padding: 0;
+    line-height: 50rpx;
+    border: 1px solid #f4f4f4;
+    border-right: 0;
+    border-top-left-radius: 40rpx;
+    border-bottom-left-radius: 40rpx;
+    text-align: center;
+    font-size: 18rpx;
+    color: #000;
+    margin-right: -25rpx;
+    background: #fff;
+    box-shadow: 0px -3px 3px 0px #f4f4f4,-3px 0px 3px 0px #f4f4f4,3px 0px 3px 0px #f4f4f4,0px 3px 3px 0px #f4f4f4;
+}
+
+.h-v-new .h-v1-1 image {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 10rpx;
+    vertical-align: middle;
+}
+
+.icon-address {
+    width: 24rpx;
+    height: 30rpx;
+    margin-right: 15rpx;
+    vertical-align: text-bottom;
+}
+
+.h-v2 {
+    width: 100%;
+    height: 200rpx;
+    border-radius: 5rpx;
+    overflow: hidden;
+}
+
+.h-v2-1 {
+    height: inherit;
+}
+
+.home-image-bk {
+    display: inline;
+}
+
+.h-v3 {
+    width: 100%;
+    padding: 20rpx 0;
+}
+
+.h-v3-1 {
+    display: flex;
+    position: relative;
+    height: 90rpx;
+    justify-content: center;
+    background-color: #d7242d;
+    border-radius: 50rpx;
+}
+
+
+.h-v3-1 image {
+    align-self: center;
+    width: 33rpx;
+    height: 36rpx;
+    margin-right: 13rpx;
+}
+
+.h-v3-1 view {
+    align-self: center;
+    font-weight: bold;
+    font-size: 32rpx;
+    color: #fff;
+}
+
+.h-v3-1 view .eng {
+    font-size: 22rpx;
+}
+
+.h-v3-1::after {
+    content: '';
+    display: block;
+    height: 1rpx;
+    margin-top: -1rpx;
+    box-shadow: 0 20rpx 25rpx #d7242d;
+}
+
+.h-v3-1::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: 1rpx;
+    left: 40rpx;
+    right: 40rpx;
+    height: 20%;
+    box-shadow: 0 5rpx 50rpx #d7242d;
+}
+
+.flex-wrp {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-wrp>view {
+    flex: 1;
+    text-align: center;
+}
+
+.h-v4-new3 {
+    height: 194rpx;
+}
+
+.h-v4-new3 image {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.h-v4-new3 navigator {
+    flex: 1;
+    text-align: center;
+}
+
+.h-v4-new2 image {
+    width: 348rpx;
+    height: 284rpx;
+}
+
+.h-v4-new2 .alignLeft {
+    text-align: left;
+}
+
+.h-v4-new2 .alignRight {
+    text-align: right;
+}
+
+.h-v4-new4 {
+    height: 214rpx;
+    margin-bottom: 140rpx;
+    padding-left: 40rpx;
+}
+
+.h-v4-new4 image {
+    width: 180rpx;
+    height: 124rpx;
+}
+
+.h-v4-new4 navigator {
+    flex: 1;
+    text-align: center;
+    margin-left: -40rpx;
+}
+
+.h-v4-new4>view {
+    flex: 1;
+    text-align: center;
+    margin-left: -40rpx;
+}
+
+.h-v4 {
+    width: 100%;
+}
+
+.h-v4 text {
+    font-size: 26rpx;
+    color: #404040;
+}
+
+.h-v4-new4 text {
+    position: relative;
+    color: #666;
+    top: -20rpx;
+}
+
+.more-service {
+    font-size: 32rpx;
+    color: #404040;
+    font-weight: 500;
+    margin-top: 50rpx;
+    margin-left: 15rpx;
+}
+
+.login-detail {
+    width: 54rpx;
+    height: 42rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-home-detail.png) no-repeat center center;
+    background-size: 26rpx;
+    margin-right: 24rpx;
+}
+
+.has-login {
+    flex: 1;
+    margin-right: 30rpx;
+    color: #404040;
+}
+
+.logout {
+    color: #cb2222;
+    margin-left: 50rpx;
+}
+
+.h-v4-1 {
+    flex-direction: column;
+}
+
+.h-v4-j {
+    padding: 20rpx 70rpx;
+    border-bottom: 1rpx solid #d1d1d1;
+    margin: 0 5rpx;
+}
+
+.home-order {
+    padding: 20rpx 70rpx;
+}
+
+.h-v4-j-1 {
+    color: #404040;
+    font-size: 22rpx;
+    font-weight: bold;
+}
+
+.h-v4-j-2 {
+    font-size: 20rpx;
+    color: #a4a4a4;
+    margin: 20rpx 0 0 0;
+}
+
+.h-v4-j-3 {
+    height: 112rpx;
+    border-bottom: 1rpx solid #d1d1d1;
+}
+
+.h-v4-i-1-1 {
+    min-width: 34rpx;
+    height: 34rpx;
+    border-radius: 18rpx;
+    background-color: #d93035;
+    text-align: center;
+    font-size: 28rpx;
+    color: #fff;
+    margin-left: 10rpx;
+    line-height: 34rpx;
+}
+
+.h-v4-v4 {
+    width: 26rpx;
+    height: 26rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-home-more.png) no-repeat;
+    background-size: 26rpx;
+    margin-left: 35rpx;
+}
+
+.home-order-part {
+    width: 100%;
+    height: 100%;
+    font-size: 22rpx;
+    color: #a4a4a4;
+    display: flex;
+    flex-direction: column;
+}
+
+.orderpart-1 {
+    display: flex;
+}
+
+.orderpart-2 {
+    display: flex;
+    margin-top: 5rpx;
+}
+
+.ui-orderList {
+    height: 86rpx;
+    padding: 20rpx 86rpx 30rpx 86rpx;
+    border-bottom: 1rpx solid #d1d1d1;
+}
+
+.orderpart-1-1 {
+    width: 300rpx;
+}
+
+.orderpart-2-2 {
+    color: #404040;
+    font-weight: bold;
+    border-bottom: 1rpx solid #404040;
+}
+
+.nologinmesg {
+    margin-left: 20rpx;
+}
+
+.box {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.el2 {
+    background: blue;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.ccc {
+    border: 2px solid red;
+    height: 300px;
+}

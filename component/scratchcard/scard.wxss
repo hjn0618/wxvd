@@ -1,0 +1,68 @@
+.greyscreen {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    background: rgba(0,0,0,0.60);
+}
+
+.myCanvas-wrapper {
+    width: 100%;
+    height: 480rpx;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 12;
+    background: #FFFFFF;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.myCanvas-movie-view {
+    position: absolute;
+    width: 100%;
+    bottom: 20rpx;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 24rpx;
+    font-weight: bold;
+    color: #888888;
+    text-align: center;
+}
+
+.myCanvas-movie-image {
+    margin-right: 4rpx;
+    width: 20rpx;
+    height: 28rpx;
+}
+
+.myCanvas {
+    width: 660rpx;
+    height: 380rpx;
+    margin: 0 0 20rpx 0;
+}
+
+.myCanvas-close {
+    width: 150rpx;
+    height: 70rpx;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAuRJREFUeAHtmk9OAjEUxmUOgK69gUsOAOEAGN27MWGrWz2Drt2auHGvkQMQOABLb+BaOcDg+wwvKQPD63Te60ywTUg7/fe+7zdToJMeHaWUCCQCiUAikAgkAv+VQEcyvlgsTpbL5dNqtRp1Op2vLMvu+v3+RBrXRPt8Ph/lef5IWk9J66Tb7d70er3vfVqyfY1oW5u/ouIxTXxGAd5ns9k12tqUoAnaoJF0QesVtEsaRQA00cidhK4z+jy3CQK0QBO0FbRuaHfbuLwxgCvdHI+9e41ymyCUmYfOXdpR7yYRAJm9p4lydxDKbYAgmM/xfVXUXbwWAQyHww8CMG4bBMk8NPt8WYu/AkzMJ+BgMHjh/pa5phZvADCkGTgUkLaGSgCahqBtHn4qA2gKgoX5YACxIViZrwUgFgRL87UBWEOwNq8CwApCDPNqALQhxDKvCkALQkzz6gDqQoht3gRAKIQmzJsBqAqhKfOmAHwhoB9trbdeZvyJo204dnWWm6ygv8IQ55uku4t58G6hOB+239bmEdMcAILsg4D2YoplHnGjAEAgXwgxzUcF4AMhtnlo2lp7qPxPKS2BGHfbd/2zlphLwfwJ2GceRmH6YH8GJfMEYLwGcHh/hHzM8z+8Kn15mWjlJksgxFDIGA0I6gDqGKkzNhSGKgANAxpzVIGhBkBTuOZcEgwVABaCLebcBaM2AEuhlnMzjFoAYgi0jhEMwFoY3yHklrGCAFgKco27ZauYlQFYCXHNlpUtYlcCYCGgzGxZvbYGbwDagcsM+tRravECoBnQx6BPHy1NIoDpdHpO29a3JvfsZUAkCHRM7kI6KSa+EyTzD200DyjYTuOdAn12nmPEueEyeFwvAiDzp9yZcwREYN7Pc30TuQBhS3tRowiAjG6cDG+TeTZTBqGonfu7uQiA1tEtTfRKg34o/8S6asOdd02gDE30tF5C41rrK47LF/ul60QgEUgEEoFEIBFIBJjAL61o5mfn3A9QAAAAAElFTkSuQmCC") no-repeat 100rpx center;
+    background-size: 30rpx;
+    position: absolute;
+    top: 1rpx;
+    right: 2rpx;
+}
+
+.myCanvas-title {
+    font-size: 26rpx;
+    color: #888888;
+    font-weight: 400;
+    line-height: 80rpx;
+    height: 80rpx;
+}

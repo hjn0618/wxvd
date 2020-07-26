@@ -1,0 +1,7 @@
+<import src="/component/styleTemplate/template.wxml"></import>
+<view class="lucky-bag-count-down" style="{{luckyBagCountDownBottom?'bottom: '+luckyBagCountDownBottom:''}}" wx:if="{{luckyBagCountDownShow}}">
+    <view class="lucky-bag-count-down-content">
+        <template is="styleTemplate" data="{{styleTemplateContents:styleTemplateContents}}"></template>
+    </view>
+    <image catchtap="close" class="lucky-bag-count-down-close" src="https://imgorder.kfc.com.cn/mwos/Version/icon-lucky-bag-cart-close.png"></image>
+</view>

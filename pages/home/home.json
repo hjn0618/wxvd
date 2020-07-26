@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "nav-bar": "/component/navbar/index",
+        "CouponPopup": "/component/CouponPopup/CouponPopup"
+    },
+    "navigationBarTitleText": "肯德基自助点餐",
+    "disableScroll": true
+}

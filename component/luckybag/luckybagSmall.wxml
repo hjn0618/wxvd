@@ -1,0 +1,5 @@
+<view catchtap="clickSmall" class="luckyBagSmall luckyBagSmall{{luckyBagSmallState}} {{animation}}" style="{{delay?'opacity: 0.6;right: -11%':'opacity: 1;right:0px;'}}" wx:if="{{showluckyBagSmallDom}}">
+    <view class="context">
+        <image class="icon" src="{{url}}"></image>
+    </view>
+</view>

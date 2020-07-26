@@ -1,0 +1,197 @@
+<scroll-view scrollWithAnimation bindscrolltoupper="scrollUpper" scrollIntoView="{{targetId}}" scrollY="{{!showAuthorization}}" upperThreshold="{{userInfoHeight}}">
+  <view class="home-container">
+    <view class="h-v1">
+    </view>
+    <view class="h-v2" id="banners">
+      <swiper autoplay="true" bindanimationfinish="" circular="true" class="h-v2-1" duration="500" indicatorActiveColor="#fff" indicatorColor="rgb(212, 203, 201)" indicatorDots="{{bannerVos.length>1}}" interval="3000" wx:if="{{bannerVos&&bannerVos.length>0}}">
+        <swiper-item wx:for="{{bannerVos}}" wx:for-index="bannerIndex" wx:for-item="bannerVo" wx:key="bannerIndex">
+          <image catchtap="bannerClick" class="home-image-bk" data-index="{{bannerIndex}}" data-title="{{bannerVo.titleCn}}" src="{{bannerVo.__imageUrl__}}"></image>
+        </swiper-item>
+      </swiper>
+    
+    </view>
+    <view class="h-v-new">
+      <view class="h-v1-1">
+        <view>{{wel}}
+          <block wx:if="{{user}}">,
+            <block wx:if="{{nickName}}"> {{nickName}}</block>
+            <open-data type="userNickName" wx:else></open-data>
+          </block>
+        </view>
+        <button binderror="launchAppError" class="h-v1-1-2" openType="launchApp" wx:if="{{adShow}}">
+          <image src="{{imageResPath}}wechatapp/tencent-news.png"></image>
+          <text>{{adName}}</text>
+        </button>
+      </view>
+      <!-- <view wx:if="{{NearbyStore!==''}}">
+        <image class="icon-address" src="{{imageResPath}}wechatapp/icon-address.png"></image>附近门店：{{NearbyStore}} 约{{distance}}</view> -->
+    </view>
+    <view class="h-v3">
+      <view bindtap="preOrder" class="h-v3-1">
+        <image src="{{imageResPath}}wechatapp/icon-tableware.png"></image>
+        <view>
+          <view>开始点餐</view>
+          <view class="eng">Order Now</view>
+        </view>
+      </view>
+
+    </view>
+    <view class="h-v4">
+      <view class="flex-wrp h-v4-new3">
+        <block wx:if="{{canNavigator}}">
+          <block wx:if="{{user}}">
+            <navigator appId="{{memberAppId}}" bindfail="memberAppFail" bindsuccess="memberAppSuccess" catchtap="enterMember" data-direction="top" data-source="code" data-types="0" hoverClass="none" openType="navigate" path="{{memberPath}}" target="miniProgram">
+              <view>
+                <view>
+                  <image mode="aspectFit" src="{{imageResPath}}wechatapp/icon-code.png"></image>
+                </view>
+                <text>会员码</text>
+              </view>
+            </navigator>
+            <view catchtap="enterCoupon">
+              <view>
+                <image mode="aspectFit" src="{{imageResPath}}wechatapp/icon-card.png"></image>
+              </view>
+              <text>我的卡包</text>
+            </view>
+          </block>
+          <block wx:else>
+            <navigator appId="{{memberAppId}}" bindfail="memberAppFail" bindsuccess="memberAppSuccess" catchtap="enterMember" data-direction="top" data-source="code" data-types="0" extraData="{{extraData}}" hoverClass="none" openType="navigate" path="{{memberLoginPath}}"
+              target="miniProgram">
+              <view>
+                <view>
+                  <image mode="aspectFit" src="{{imageResPath}}wechatapp/icon-code.png"></image>
+                </view>
+                <text>会员码</text>
+              </view>
+            </navigator>
+            <navigator appId="{{memberAppId}}" bindfail="memberAppFail" bindsuccess="memberAppSuccess" catchtap="enterCoupon" data-direction="top" data-source="code" data-types="0" extraData="{{extraData}}" hoverClass="none" openType="navigate" path="{{memberLoginPath}}"
+              target="miniProgram">
+              <view>
+                <view>
+                  <image mode="aspectFit" src="{{imageResPath}}wechatapp/icon-card.png"></image>
+                </view>
+                <text>我的卡包</text>
+              </view>
+            </navigator>
+          </block>
+        </block>
+        <block wx:else>
+          <view catchtap="enterMember" data-direction="top" data-source="code" data-types="0">
+            <view>
+              <image mode="aspectFit" src="{{imageResPath}}wechatapp/icon-code.png"></image>
+            </view>
+            <text>会员码</text>
+          </view>
+          <view catchtap="enterCoupon" data-source="code">
+            <view>
+              <image mode="aspectFit" src="{{imageResPath}}wechatapp/icon-card.png"></image>
+            </view>
+            <text>我的卡包</text>
+          </view>
+        </block>
+        <view catchtap="queryOrder">
+          <view>
+            <image mode="aspectFit" src="{{imageResPath}}wechatapp/icon-order.png"></image>
+          </view>
+          <text>我的订单</text>
+        </view>
+      </view>
+      <view class="flex-wrp h-v4-new2" wx:if="{{miscBannerList}}">
+        <view bindtap="bannerClick_5728" class="alignLeft" data-direction="left" data-jumptype="{{miscBannerListLeft.jumpType}}" data-source="banner">
+          <image mode="aspectFit" src="{{miscBannerListLeft.imgUrl}}"></image>
+        </view>
+        <view bindtap="bannerClick_5728" class="alignRight" data-direction="right" data-jumptype="{{miscBannerListRight.jumpType}}">
+          <image mode="aspectFit" src="{{miscBannerListRight.imgUrl}}"></image>
+        </view>
+      </view>
+      <block wx:else>
+        <view class="flex-wrp h-v4-new2" wx:if="{{imageResPath}}">
+          <view bindtap="enterChickenshon" class="alignLeft" data-direction="left" data-source="banner">
+            <image mode="aspectFit" src="{{imageResPath}}banner_wx_recommond_left.png"></image>
+          </view>
+          <view bindtap="preOrder" class="alignRight" data-direction="right">
+            <image mode="aspectFit" src="{{imageResPath}}banner_wx_recommond_right.png"></image>
+          </view>
+        </view>
+      </block>
+      <view class="more-service">更多服务</view>
+      <view class="flex-wrp h-v4-new4" wx:if="{{imageResPath}}">
+        <block wx:if="{{canNavigator}}">
+          <navigator appId="{{vmallAppId}}" bindfail="vmallAppFail" bindsuccess="vmallAppSuccess" bindtap="enterKgold" hoverClass="none" openType="navigate" path="{{vmallPath}}" target="miniProgram">
+            <view>
+              <view>
+                <image class="" mode="aspectFit" src="{{imageResPath}}wechatapp/icon-v01.png"></image>
+              </view>
+              <text>V金商城</text>
+            </view>
+          </navigator>
+          <navigator appId="{{kcoffeeAppId}}" bindfail="kcoffeeAppFail" bindsuccess="kcoffeeAppSuccess" bindtap="enterPublic" hoverClass="none" openType="navigate" path="{{kcoffeePath}}" target="miniProgram">
+            <view>
+              <view>
+                <image mode="aspectFit" src="{{imageResPath}}wechatapp/icon-kcoffee.png"></image>
+              </view>
+              <text>K咖啡</text>
+            </view>
+          </navigator>
+          <navigator appId="{{chickenshonAppId}}" bindfail="chickenAppFail" bindsuccess="chickenAppSuccess" bindtap="enterPackage" data-source="icon" hoverClass="none" openType="navigate" path="{{chickenshonPath}}" target="miniProgram">
+            <view>
+              <view>
+                <image mode="aspectFit" src="{{imageResPath}}wechatapp/icon-chicken.png"></image>
+              </view>
+              <text>口袋炸鸡店</text>
+            </view>
+          </navigator>
+          <navigator appId="{{memberAppId}}" bindfail="memberAppFail" bindsuccess="memberAppSuccess" bindtap="enterMember" data-direction="bottom" data-source="icon" hoverClass="none" openType="navigate" path="{{memberPath}}" target="miniProgram">
+            <view>
+              <view>
+                <image mode="aspectFit" src="{{imageResPath}}wechatapp/icon-huiyuan.png"></image>
+              </view>
+              <text>会员</text>
+            </view>
+          </navigator>
+          <navigator appId="{{zjsAppId}}" bindfail="deliveryAppFail" bindsuccess="deliveryAppSuccess" bindtap="enterZjs" hoverClass="none" openType="navigate" path="{{zjsPath}}" target="miniProgram">
+            <view>
+              <view>
+                <image mode="aspectFit" src="{{imageResPath}}wechatapp/icon-zjs.png"></image>
+              </view>
+              <text>宅急送</text>
+            </view>
+          </navigator>
+        </block>
+        <block wx:else>
+          <view bindtap="enterKgold">
+            <view>
+              <image mode="aspectFit" src="{{imageResPath}}wechatapp/icon-v01.png"></image>
+            </view>
+            <text>V金商城</text>
+          </view>
+          <view bindtap="enterPublic">
+            <view>
+              <image mode="aspectFit" src="{{imageResPath}}wechatapp/icon-kcoffee.png"></image>
+            </view>
+            <text>K咖啡</text>
+          </view>
+          <view bindtap="enterPackage" data-source="icon">
+            <view>
+              <image mode="aspectFit" src="{{imageResPath}}wechatapp/icon-chicken.png"></image>
+            </view>
+            <text>口袋炸鸡店</text>
+          </view>
+          <view bindtap="enterMember" data-direction="bottom" data-source="icon">
+            <view>
+              <image mode="aspectFit" src="{{imageResPath}}/wechatapp/icon-huiyuan.png"></image>
+            </view>
+            <text>会员</text>
+          </view>
+          <view bindtap="enterZjs">
+            <view>
+              <image mode="aspectFit" src="{{imageResPath}}wechatapp/icon-zjs.png"></image>
+            </view>
+            <text>宅急送</text>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</scroll-view>

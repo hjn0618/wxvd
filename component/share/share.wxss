@@ -1,0 +1,13 @@
+.share-wrapper {
+    position: fixed;
+    right: 40rpx;
+    bottom: 140rpx;
+    width: 200rpx;
+    text-align: center;
+    z-index: 10;
+}
+
+.share-img {
+    width: 100%;
+    height: 200rpx;
+}

@@ -1,0 +1,38 @@
+.nt-container {
+    margin: 0 40rpx;
+    height: 76%;
+}
+
+.nt-1 {
+    line-height: 114rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-popup-top.png) no-repeat top center;
+    background-size: 100rpx 20rpx;
+    font-size: 36rpx;
+    color: #404040;
+    border-radius: 15rpx 15rpx 0 0;
+    font-weight: bold;
+    padding: 10rpx;
+}
+
+.nt-1-1 {
+    width: 40rpx;
+    height: 40rpx;
+    background: url("https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-close2.png") no-repeat center center;
+    background-size: 30rpx 30rpx;
+    position: absolute;
+    top: 10rpx;
+    right: 10rpx;
+}
+
+.nt-2 {
+    text-align: left;
+    padding: 10rpx 40rpx;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.nt-t2 {
+    color: #808080;
+    font-size: 28rpx;
+    line-height: 50rpx;
+}

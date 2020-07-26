@@ -1,0 +1,21 @@
+<template name="notify">
+    <view class="nf-wrapper" style="display: flex" wx:if="{{showNotify}}">
+        <view class="nf-bg"></view>
+        <view class="nf-container">
+            <view class="nf-container-inner">
+                <view wx:for="{{mes}}" wx:for-index="mesIndex">{{item}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="nf-wrapper" style="display: flex" wx:elif="{{showNotifyHtml}}">
+        <view class="nf-bg"></view>
+        <view class="nf-container">
+            <view class="nf-container-inner">
+                <view>
+                    <template is="styleTemplate" data="{{styleTemplateContents:notifyHtmlStyleTemplateContents}}"></template>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="/component/styleTemplate/template.wxml"></import>

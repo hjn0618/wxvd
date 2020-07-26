@@ -1,0 +1,71 @@
+.tooltip-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 75rpx;
+    transform: translate3d(-50%,0,0);
+    opacity: 0;
+}
+
+.tooltip-wrapper:after {
+    content: '';
+    position: absolute;
+    top: -8rpx;
+    left: 50%;
+    width: 20rpx;
+    height: 20rpx;
+    background: #3D3D3D;
+    transform: translate3d(-50%,0,0) rotate(45deg);
+}
+
+.tooltip-wrapper .tooltip-content {
+    height: 64rpx;
+    background: #3D3D3D;
+    border-radius: 32rpx;
+    padding: 0 20rpx 0 40rpx;
+    line-height: 64rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.tooltip-wrapper .tooltip-content:before {
+    content: '';
+    position: absolute;
+    top: -8rpx;
+    left: -4rpx;
+    width: 30rpx;
+    height: 20rpx;
+    background: url("https://imgorder.kfc.com.cn/mwos/Version/icon-leaf_01.png") no-repeat left top;
+    background-size: contain;
+}
+
+.tooltip-wrapper .tooltip-content:after {
+    content: '';
+    position: absolute;
+    right: -10rpx;
+    bottom: 0;
+    width: 30rpx;
+    height: 20rpx;
+    background: url("https://imgorder.kfc.com.cn/mwos/Version/icon-leaf_01.png") no-repeat left top;
+    background-size: contain;
+}
+
+.tooltip-wrapper .tooltip-content .message {
+    font-size: 24rpx;
+    color: #FFFFFF;
+    white-space: nowrap;
+}
+
+.tooltip-wrapper .tooltip-content .close {
+    padding: 20rpx;
+}
+
+.tooltip-wrapper .tooltip-content .close .k-close {
+    width: 24rpx;
+    height: 24rpx;
+    font-size: 24rpx;
+    color: #C0C0C0;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAuRJREFUeAHtmk9OAjEUxmUOgK69gUsOAOEAGN27MWGrWz2Drt2auHGvkQMQOABLb+BaOcDg+wwvKQPD63Te60ywTUg7/fe+7zdToJMeHaWUCCQCiUAikAgkAv+VQEcyvlgsTpbL5dNqtRp1Op2vLMvu+v3+RBrXRPt8Ph/lef5IWk9J66Tb7d70er3vfVqyfY1oW5u/ouIxTXxGAd5ns9k12tqUoAnaoJF0QesVtEsaRQA00cidhK4z+jy3CQK0QBO0FbRuaHfbuLwxgCvdHI+9e41ymyCUmYfOXdpR7yYRAJm9p4lydxDKbYAgmM/xfVXUXbwWAQyHww8CMG4bBMk8NPt8WYu/AkzMJ+BgMHjh/pa5phZvADCkGTgUkLaGSgCahqBtHn4qA2gKgoX5YACxIViZrwUgFgRL87UBWEOwNq8CwApCDPNqALQhxDKvCkALQkzz6gDqQoht3gRAKIQmzJsBqAqhKfOmAHwhoB9trbdeZvyJo204dnWWm6ygv8IQ55uku4t58G6hOB+239bmEdMcAILsg4D2YoplHnGjAEAgXwgxzUcF4AMhtnlo2lp7qPxPKS2BGHfbd/2zlphLwfwJ2GceRmH6YH8GJfMEYLwGcHh/hHzM8z+8Kn15mWjlJksgxFDIGA0I6gDqGKkzNhSGKgANAxpzVIGhBkBTuOZcEgwVABaCLebcBaM2AEuhlnMzjFoAYgi0jhEMwFoY3yHklrGCAFgKco27ZauYlQFYCXHNlpUtYlcCYCGgzGxZvbYGbwDagcsM+tRravECoBnQx6BPHy1NIoDpdHpO29a3JvfsZUAkCHRM7kI6KSa+EyTzD200DyjYTuOdAn12nmPEueEyeFwvAiDzp9yZcwREYN7Pc30TuQBhS3tRowiAjG6cDG+TeTZTBqGonfu7uQiA1tEtTfRKg34o/8S6asOdd02gDE30tF5C41rrK47LF/ul60QgEUgEEoFEIBFIBJjAL61o5mfn3A9QAAAAAElFTkSuQmCC") no-repeat center center;
+    background-size: 24rpx;
+}

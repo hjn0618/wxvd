@@ -1,0 +1,389 @@
+.recommend-container {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    z-index: 4;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0,0,0,0.6);
+    -webkit-backdrop-filter: blur(4rpx);
+}
+
+.recommend-title {
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+    color: white;
+    font-size: 38rpx;
+    text-shadow: 0 4rpx 5rpx rgba(115,115,115,0.3);
+}
+
+@media screen and (max-height:667px) {
+    .recommend-title {
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        color: white;
+        font-size: 38rpx;
+        text-shadow: 0 4rpx 5rpx rgba(115,115,115,0.3);
+    }
+}
+
+.recommend-list {
+    width: 100%;
+}
+
+.recommend-swiper {
+    height: 860rpx;
+}
+
+.recommend-items {
+    margin: 0 20rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.recommend-item-waku {
+    position: relative;
+}
+
+.recommend-item-waku::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 373rpx;
+    width: 100%;
+    height: 324rpx;
+    background: #AD282D;
+    border-radius: 52rpx 52rpx 10rpx 10rpx;
+    transform: translate3d(-50%,0,0);
+    z-index: -2;
+}
+
+.recommend-item {
+    margin: 0 14rpx;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.item-middle {
+    width: 562rpx;
+    height: 500rpx;
+    margin: 0 auto;
+    border-radius: 24rpx;
+    z-index: 8;
+    position: relative;
+    background: #FFFFFF;
+}
+
+.circle {
+    width: 20rpx;
+    height: 20rpx;
+    background: rgba(0,0,0,0.7);
+    border-radius: 50%;
+    margin: 14rpx auto 0 auto;
+}
+
+.spot {
+    width: 16rpx;
+    height: 16rpx;
+    background: #d62f35;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -8rpx;
+}
+
+.spot::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -32rpx;
+    width: 16rpx;
+    height: 16rpx;
+    background: #d62f35;
+}
+
+.spot::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 32rpx;
+    width: 16rpx;
+    height: 16rpx;
+    background: #d62f35;
+}
+
+.item-image {
+    position: relative;
+    z-index: 10;
+    width: 562rpx;
+    height: 400rpx;
+    border: none;
+    margin: -466rpx auto 0 auto;
+}
+
+.item-inner {
+    margin: 38rpx -14rpx 0 -14rpx;
+    background: #D62F35;
+    border-radius: 10rpx;
+    position: relative;
+    padding: 0 48rpx 24rpx 48rpx;
+    z-index: 9;
+}
+
+.item-inner::after {
+    content: '';
+    position: absolute;
+    top: -30rpx;
+    left: 50%;
+    width: 506rpx;
+    height: 34rpx;
+    overflow: hidden;
+    border-radius: 24rpx 24rpx 0 0;
+    transform: translate3d(-50%,0,0);
+    background: #D62F35;
+}
+
+.item-name {
+    padding: 14rpx 0 0 0;
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #ffffff;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.sub-price-rec {
+    padding-top: 8rpx;
+    color: #FFFFFF!important;
+    text-align: right;
+    font-weight: 500;
+}
+
+.price-rec {
+    padding-top: 8rpx;
+    color: #FFFFFF!important;
+    display: inline-block;
+    font-weight: 500;
+}
+
+.meal-detail {
+    padding-top: 10rpx;
+    font-size: 24rpx;
+    color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+    min-height: 60rpx;
+    line-height: 30rpx;
+}
+
+.meal-detail-toggle {
+    display: inline-block;
+    font-size: 24rpx;
+    color: #FFFFFF;
+    right: 0;
+    bottom: 2rpx;
+    line-height: 30rpx;
+    background-color: #D62F35;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.meal-detail-ellipsis {
+    max-height: 60rpx!important;
+}
+
+.recommend-subItem {
+    width: 100%;
+    height: 284rpx;
+    overflow: hidden;
+    margin-bottom: 24rpx;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.recommend-subItem::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 290rpx;
+    width: 280rpx;
+    height: 284rpx;
+    background: #AD282D;
+    border-radius: 52rpx 0 0 52rpx;
+    z-index: -2;
+}
+
+.recommend-subItem:first-of-type {
+    margin-top: 56rpx;
+}
+
+.subItem-middle {
+    position: absolute;
+    top: 10rpx;
+    left: 0;
+    width: 350rpx;
+    height: 264rpx;
+    background: #FFFFFF;
+    border-radius: 28rpx 0 0 28rpx;
+    z-index: -1;
+}
+
+.subItem-image {
+    width: 334rpx;
+    height: 264rpx;
+    border-radius: 28rpx 0 0 28rpx;
+}
+
+.subItem-spot {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -12rpx;
+    width: 16rpx;
+    height: 16rpx;
+    background: #D62F35;
+}
+
+.subItem-spot::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -32rpx;
+    width: 16rpx;
+    height: 16rpx;
+    background: #D62F35;
+}
+
+.subItem-spot::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 32rpx;
+    width: 16rpx;
+    height: 16rpx;
+    background: #D62F35;
+}
+
+.sub-content {
+    width: 200rpx;
+    background: #D62F35;
+    border-radius: 10rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+    padding: 44rpx 32rpx 50rpx 18rpx;
+}
+
+.sub-content::after {
+    content: '';
+    position: absolute;
+    top: 26rpx;
+    left: -28rpx;
+    width: 34rpx;
+    height: 230rpx;
+    background: #D62F35;
+    border-radius: 24rpx 0 0 24rpx;
+}
+
+.subItem-name {
+    text-align: right;
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.bottom-bar {
+    position: absolute;
+    bottom: 40rpx;
+    margin: 0 auto;
+    color: white;
+    width: 240rpx;
+    left: 50%;
+    margin-left: -120rpx;
+    font-size: 28rpx;
+    line-height: 28rpx;
+    text-shadow: 0 4rpx 5rpx rgba(115,115,115,0.3);
+    text-align: center;
+}
+
+.bottom-bar-showShoppingcart {
+    bottom: 180rpx!important;
+}
+
+.recommend-arrow {
+    width: 34rpx;
+    height: 36rpx;
+}
+
+.rec-icon-reduce {
+    width: 64rpx;
+    height: 64rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/Version/wechatapp/icon-rec-minus.png) no-repeat center center;
+    background-size: 64rpx 64rpx;
+}
+
+.rec-icon-reduce-disabled {
+    width: 64rpx;
+    height: 64rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-reduce-disabled.png) no-repeat center center;
+    background-size: 64rpx 64rpx;
+    position: relative;
+}
+
+.rec-icon-plus {
+    width: 64rpx;
+    height: 64rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/Version/wechatapp/icon-rec-plus.png) no-repeat center center;
+    background-size: 64rpx 64rpx;
+}
+
+.rec-icon-plus-disabled {
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-plus-disabled.png) no-repeat center center;
+    background-size: 70rpx 70rpx;
+    border-radius: 70rpx;
+}
+
+.recsub-icon-reduce {
+    width: 48rpx;
+    height: 48rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/Version/wechatapp/icon-rec-minus.png) no-repeat center center;
+    background-size: 48rpx 48rpx;
+}
+
+.recsub-icon-plus {
+    width: 48rpx;
+    height: 48rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/Version/wechatapp/icon-rec-plus.png) no-repeat center center;
+    background-size: 48rpx 48rpx;
+}
+
+.rec-num {
+    height: 64rpx;
+    line-height: 64rpx;
+    padding: 0 12rpx;
+    width: 50rpx;
+    text-align: center;
+    font-family: "微软雅黑","华文细黑",Arial,Helvetica,sans-serif;
+    font-size: 42rpx;
+    color: #fff;
+}
+
+.recsub-num {
+    height: 48rpx;
+    line-height: 48rpx;
+    padding: 0 10rpx;
+    width: 40rpx;
+    text-align: center;
+    font-family: "微软雅黑","华文细黑",Arial,Helvetica,sans-serif;
+    font-size: 36rpx;
+    color: #fff;
+}

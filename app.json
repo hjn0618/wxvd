@@ -1,13 +1,17 @@
 {
   "pages":[
+    "pages/menu/menu",
+    "pages/home/home",
     "pages/index/index",
     "pages/logs/logs"
   ],
   "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarBackgroundColor": "#d7242d",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "肯德基自助点餐",
+    "backgroundColor": "#fff",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": false
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

@@ -1,0 +1,37 @@
+<view catchtouchmove="stopBubble" class="buffet-QR-code" wx:if="{{configSwitch}}">
+    <view catchtap="changePopupVisible" class="buffet-QR-code-bar" data-popup-visible="{{true}}" style="{{guideVisible?'z-index: 104;':''}}">
+        <view class="licon-and-text">
+            <view class="licon"></view>
+            <view class="ltext">{{selfSupportMealCode.qrCodeTitle}}</view>
+        </view>
+        <view class="ricon"></view>
+    </view>
+    <block wx:if="{{guideVisible}}">
+        <view class="buffet-QR-code-guide-bg"></view>
+        <view class="buffet-QR-code-guide-btandtext">
+            <view class="tips-wrapper">
+                <view class="tips-text">{{selfSupportMealCode.guideText}}</view>
+                <view class="tips-icon-wrapper">
+                    <view class="tips-icon">
+                        <view class="tips-icon-line"></view>
+                        <view class="tips-icon-triangle"></view>
+                    </view>
+                </view>
+            </view>
+            <view catchtap="closeGuide" class="guide-button">知道啦</view>
+        </view>
+    </block>
+    <view catchtap="changePopupVisible" class="buffet-QR-code-main-wrapper {{popupVisible?'':'buffet-QR-code-main-wrapper-hidden'}}" data-popup-visible="{{false}}">
+        <view class="buffet-QR-code-main-close"></view>
+        <view catchtap="stopBubble" class="buffet-QR-code-main {{popupVisible?'':'buffet-QR-code-main-hidden'}}">
+            <view class="buffet-QR-code-main-header">{{selfSupportMealCode.qrCodeTitle}}</view>
+            <view class="buffet-QR-code-main-content">
+                <image class="buffet-qrcode" hidden="{{!qrcodeVisible||!orderFinishNumber}}" src="{{buffetQrcodeImgpath}}" style="width:{{qrcodeSize}}px; height:{{qrcodeSize}}px;" wx:if="{{buffetQrcodeImgpath}}"></image>
+                <canvas canvasId="buffet-qrcode" class="buffet-qrcode" hidden="{{!qrcodeVisible||!orderFinishNumber}}" style="width:{{qrcodeSize}}px; height:{{qrcodeSize}}px; position: fixed; left: -3000rpx;" wx:else></canvas>
+                <view class="buffet-QR-code-main-content-tips" hidden="{{!qrcodeVisible||!orderFinishNumber}}">请至自助取餐柜扫码取餐</view>
+                <view class="no-qrcode-text" hidden="{{!qrcodeVisible||orderFinishNumber}}">{{selfSupportMealCode.qrCodeCreating}}</view>
+                <view class="no-qrcode-text" hidden="{{qrcodeVisible}}">订单签到后，将获得取餐二维码</view>
+            </view>
+        </view>
+    </view>
+</view>

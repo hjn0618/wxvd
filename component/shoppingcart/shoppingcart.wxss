@@ -1,0 +1,451 @@
+.shopping-cart-outer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    height: 96rpx;
+    width: 100%;
+    background-color: #D62F35;
+    align-items: center;
+    z-index: 4;
+    bottom: 0;
+    position: fixed;
+}
+
+.new-shopping-cart-outer {
+    background: #FFFFFF!important;
+    box-shadow: 0 -12rpx 24rpx 0 rgba(0,0,0,0.08);
+}
+
+.shopping-cart-icon {
+    width: 78rpx;
+    height: 49rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-shopping.png) no-repeat center center;
+    background-size: 71rpx 42rpx;
+    padding-left: 36rpx;
+    position: relative;
+}
+
+.new-shopping-cart-icon {
+    width: 80rpx;
+    height: 80rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/Version/icon-shopping-red.png) no-repeat center center;
+    background-size: 80rpx 80rpx;
+    padding-left: 28px;
+}
+
+.shopping-cart-num {
+    position: absolute;
+    right: 10rpx;
+    top: -12rpx;
+    min-width: 10rpx;
+    height: 30rpx;
+    font-size: 20rpx;
+    line-height: 30rpx;
+    color: #FFF;
+    background-color: #ff7b0f;
+    border-radius: 30rpx;
+    text-align: center;
+    font-family: "微软雅黑","华文细黑",Arial,Helvetica,sans-serif;
+    padding: 0 10rpx;
+}
+
+.new-shopping-cart-num {
+    top: 0;
+}
+
+.shopping-cart-price {
+    font-size: 44rpx;
+    color: #FFF;
+    display: flex;
+    margin-left: 24rpx;
+    flex: 1;
+    font-weight: normal;
+    font-family: "微软雅黑","华文细黑",Arial,Helvetica,sans-serif;
+}
+
+.new-shopping-cart-price {
+    color: #D62F35!important;
+    font-weight: 500!important;
+    margin-left: 20rpx!important;
+    align-items: baseline;
+}
+
+.shopping-cart-price-icon {
+    font-size: 28rpx;
+    margin-top: 12rpx;
+    font-weight: 300;
+}
+
+.new-shopping-cart-price-icon {
+    font-size: 44rpx!important;
+    margin-top: 0rpx!important;
+    font-weight: 500!important;
+}
+
+.shopping-cart-right {
+    display: flex;
+    height: 100%;
+    width: 210rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-arrow-right2.png) no-repeat right center;
+    background-size: 14rpx 25rpx;
+    margin-right: 60rpx;
+    border-left: 1px solid #FFF;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.new-shopping-cart-right {
+    height: 80rpx!important;
+    width: 260rpx!important;
+    background: #D62F35!important;
+    margin-right: 22rpx!important;
+    justify-content: center!important;
+    border-radius: 58rpx!important;
+}
+
+.shopping-cart-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 96rpx;
+    width: 210rpx;
+    opacity: 0;
+    border: none;
+}
+
+.shopping-cart-right>view {
+    color: #FFF;
+    font-size: 32rpx;
+    align-self: center;
+    text-align: center;
+    margin-right: 20rpx;
+}
+
+.new-shopping-cart-right>view {
+    margin-right: 0rpx!important;
+}
+
+.eng {
+    font-size: 22rpx;
+}
+
+.shopping-cart-fixed {
+    position: fixed;
+    bottom: 94rpx;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    transform: translateY(100%);
+    transition: transform .4s ease;
+    transition: transform .4s ease,-webkit-transform .4s ease;
+}
+
+.shopping-cart-fixed-up {
+    transform: translateY(0);
+}
+
+.shopping-cart-fixed-discount {
+    width: 100%;
+    height: 40rpx;
+    font-size: 24rpx;
+    background: rgba(252,132,26,0.90);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding-left: 10rpx;
+    white-space: nowrap;
+}
+
+.shopping-cart-fixed-arrow-up {
+    width: 100%;
+    height: 30rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-shopping-cart-arrow-up.png) no-repeat top center;
+    background-size: 78rpx 30rpx;
+    margin-top: -26rpx;
+}
+
+.shopping-cart-fixed-arrow-down {
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-shopping-cart-arrow-down.png) no-repeat top center;
+    background-size: 78rpx 30rpx;
+}
+
+.shopping-cart-items {
+    background-color: #FFF;
+    overflow-y: auto;
+}
+
+.shopping-cart-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e7e3e4;
+    padding: 10rpx 0;
+    position: relative;
+}
+
+.shopping-cart-item-v {
+    display: flex;
+    margin-left: 32rpx;
+    margin-right: 40rpx;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shopping-cart-item-kafei {
+    width: 100%;
+    height: 40rpx;
+    color: #AAAAAA;
+    font-size: 24rpx;
+}
+
+.shopping-cart-prime {
+    min-width: 72rpx;
+    height: 32rpx;
+    margin-right: 16rpx;
+    line-height: 32rpx;
+    border-radius: 16rpx;
+    font-size: 16rpx;
+    background: #403C33;
+    color: #FAC262;
+    text-align: center;
+}
+
+.shopping-cart-item-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.shopping-cart-item-1-1 {
+    font-size: 28rpx;
+    max-width: 280rpx;
+    color: #404040;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.shopping-cart-item-2 {
+    display: flex;
+    margin-right: 24rpx;
+    align-items: center;
+}
+
+.shopping-cart-item-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shopping-cart-item-3-1 {
+    font-size: 24rpx;
+    color: #AAA;
+    text-decoration: line-through;
+}
+
+.shopping-cart-item-3-2 {
+    font-size: 28rpx;
+    color: #D62F35;
+}
+
+.hide-button {
+    visibility: hidden;
+}
+
+.shopping-cart-item-left {
+    width: 100%;
+}
+
+.order-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.meal-info {
+    font-size: 24rpx;
+    margin-left: 32rpx;
+    color: #AAA;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.meal-info-kafei {
+    font-size: 24rpx;
+    margin-left: 32rpx;
+    color: #AAA;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.shopping-cart-item-right {
+    display: flex;
+    background: #D62F35;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 200rpx;
+    line-height: 92rpx;
+    text-align: center;
+}
+
+.shopping-cart-item-v1 {
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.shopping-cart-item-v2 {
+    font-size: 20rpx;
+    max-width: 280rpx;
+    color: #808080;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.shopping-cart-item-4 {
+    font-size: 24rpx;
+    margin-left: 4rpx;
+    text-decoration: underline;
+    color: #808080;
+    top: 3rpx;
+    white-space: nowrap;
+}
+
+.shopping-cart-price-tip {
+    font-size: 24rpx;
+    align-items: center;
+    display: flex;
+    padding-left: 10rpx;
+    font-family: "SourceHanSansSC-Regular","微软雅黑","华文细黑",Arial,Helvetica,sans-serif;
+    margin-top: 8rpx;
+}
+
+.condiment-edit {
+    width: 32rpx;
+    height: 32rpx;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAA6BJREFUaAXtmUto1EAYgP8/24euClaUIvjAF27x0K7oxl6kUlAUVKoXPUgPXqWgnhRvFTypFw8eFE8FodQeRARBXARbq0LbS3eLYEER8YFV7MNt3Rn/2TLZZJvXbrJJCg2UmUzm8X3JzJ+dFGD5WL4Dnu4AemrtQ+MPqtqYy0E3cHaQIzQS0Aj93UuMvO1x032oAplm9TAg6+Ec1pfCEljf6njNuc2Dg7Ol1/TnoQmMJw8cZSzfzwHq9UDGPD5fE48dt5NQjA2COTOHx/uoYBcCThQpePufmfzjT62tK4tlxlzgT8AMnsAvNw2/uSXQxJr4m+MvgPOmIqr1kwhUwAleApcjEdgUMoMHwJ9YC/0SXKbbh4a+rqjHQ4CYkWUAvH1qNr8oMgUiYA4v0Pg6NsfT2VRqWxF0IWcmwTnvyCZT5/V1qy5gBo+IoxoEhy1OEvqFzRh0am0pU1UBU3hasIm18X20+Po0EAcJorwt6yJCs8yLtGoC4y3qsdI4L6MNptP/Eg2rzriV4KwITe+Nz1UXKNx5zh7pX1ISXg7uViKTTF2itaLNe3oCL2UfIvU9jFpNGxnn9YOLPG9rq8lOTj8k2dPaNYSPSh228Xno4IzflOUE/6M2Xrtn58DAN61MZvxIy4WXY5pKUIgVUUrWoTudoxl/oml06JksE6lvT6BSeAljLrFwVcArSqxj9/Drp7K+TH0R8AovYQoSv2beUbzXIo0dvGjnOQr5BS9gsr9nusqBF208PQE/4UW0MSxYm2kjwOVRsUAU4IVERQJRga9IIErwZQtEDb4sgSjCuxaIKrwrgSjDOwpEHd5WYCnAWwosFXhTgaUELwQMP+Yye1NHSreBoCjXrTYjogOro9LfNlb9WZUbBIDxB/ptYKERZ2ffq+omqw7MyoOCF2MbBOgr8cZFQBx2zOdY2q1EkPCLBPTwtP/8rp27lAga3kEAr9AHqCduJcKAtxUAhrnErq2n3EiEBW8vQFext3fOSSJMeEcBUcFOYiypdleyDRT9+nUYopBVp1YSwNg12cbp64Gs53dq2FKONe+n14A88K4C+EqeFVKF19NXgxsUbjfoy8OCFww2AnpE67wZfKYl1UmS9EWZN1i39HoFJynUXyydQtPldGsGL9oTPP2/q5rwhVEaxDgGAUWBq/RQptxIkP0XiOFJ0899CBNu+vBahxgmDFPIa4eyvfjZkZ/jF2i9VG0K0ftpMlaHd+SYy2lYd+A/VOXc1BFJk2QAAAAASUVORK5CYII=) no-repeat center center;
+    background-size: 32rpx 32rpx;
+}
+
+.shopping-cart-item-1-2 {
+    padding: 10rpx;
+    margin-left: 14rpx;
+}
+
+.icon-reduce-sc {
+    width: 48rpx;
+    height: 48rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-reduce.png) no-repeat center center;
+    background-size: 48rpx 48rpx;
+}
+
+.icon-reduce-sc-disabled {
+    width: 48rpx;
+    height: 48rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-reduce-disabled.png) no-repeat center center;
+    background-size: 48rpx 48rpx;
+    position: relative;
+}
+
+.icon-plus-sc {
+    width: 48rpx;
+    height: 48rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-plus.png) no-repeat center center;
+    background-size: 48rpx 48rpx;
+}
+
+.icon-plus-sc-disabled {
+    width: 48rpx;
+    height: 48rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-plus-disabled.png) no-repeat center center;
+    background-size: 48rpx 48rpx;
+}
+
+.num-sc {
+    height: 70rpx;
+    line-height: 70rpx;
+    padding: 0 10rpx;
+    width: 40rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #404040;
+}
+
+.couponMsg {
+    font-size: 22rpx;
+    margin-top: 4rpx;
+    color: #d93035;
+}
+
+.specialRed {
+    color: #d93035!important;
+}
+
+.icon-lucky-bag {
+    display: block;
+    width: 72rpx;
+    height: 48rpx;
+    margin: 5rpx 10rpx 0 0rpx;
+}
+
+.product-hui {
+    display: inline-block;
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 16rpx;
+    line-height: 32rpx;
+    border-radius: 8rpx;
+    background: #FAAC2A;
+    font-size: 20rpx;
+    color: #fff;
+    text-align: center;
+}
+
+.yellowlabel {
+    border: 1px solid #FFFFFF;
+    border-radius: 8rpx;
+    font-size: 16rpx;
+    padding: 2rpx 14rpx;
+    margin-right: 16rpx;
+}
+
+.yellowlabel_ima {
+    vertical-align: sub;
+    width: 32rpx;
+    height: 28rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-kgold.png) no-repeat center center;
+    background-size: 28rpx 28rpx;
+}
+
+.lucky-bag-count-down-tip {
+    width: 100%;
+    height: 76rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #e7e3e4;
+    background: #FFFFFF;
+}
+
+.lucky-bag-count-down-tip-content {
+    height: 100%;
+    font-size: 24rpx;
+    letter-spacing: 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.shopping-carts-time {
+    font-size: 32rpx;
+    color: #D62F35;
+    font-weight: 700;
+    margin: 0 6rpx;
+}

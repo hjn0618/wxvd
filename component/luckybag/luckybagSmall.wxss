@@ -1,0 +1,184 @@
+.luckyBagSmallSmall {
+    right: -2.3rem;
+}
+
+.luckyBagSmallBig {
+    right: 0.1rem;
+}
+
+.luckyBagSmall {
+    position: absolute;
+    width: 180rpx;
+    height: 180rpx;
+    bottom: 332rpx;
+    z-index: 2;
+}
+
+.context {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    width: 180rpx;
+    height: 180rpx;
+    position: relative;
+    right: -0.2rem;
+    background-size: 100% 100%;
+}
+
+.title-context {
+    border-radius: 0.15rem;
+    background-color: #969696;
+    width: 1.8rem;
+    height: 1rem;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vibrateAM {
+    animation: vibrateAnimation infinite 1s;
+}
+
+@-webkit-keyframes vibrateAnimation {
+    0%,80% {
+        transform: translate(0,0);
+    }
+
+    82% {
+        transform: translate(0rpx,-2rpx);
+    }
+
+    84% {
+        transform: translate(2rpx,-2rpx);
+    }
+
+    86% {
+        transform: translate(2rpx,0rpx);
+    }
+
+    88% {
+        transform: translate(2rpx,2rpx);
+    }
+
+    90% {
+        transform: translate(0rpx,2rpx);
+    }
+
+    92% {
+        transform: translate(-2rpx,2rpx);
+    }
+
+    94% {
+        transform: translate(-2rpx,0rpx);
+    }
+
+    96% {
+        transform: translate(-2rpx,-2rpx);
+    }
+
+    98% {
+        transform: translate(0rpx,-2rpx);
+    }
+
+    100% {
+        transform: translate(0rpx,0rpx);
+    }
+}
+
+@keyframes vibrateAnimation {
+    0%,80% {
+        transform: translate(0,0);
+    }
+
+    82% {
+        transform: translate(0rpx,-2rpx);
+    }
+
+    84% {
+        transform: translate(2rpx,-2rpx);
+    }
+
+    86% {
+        transform: translate(2rpx,0rpx);
+    }
+
+    88% {
+        transform: translate(2rpx,2rpx);
+    }
+
+    90% {
+        transform: translate(0rpx,2rpx);
+    }
+
+    92% {
+        transform: translate(-2rpx,2rpx);
+    }
+
+    94% {
+        transform: translate(-2rpx,0rpx);
+    }
+
+    96% {
+        transform: translate(-2rpx,-2rpx);
+    }
+
+    98% {
+        transform: translate(0rpx,-2rpx);
+    }
+
+    100% {
+        transform: translate(0rpx,0rpx);
+    }
+}
+
+.showAM {
+    animation: showAnimation 0.2s;
+}
+
+@-webkit-keyframes showAnimation {
+    0% {
+        right: -2.3rem;
+    }
+
+    100% {
+        right: 0.2rem;
+    }
+}
+
+@keyframes showAnimation {
+    0% {
+        right: -2.3rem;
+    }
+
+    100% {
+        right: 0.2rem;
+    }
+}
+
+.hideAM {
+    animation: hideAnimation 0.2s;
+}
+
+@-webkit-keyframes hideAnimation {
+    0% {
+        right: 0.2rem;
+    }
+
+    100% {
+        right: -2.3rem;
+    }
+}
+
+@keyframes hideAnimation {
+    0% {
+        right: 0.2rem;
+    }
+
+    100% {
+        right: -2.3rem;
+    }
+}

@@ -1,0 +1,126 @@
+<!-- 折扣信息区 -->
+<view class="discount">
+  <text class="discount-txt">折</text>满{{promotion.k}}元减{{promotion.v}}元（在线支付专享）
+</view>
+<!-- 菜单区 -->
+<view class="content">
+  <!-- 左侧菜单 -->
+  <scroll-view class="section-1" scroll-y scroll-with-animation scroll-into-view="menu_{{leftIndex}}">
+    <block wx:for="{{menuVoList}}" wx:key="id" wx:for-item="classVo">
+      <view id="menu_{{index}}" class="section-1-1 {{defaultClassIndex==index?'scard-on':''}} track-{{defaultClassIndex}}" data-index="{{index}}" bindtap="tapCategory">
+        <image class="iclass-icon" src="{{imageResPath}}{{classVo.imageCnUrl}}"></image>
+        <text>{{classVo.nameCn}}</text>
+      </view>
+    </block>
+  </scroll-view>
+  <!-- 右侧菜单 -->
+  <scroll-view  class="section-2" style="" scroll-y scroll-with-animation scroll-into-view="classVo_{{tapIndex}}" bindscroll="onFoodScroll" bindscrolltolower="scrolltolower">
+    <block wx:for="{{menuVoList}}" wx:for-index="classIndex" wx:for-item="classVo" wx:key="classExtId">
+      <view class="classTip" id="classVo_{{classIndex}}" >
+        <view class="classTip-title">{{classVo.nameCn}}</view>
+      </view>
+      <view id="class{{classIndex}}"></view>
+      <block wx:for="{{tools.setClassVo(classVo)}}" wx:for-index="in" wx:for-item="newclassVo" wx:key="in">
+        <block wx:for="{{newclassVo.childClassList}}" wx:for-index="labelIndex" wx:for-item="labelVo" wx:key="id">
+          <view id="class{{classIndex}}-{{labelIndex}}"></view>
+          <block wx:for="{{labelVo.menuVoList}}" wx:for-index="menuIndex" wx:for-item="menuVo" wx:key="menuIndex">
+            <view id="menuVo-{{menuVo.linkId}}"></view>
+            <block wx:if="{{menuBeMember&&menuVo.memberProduct!=0||!menuBeMember&&menuVo.memberProduct!=1}}">
+              <view class="section-2-1 track-{{menuVo.productId}}" data-productId="{{menuVo.linkId}}" wx:if="{{!menuVo.__hide__}}">
+                <image catchtap="enterDetail" class="{{menuVo.__showbigimg__?'menu-img1':'menu-img'}}" data-classindex="{{classIndex}}" data-labelIndex="{{newclassVo.isHasChild?labelIndex:-1}}" data-menuindex="{{menuIndex}}" src="{{imageResPath}}L/{{menuVo.imageUrl}}"></image>
+                <view class="section-2-1-1">
+                  <view class="menu-name">
+                    <block wx:if="{{menuVo.__nameCns__}}">
+                      <view wx:for="{{menuVo.__nameCns__}}" wx:for-index="i" wx:for-item="mvn" wx:key="i">{{mvn}}</view>
+                    </block>
+                    <view wx:else>{{menuVo.nameCn}}</view>
+                  </view>
+                  <label class="menu-price {{menuVo.menuFlag=='M3'||menuVo.menuFlag=='M4'?'menu-hide':''}}">
+                    <text class="menu-price-icon">￥</text>
+                    <text class="menu-price-text">{{priceFormat(menuVo.price)}}</text>
+                  </label>
+                  <restriction-quantity item="{{menuVo}}" wx:if="{{luckyBagDelaySwitch.delaySwitch}}"></restriction-quantity>
+                  <view class="prim" wx:if="{{menuVo.primeDisplayInfoVo&&menuVo.primeDisplayInfoVo.primeDescrip}}">
+                    <block wx:if="{{menuVo.primeDisplayInfoVo&&menuVo.primeDisplayInfoVo.primeDescrip}}">
+                      <view class="prim-label">{{menuVo.primeDisplayInfoVo.primeDescrip}}</view>
+                      <view class="prim-price" wx:if="{{menuVo.primeDisplayInfoVo._primePrice_}}">￥{{menuVo.primeDisplayInfoVo._primePrice_}}</view>
+                    </block>
+                  </view>
+                  <view class="section-2-1-1-1">
+                    <view class="sell-out" wx:if="{{menuVo.disabledFlag==='1'}}">今日售罄</view>
+                    <view class="icon-plus icon-plus-disabled" wx:elif="{{menuVo.disabledFlag==='2'}}"></view>
+                    <block wx:else>
+                      <block wx:if="{{menuVo.__quantity__>0}}">
+                        <view catchtap="decToCart" class="icon-reduce" data-classindex="{{classIndex}}" data-labelIndex="{{newclassVo.isHasChild?labelIndex:-1}}" data-menuindex="{{menuIndex}}"></view>
+                        <text class="num">{{menuVo.__quantity__}}</text>
+                      </block>
+                      <view bindtap="addToCart" class="icon-plus"
+                        data-classindex="{{classIndex}}" data-labelIndex="{{newclassVo.isHasChild?labelIndex:-1}}" data-menuindex="{{menuIndex}}" ></view>
+                    </block>
+                  </view>
+                </view>
+              </view>
+            </block>
+          </block>
+        </block>
+      </block>
+    </block>
+  </scroll-view>
+</view>
+<!-- 满减优惠 -->
+<view class="promotion">
+  <label wx:if="{{promotion.k*100 - cartPrice > 0}}">满{{promotion.k}}立减{{promotion.v}}元，还差{{priceFormat(promotion.k*100 - cartPrice)}}元</label>
+  <label wx:else>已满{{promotion.k100}}元可减{{promotion.v}}元</label>
+</view>
+<!-- 底部操作菜单 -->
+<view class="operate">
+  <view class="operate-shopcart-ball" hidden="{{!cartBall.show}}" style="left: {{cartBall.x}}px; top: {{cartBall.y}}px;"></view>
+  <view class="operate-shopcart" bindtap="showCartList">
+    <view class="operate-shopcart-icon {{cartNumber !== 0 ? 'operate-shopcart-icon-activity' : '' }}">
+      <span wx:if="{{cartNumber !== 0}}">{{cartNumber}}</span>
+    </view>
+    <view class="operate-shopcart-empty" wx:if="{{cartNumber === 0}}">购物车是空的</view>
+    <view class="operate-shopcart-price" wx:else>
+      <block wx:if="{{cartPrice >= promotion.k*100}}">
+        <view>￥{{priceFormat(cartPrice - promotion.v*100)}}</view>
+        <text>{{priceFormat(cartPrice)}}</text>
+      </block>
+      <view wx:else>￥{{priceFormat(cartPrice)}}</view>
+    </view>
+  </view>
+  <view class="operate-submit {{cartNumber !==0 ? 'operate-submit-activity' : ''}}" bindtap="order">
+    <view>选好了</view>
+    <view>Order</view>
+  </view>
+</view>
+<!-- 购物车 -->
+<view class="shopcart" wx:if="{{isShowCartList}}">
+  <view class="shopcart-mask" bindtap="showCartList" wx:if="{{isShowCartList}}"></view>
+  <view class="shopcart-wrap">
+    <view class="shopcart-head">
+      <view class="shopcart-head-title">已选商品</view>
+      <view class="shopcart-head-clean" bindtap="cartClear">
+      清空购物车</view>
+    </view>
+    <view class="shopcart-list">
+      <view class="shopcart-item" wx:for="{{cartList}}" wx:key="id">
+        <view class="shopcart-item-name">{{item.name}}</view>
+        <view class="shopcart-item-price">
+          <view>￥{{priceFormat(item.price * item.number)}}</view>
+        </view>
+        <view class="shopcart-item-number">
+          <view class="shopcart-icon-dec" data-id="{{index}}" bindtap="cartNumberDec"></view>
+          <view>{{item.number}}</view>
+          <view class="shopcart-icon-add" data-id="{{index}}" bindtap="cartNumberAdd"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<wxs module="priceFormat">
+  module.exports = function(price) {
+    return  (parseFloat(price)/100).toFixed(1)
+  }
+</wxs>
+<wxs module="specialNeed" src="../../comm/wxs/special-need.wxs" />
+<wxs module="tools" src="../../comm/wxs/tools.wxs" />

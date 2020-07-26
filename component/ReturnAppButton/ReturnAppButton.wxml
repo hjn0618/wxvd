@@ -1,0 +1,7 @@
+<view class="return-button-wrapper" wx:if="{{appName}}">
+    <button binderror="launchAppError" class="return-button" openType="launchApp">
+        <view class="return-icon"></view>
+        <text class="return-text">{{appName}}</text>
+    </button>
+    <view class="close-icon" ontap="close"></view>
+</view>

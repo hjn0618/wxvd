@@ -1,0 +1,42 @@
+.lucky-bag-count-down {
+    position: fixed;
+    display: flex;
+    min-width: 432rpx;
+    height: 120rpx;
+    bottom: 120rpx;
+    left: 24rpx;
+    background: rgba(0,0,0,0.70);
+    border-radius: 26rpx;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24rpx;
+    margin-bottom: 20rpx;
+    z-index: 3;
+}
+
+.lucky-bag-count-down .lucky-bag-count-down-content {
+    opacity: 0.9;
+    font-size: 28rpx;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    line-height: 40rpx;
+}
+
+.lucky-bag-count-down .time {
+    color: #CB804B!important;
+    font-weight: 700;
+    margin: 0 6rpx;
+}
+
+.lucky-bag-count-down .icon {
+    width: 32rpx;
+    height: 32rpx;
+    vertical-align: middle;
+    line-height: 32rpx;
+}
+
+.lucky-bag-count-down .lucky-bag-count-down-close {
+    width: 32rpx;
+    height: 32rpx;
+    margin-left: 20rpx;
+}

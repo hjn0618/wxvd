@@ -1,0 +1,13 @@
+<template name="CouponGuide">
+    <view class="guide-container" wx:if="{{newGuide}}">
+        <view class="guide-image-view">
+            <image class="guide-image0" src="https://imgorder.kfc.com.cn/mwos/Version/yhsb-ts.svg"></image>
+            <view class="guide-border-view"></view>
+            <view class="guide-image-view2">
+                <image class="guide-image1" src="https://imgorder.kfc.com.cn/mwos/Version/yhsb-line2.svg"></image>
+                <view>点这里使用卡包优惠券～</view>
+                <view catchtap="newGuide" class="guide-button">我知道了</view>
+            </view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,6 @@
+<template name="styleTemplate">
+    <view class="{{st_ct_item.class}}" style="{{st_ct_item.style}}" wx:for="{{styleTemplateContents}}" wx:for-index="idx" wx:for-item="st_ct_item" wx:key="idx">
+        <text wx:if="{{!st_ct_item.tagType}}">{{st_ct_item.text}}</text>
+        <image class="{{st_ct_item.tagClass}}" mode="aspectFit" src="{{st_ct_item.src}}" style="{{st_ct_item.tagStyle}}" wx:elif="{{st_ct_item.tagType==='image'}}"></image>
+    </view>
+</template>

@@ -1,0 +1,18 @@
+<template name="MyFormula">
+    <view>
+        <view class="background-view"></view>
+        <view class="enter-view">
+            <view class="middle-view">
+                <view class="title">加入配方收藏</view>
+                <view>
+                    <input bindinput="inputChange" class="input" maxlength="15" value="{{myFormulaInputValue}}"></input>
+                    <view class="line"></view>
+                </view>
+                <view class="button-view">
+                    <view catchtap="myFormulaCance" class="cance">取消</view>
+                    <view catchtap="myFormulaSure" class="sure">确定</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

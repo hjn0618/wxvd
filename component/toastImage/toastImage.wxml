@@ -1,0 +1,8 @@
+<view class="background" wx:if="{{isShow}}">
+    <image class="main-image" mode="aspectFill" src="{{canvasToTempFilePath}}"></image>
+    <view class="diy_share_btn">
+        <view catchtap="close" class="diy_share_btn_common diy_share_btn_doSelf">取消</view>
+        <view catchtap="_clickToastImageSave" class="diy_share_btn_common diy_share_btn_again">保存到本地</view>
+    </view>
+</view>
+<canvas canvasId="shareCanvas" hidden="true" style="width:100vw; height:100vh;"></canvas>

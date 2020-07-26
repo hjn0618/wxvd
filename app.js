@@ -1,6 +1,6 @@
-//app.js
 App({
-  onLaunch: function () {
+  fetch: require('utils/fetch.js'),
+  onLaunch: function(a) {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -34,6 +34,7 @@ App({
     })
   },
   globalData: {
+    imageResPath: "https://imgorder.kfc.com.cn/mwos/Version/",
     userInfo: null
   }
 })

@@ -1,0 +1,15 @@
+<view hidden="{{!showScard}}">
+    <view class="greyscreen"></view>
+    <view class="myCanvas-wrapper">
+        <view catchtap="closeScard" class="myCanvas-close"></view>
+        <view class="myCanvas-title">{{!scratched?'幸运刮奖区':''}}</view>
+        <canvas bindtouchend="eventUp" bindtouchmove="eventMove" bindtouchstart="eventStart" canvasId="myCanvas" class="myCanvas" style="background:url('{{winningResult}}') no-repeat top center;background-size: 620rpx 310rpx;"></canvas>
+        <view class="myCanvas-movie-view" wx:if="{{hasMovieTicket}}">
+            <view>离你最近的影院是</view>
+            <view>
+                <image class="myCanvas-movie-image" src="https://imgorder.kfc.com.cn/mwos/Version/icon-small_landmark.png"></image>
+                <text>{{cinema}}</text>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,44 @@
+<template name="citylist">
+    <block wx:if="{{visible}}">
+        <view class="city-section-all" style="height:calc((100vh - 120rpx))" wx:if="{{cities.length>0}}">
+            <view class="city-section-v1">
+                <view class="gps-city" wx:if="{{!keyword}}">
+                    <view class="msg">当前定位城市</view>
+                    <view class="cityfn">
+                        <view catchtap="chooseCitylistCity" class="nowCityName" data-citycode="{{gpsCity.citycode}}" data-cityname="{{gpsCity.name}}">
+                            <block wx:if="{{gpsCity}}">{{gpsCity.name}}</block>
+                            <block wx:else>定位失败</block>
+                        </view>
+                        <view catchtap="getGps" class="gps-city-t">
+                            <view class="img"></view>
+                重新定位</view>
+                    </view>
+                </view>
+                <view class="city-section-v3">
+                    <scroll-view bindscrolltolower="lower" bindscrolltoupper="upper" class="city-section-v2" scrollIntoView="{{toView}}" scrollY="true">
+                        <block wx:if="{{!keyword}}">
+                            <block wx:for="{{hotCities}}" wx:for-index="cityIndex" wx:for-item="hotCity" wx:key="cityIndex">
+                                <view class="quick" data-group="{{hotCity.__group__}}" id="{{hotCity.__group__=='热门'?'hot':hotCity.__group__}}" wx:if="{{hotCity.__first__}}">{{hotCity.__display__}}</view>
+                                <view catchtap="chooseCitylistCity" class="city-item" data-citycode="{{hotCity.citycode}}" data-cityname="{{hotCity.name}}" data-id="{{hotCity.id}}" wx:else>
+                      {{hotCity.name}}
+                    </view>
+                            </block>
+                        </block>
+                        <block wx:for="{{cities}}" wx:for-index="cityIndex" wx:for-item="cityItem" wx:key="cityIndex">
+                            <view class="quick quick-t" id="{{cityItem.__group__}}" wx:if="{{cityItem.__first__&&!keyword}}">{{cityItem.__group__}}</view>
+                            <view catchtap="chooseCitylistCity" class="city-item {{cityItem.__shown__?'':'display-none'}}" data-citycode="{{cityItem.citycode}}" data-cityname="{{cityItem.__display__}}" data-id="{{cityItem.id}}">
+                  {{cityItem.__display__}}
+                </view>
+                        </block>
+                    </scroll-view>
+                    <view class="city-slide" wx:if="{{!keyword}}">
+                        <view catchtouchmove="handlerTouchMove" catchtouchstart="handlerTouchMove" class="city-slide-inner" id="citySideTop">
+                            <view class="quick-slide" data-group="{{cityItem.__group__}}" id="citySideOne" wx:if="{{cityItem.__first__}}" wx:for="{{hotCities}}" wx:for-index="cityIndex" wx:for-item="cityItem" wx:key="cityIndex">{{cityItem.__group__}}</view>
+                            <view class="quick-slide" data-group="{{cityItem.__group__}}" wx:if="{{cityItem.__first__}}" wx:for="{{cities}}" wx:for-index="cityIndex" wx:for-item="cityItem" wx:key="cityIndex">{{cityItem.__group__}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+</template>

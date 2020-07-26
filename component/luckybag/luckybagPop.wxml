@@ -1,0 +1,51 @@
+<import src="/component/styleTemplate/template.wxml"></import>
+<view wx:if="{{show}}">
+    <view class="lucky-bag-outer" style="background: {{bottomImgLoaded?'rgba(0, 0, 0, 0.5)':'rgba(0, 0, 0, 0)'}}">
+        <view class="lucky-bag-wapper" wx:if="{{bottomImgLoaded}}">
+            <view class="lucky-bag-wapper-title">{{title}}</view>
+            <scroll-view class="lucky-bag-wapper-scroll-view" scrollY="true">
+                <view class="lucky-bag-wapper-scroll-view-ul" wx:if="{{couponPromotionDisplay.items.length>0}}">
+                    <view class="lucky-bag-wapper-scroll-view-li" wx:for="{{couponPromotionDisplay.items}}" wx:for-index="couponPromotionIndex" wx:for-item="couponPromotion" wx:key="id">
+                        <view class="lucky-bag-wapper-scroll-view-li-item">
+                            <view class="lucky-bag-wapper-scroll-view-li-item-img-wapper">
+                                <image class="lucky-bag-wapper-scroll-view-li-item-img-wapper-img" src="{{imageResPath}}L/{{couponPromotion.imagePath}}"></image>
+                                <view class="lucky-bag-wapper-scroll-view-li-item-img-wapper-text">限{{couponPromotion.restrictionQuantity}}份</view>
+                            </view>
+                            <view class="lucky-bag-wapper-scroll-view-li-item-info-wapper">
+                                <view class="lucky-bag-wapper-scroll-view-li-item-info-wapper-product-info">
+                                    <view class="lucky-bag-wapper-scroll-view-li-item-info-wapper-product-info-name">{{couponPromotion.__nameCN__}}</view>
+                                    <view class="lucky-bag-wapper-scroll-view-li-item-info-wapper-product-info-price">
+                                        <view class="lucky-bag-wapper-scroll-view-li-item-info-wapper-product-info-price-big">
+                      ￥{{tools.dealPrice(couponPromotion.realPrice)}}
+                    </view>
+                                        <view class="lucky-bag-wapper-scroll-view-li-item-info-wapper-product-info-price-small">
+                      ￥{{tools.dealPrice(couponPromotion.orgPrice)}}
+                    </view>
+                                    </view>
+                                </view>
+                                <view class="lucky-bag-wapper-scroll-view-li-item-info-wapper-count">
+                                    <view catchtap="minusPromotion" class="lucky-bag-wapper-icon-reduce" data-index="{{couponPromotionIndex}}" wx:if="{{couponPromotion.__num__>0}}"></view>
+                                    <text class="lucky-bag-wapper-num">{{couponPromotion.__num__?couponPromotion.__num__:''}}</text>
+                                    <view catchtap="plusPromotion" class="lucky-bag-wapper-icon-plus {{couponPromotion.__num__>=couponPromotion.restrictionQuantity?'lucky-bag-wapper-icon-plus-disabled':''}}" data-index="{{couponPromotionIndex}}"></view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+            <view class="lucky-bag-wapper-tips">
+                <view class="lucky-bag-wapper-tips-left">
+                    <template is="styleTemplate" data="{{styleTemplateContents:styleTemplateContents}}"></template>
+                </view>
+            </view>
+            <view class="lucky-bag-wapper-buy-btn">
+                <view catchtap="addAll" class="lucky-bag-wapper-buy-btn-buy-all">全都要</view>
+                <view catchtap="addCustom" class="lucky-bag-wapper-buy-btn-buy-ok">选好了</view>
+            </view>
+            <view class="lucky-bag-wapper-detail"></view>
+            <image catchtap="close" class="lucky-bag-wapper-close" src="https://imgorder.kfc.com.cn/mwos/Version/icon-lucky-bag-pop-close.png"></image>
+        </view>
+        <image class="lucky-bag-bottom" onload="imgOnLoad" src="https://imgorder.kfc.com.cn/mwos/Version/lucky-bag-bottom.gif"></image>
+    </view>
+</view>
+<wxs module="tools" src="../../comm/wxs/tools.wxs" />

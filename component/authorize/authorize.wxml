@@ -1,0 +1,17 @@
+<template name="author">
+    <view class="cf-wrapper" style="display:{{showAuthorization?'flex':'none'}};z-index:99;">
+        <view class="cf-bg"></view>
+        <view class="cf-container" style="margin: 0 50rpx;">
+            <view class="cf-container-inner" style="align-items: center; padding: 0 56rpx;">
+                <image class="author-header" mode="aspectFit" src="https://imgorder.kfc.com.cn/mwos/Version/wechatapp/header.png"></image>
+                <image class="author-logo" mode="aspectFit" src="https://imgorder.kfc.com.cn/mwos/Version/wechatapp/logo.png"></image>
+                <view class="author-content">肯德基自助点餐</view>
+                <view class="author-detail">您的头像和昵称将应用于店内点餐机、叫号屏等场景，以提醒您取餐</view>
+                <view class="bottom-view">
+                    <button bindgetuserinfo="onGotUserInfo" class="cf-v3 cf-v3-1 author-button" lang="zh_CN" openType="getUserInfo">微信授权</button>
+                    <view catchtap="authorCancel" class="author-button grey-button">暂不授权</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

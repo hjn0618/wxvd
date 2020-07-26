@@ -1,0 +1,35 @@
+<view wx:if="{{show}}">
+    <view class="lucky-bag-outer">
+        <view class="lucky-bag-wapper">
+            <view class="lucky-bag-wapper-title">{{title}}</view>
+            <view class="lucky-bag-wapper-content">
+                <view class="lucky-bag-wapper-content-item">
+                    <view class="lucky-bag-wapper-content-item-img-wapper">
+                        <image class="lucky-bag-wapper-content-item-img-wapper-img" src="{{imageResPath}}L/{{item.imagePath}}"></image>
+                        <view class="lucky-bag-wapper-content-item-img-wapper-discount">
+                            <text class="lucky-bag-wapper-content-item-img-wapper-discount-num">{{tools.dealPrice(item.realPrice/item.orgPrice*1000)}}</text>折</view>
+                    </view>
+                    <view class="lucky-bag-wapper-content-item-product-info">
+                        <view class="lucky-bag-wapper-content-item-product-info-name">{{item.__nameCN__}}</view>
+                        <view class="lucky-bag-wapper-content-item-product-info-price">
+                            <view class="lucky-bag-wapper-content-item-product-info-price-big">
+                                <text class="lucky-bag-wapper-content-item-product-info-price-big-yuan">￥</text>{{tools.dealPrice(item.realPrice)}}
+              </view>
+                            <view class="lucky-bag-wapper-content-item-product-info-price-small">
+                ￥{{tools.dealPrice(item.orgPrice)}}
+              </view>
+                        </view>
+                        <view class="lucky-bag-wapper-content-item-product-info-detail">
+                            <view class="lucky-bag-wapper-content-item-product-info-detail-left">{{detailTip}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="lucky-bag-wapper-content-buy-btn">
+                    <view catchtap="usePromotion" class="lucky-bag-wapper-content-buy-btn-buy" hoverClass="lucky-bag-wapper-content-buy-btn-buy-hover">立即购买</view>
+                </view>
+            </view>
+            <image catchtap="close" class="lucky-bag-wapper-close" src="https://imgorder.kfc.com.cn/mwos/Version/icon-lucky-bag-paysuccess-close.png"></image>
+        </view>
+    </view>
+</view>
+<wxs module="tools" src="../../comm/wxs/tools.wxs" />

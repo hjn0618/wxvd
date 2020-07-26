@@ -1,0 +1,327 @@
+@import "../citylist/citylist.wxss";
+
+.register-container {
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    background: #efeff4;
+    font-family: "微软雅黑","华文细黑",Arial,Helvetica,sans-serif;
+}
+
+.rg-section-1 {
+    height: 76rpx;
+    font-size: 26rpx;
+    padding: 20rpx 0;
+    width: 100%;
+    background-color: #efeff4;
+    color: #808080;
+    text-align: center;
+    line-height: 76rpx;
+}
+
+.rg-section-2 {
+    padding: 18rpx 30rpx 0 30rpx;
+}
+
+.rg-section-box {
+    border: 1rpx solid #e0dede;
+    height: 98rpx;
+    display: flex;
+    margin-top: 12rpx;
+    border-radius: 15rpx;
+    background-color: #fff;
+    align-items: center;
+    box-shadow: 2rpx 2rpx 10rpx #e8e8e8,2rpx 2rpx 10rpx #e8e8e8;
+}
+
+.rg-section-icon1 {
+    width: 96rpx;
+    height: 100%;
+    background: url("https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-user.png") no-repeat center center;
+    background-size: 28rpx;
+    border-right: 1rpx solid #e0e0e0;
+}
+
+.rg-section-icon2 {
+    width: 96rpx;
+    height: 100%;
+    background: url("https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-phone.png") no-repeat center center;
+    background-size: 28rpx 40rpx;
+    border-right: 1rpx solid #e0e0e0;
+}
+
+.rg-section-icon3 {
+    width: 96rpx;
+    height: 100%;
+    background: url("https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-code.png") no-repeat center center;
+    background-size: 28rpx;
+    border-right: 1rpx solid #e0e0e0;
+}
+
+.rg-section-icon4 {
+    width: 96rpx;
+    height: 100%;
+    background: url("https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-city.png") no-repeat center center;
+    background-size: 28rpx;
+    border-right: 1rpx solid #e0e0e0;
+}
+
+input {
+    padding: 0 10rpx;
+    font-size: 30rpx;
+    color: #bfbfbf;
+}
+
+.rg-section-t1 {
+    color: #808080;
+    margin: 0 10px;
+    font-size: 28rpx;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.rg-section-v1 {
+    flex: 1;
+    margin-right: 10rpx;
+    border: 1rpx solid #e0dede;
+    border-radius: 10rpx;
+    line-height: 80rpx;
+    font-size: 28rpx;
+    color: #808080;
+    padding-left: 30rpx;
+}
+
+.rg-section-2-check {
+    display: flex;
+    height: 40rpx;
+    color: #a5a5a5;
+    font-size: 28rpx;
+}
+
+.rg-section-icon5 {
+    width: 96rpx;
+    height: 100%;
+    background: url("https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-check-on.png") no-repeat center center;
+    background-size: 48rpx 38rpx;
+}
+
+.rg-section-icon5-un {
+    background: url("https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-check-un.png") no-repeat center center;
+    background-size: 48rpx 48rpx;
+}
+
+.rg-section-2-bt {
+    height: 100rpx;
+    background-color: #d93035;
+    margin-top: 58rpx;
+    font-size: 38rpx;
+    color: #fff;
+    border-radius: 15rpx;
+    line-height: 100rpx;
+    text-align: center;
+    margin-bottom: 33rpx;
+}
+
+.rg-section-v2 {
+    color: #004be4;
+}
+
+.rg-section-v3 {
+    border: 1rpx solid #d6d4d4;
+    background-color: #fff;
+    border-radius: 64rpx;
+    color: #bfbfbf;
+    width: 40rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    text-align: center;
+    margin-left: 28rpx;
+}
+
+.rg-section-v4 {
+    margin-left: 70rpx;
+}
+
+.rg-section-box2 {
+    display: flex;
+}
+
+.rg-section-box3 {
+    display: flex;
+    width: 360rpx;
+}
+
+.rg-section-ipt1 {
+    width: 360rpx;
+}
+
+.rg-section-on {
+    background: #d93035;
+    color: #fff;
+    border: 1px solid #FFF;
+}
+
+.rg-section-v5 {
+    border: 1px solid #bfbfbf;
+    font-size: 22rpx;
+    height: 58rpx;
+    line-height: 58rpx;
+    width: 138rpx;
+    text-align: center;
+    margin-right: 28rpx;
+    border-radius: 10rpx;
+    color: #d93035;
+}
+
+.rg-section-ipt3 {
+    flex: 1;
+}
+
+.rg-section-v6 {
+    color: #939393;
+}
+
+.see-no {
+    height: 58rpx;
+    width: 50rpx;
+    background: url("https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-passwordNotSee.png") no-repeat right center;
+    background-size: 45rpx 23rpx;
+    margin-right: 28rpx;
+}
+
+.see {
+    height: 58rpx;
+    width: 50rpx;
+    background: url("https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-passwordSee.png") no-repeat right center;
+    background-size: 45rpx 23rpx;
+    margin-right: 28rpx;
+}
+
+.passwordinput {
+    flex: 1;
+}
+
+.rg-1 {
+    height: 114rpx;
+    line-height: 114rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-popup-top.png) no-repeat top center;
+    background-size: 100rpx 20rpx;
+    font-size: 36rpx;
+    color: #000;
+    border-radius: 15rpx 15rpx 0 0;
+    font-weight: bold;
+    border-bottom: 1px solid #e6e3e3;
+}
+
+.rg-1-1 {
+    width: 80rpx;
+    height: 80rpx;
+    background: url("https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-close.png") no-repeat center center;
+    background-size: 40rpx 38rpx;
+    position: absolute;
+    top: 14rpx;
+    left: 10rpx;
+}
+
+.rg-2 {
+    text-align: left;
+    font-size: 28rpx;
+    padding: 50rpx;
+}
+
+.rg-t2 {
+    color: #a5a5a5;
+    line-height: 50rpx;
+}
+
+.rg-3-1 {
+    flex: 1;
+    height: 100rpx;
+    line-height: 100rpx;
+    background-color: #d93035;
+    color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10rpx;
+    font-size: 36rpx;
+    font-weight: 700;
+}
+
+.rg-3 {
+    padding: 30rpx 50rpx;
+}
+
+.rg-container {
+    margin: 0 40rpx;
+    width: auto!important;
+}
+
+.register-section-all {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 3;
+    background-color: #949494;
+}
+
+.register-section {
+    padding: 30rpx 20rpx 35rpx 20rpx;
+    overflow-y: scroll;
+}
+
+.registertitle {
+    width: 100%;
+    height: 88rpx;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAUAQMAAABBDgrWAAAABlBMVEUAAADZMDWuykWgAAAAAXRSTlMAQObYZgAAABJJREFUGNNj+P//AwOcGOXBCAArnK/J5QBP7wAAAABJRU5ErkJggg==) center bottom no-repeat;
+    background-size: 80rpx 16rpx;
+    position: relative;
+}
+
+.registertitle-name {
+    font-size: 34rpx;
+    color: #e32d39;
+    font-weight: 700;
+    font-family: "微软雅黑","华文细黑",Arial,Helvetica,sans-serif;
+}
+
+.registertitle-icon {
+    width: 88rpx;
+    height: 88rpx;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoBAMAAAB+0KVeAAAAGFBMVEUAAADgLTzgLTzgLTzgLTzgLTzgLTzgLTzF9/lAAAAACHRSTlMA/ldW5VBJ6CcJEL0AAACUSURBVCjPhdNBCgIhFAZg6QYva183mCu0aPZB0AWC7n+Dplx8PEfQhcLPJ/rEV9730o3nWm6x5OwQpy2sObxu4SMaBeP8m2qGcfnPS4LHttQeoiCaIAqiIAqiYKYNdhREG+woiEaAqGpRxXbhdLuDpldy+VmZHqSH6PiRQRREQTRBFETBREF0+GmH33vcCJ9dy7zWL1kKGcvNccg6AAAAAElFTkSuQmCC) center center no-repeat;
+    background-size: 32rpx 32rpx;
+    position: absolute;
+    left: 0;
+}
+
+.section-3-2-3 {
+    width: 100rpx;
+    height: 100%;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-arrow-down.png) no-repeat center center;
+    background-size: 24rpx 14rpx;
+}
+
+.gender-part {
+    display: flex;
+    height: 100rpx;
+    margin-top: 12rpx;
+    align-items: center;
+    padding-left: 20rpx;
+}
+
+.gender-all {
+    font-size: 30rpx;
+    color: #808080;
+}
+
+.gender-pre {
+    font-size: 30rpx;
+    color: #878788;
+    margin-left: 20rpx;
+}
