@@ -1,0 +1,174 @@
+.background-view {
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+.qrcode-view {
+    position: fixed;
+    z-index: 2;
+    background-color: white;
+    width: 100vw;
+    top: 300rpx;
+    bottom: 0;
+}
+
+.close-view {
+    width: 100vw;
+    height: 88rpx;
+    margin-top: 170rpx;
+    z-index: 2;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+}
+
+.close-button {
+    width: 88rpx;
+    height: 88rpx;
+}
+
+.title-view {
+    background: #D62F35;
+    width: 100vw;
+    height: 100rpx;
+    display: flex;
+    justify-content: center;
+    color: white;
+    align-items: center;
+}
+
+.sv {
+    position: relative;
+}
+
+.qrcode {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    left: 0%;
+    z-index: 3;
+    background-color: white;
+}
+
+.qrcode-fixed {
+    position: fixed;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    z-index: 3;
+    top: 336rpx!important;
+    left: 0rpx;
+}
+
+.qrcode-fixed-test {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.tip {
+    font-size: 32rpx;
+    color: #404040;
+    margin-top: 30rpx;
+    font-weight: bold;
+    margin-bottom: 30rpx;
+}
+
+.line {
+    width: 90%;
+    height: 2rpx;
+    background: #BFCBD2;
+    margin-top: 30rpx;
+}
+
+.section-title {
+    margin-left: 20rpx;
+    margin-top: 15rpx;
+    margin-bottom: 15rpx;
+    width: 90%;
+    text-align: left;
+}
+
+.list-item {
+    height: 140rpx;
+    width: 90%;
+    margin-left: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10rpx;
+    margin-top: 10rpx;
+}
+
+.list-item image {
+    width: 70rpx;
+    height: 100rpx;
+    margin-right: 20rpx;
+}
+
+.left-view {
+    display: flex;
+}
+
+.title {
+    font-size: 30rpx;
+    color: #404040;
+    font-weight: bold;
+}
+
+.desc {
+    font-size: 28rpx;
+    color: lightgray;
+}
+
+.right-view {
+    display: flex;
+}
+
+.right-view image {
+    width: 45rpx;
+    height: 45rpx;
+    margin-right: 50rpx;
+}
+
+.share {
+    font-size: 32rpx;
+    color: #404040;
+    font-weight: bold;
+    margin-right: 20rpx;
+}
+
+.line2 {
+    width: 90%;
+    height: 2rpx;
+    background: #BFCBD2;
+    margin-left: 5%;
+}
+
+.middle-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100rpx;
+}
+
+.middle-image {
+    position: fixed;
+    width: 70rpx;
+    height: 100rpx!important;
+}
+
+.list-view {
+    padding-bottom: 200rpx;
+}

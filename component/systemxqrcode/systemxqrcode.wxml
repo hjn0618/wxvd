@@ -1,0 +1,50 @@
+<view catchtouchmove="ture" wx:if="{{showQrcode}}">
+    <view catchtap="close" class="background-view"></view>
+    <view catchtap="close" class="close-view">
+        <image class="close-button" src="https://imgorder.kfc.com.cn/mwos/Version/systemX/systemx-close.png"></image>
+    </view>
+    <view class="qrcode-view">
+        <view class="title-view">自取饮料</view>
+        <view class="{{percentage<0.6?'qrcode-fixed':'qrcode'}}" style="opacity:1;">
+            <view class="middle-view" style="margin-top:{{percentage*100}}rpx;">
+                <image src="{{diningQRCodeImage}}" style="width:{{percentage*300}}rpx; height:{{percentage*300}}rpx;"></image>
+                <image class="middle-image" src="https://imgorder.kfc.com.cn/mwos/Version/systemX/yinliao.png" style="width:{{percentage*70}}rpx; height:{{percentage*70}}rpx;"></image>
+            </view>
+            <text class="tip" style=" opacity:{{opacity}};" wx:if="{{percentage>=0.6}}">请凭二维码激活饮料机取餐</text>
+            <view class="line"></view>
+            <view class="section-title">您的自助饮料</view>
+        </view>
+        <scroll-view bindscroll="scroll" class="sv" scrollY="true" style="">
+            <view class="qrcode-fixed-test" style="opacity:0;">
+                <image src="{{diningQRCodeImage}}" style="margin-top:{{percentage*100}}rpx; width:{{percentage*300}}rpx; height:{{percentage*300}}rpx;"></image>
+                <text class="tip" style=" opacity:{{opacity}};" wx:if="{{percentage>=0.5}}">请凭二维码激活饮料机取餐</text>
+                <view class="line"></view>
+                <view class="section-title">您的自助饮料</view>
+            </view>
+            <view class="list-view">
+                <view>
+                    <view wx:for="{{systemxItems}}">
+                        <view class="list-item">
+                            <view class="left-view">
+                                <image src="https://imgorder.kfc.com.cn/mwos/Version/systemX/yinliao.png"></image>
+                                <view>
+                                    <block wx:if="{{item.condimentItems.length>0}}">
+                                        <view class="title">{{item.__topName__}}</view>
+                                        <view class="desc">{{item.__bottomName__}}</view>
+                                    </block>
+                                    <view class="title" wx:else>{{item.nameCN}}</view>
+                                </view>
+                            </view>
+                            <view class="right-view" wx:if="{{item.condimentItems.length>0}}">
+                                <image catchtap="share" data-index="{{index}}" src="https://imgorder.kfc.com.cn/mwos/Version/systemX/share.png"></image>
+                                <image catchtap="canceCollege" data-index="{{index}}" src="https://imgorder.kfc.com.cn/mwos/Version/systemX/collection_selected.png" wx:if="{{item.collection_id}}"></image>
+                                <image catchtap="college" data-index="{{index}}" src="https://imgorder.kfc.com.cn/mwos/Version/systemX/collection.png" wx:else></image>
+                            </view>
+                        </view>
+                        <view class="line2"></view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</view>

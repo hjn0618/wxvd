@@ -1,0 +1,143 @@
+	<view class="section-1-allpart">
+		<scroll-view bindscroll="" class="settlement-container" scrollIntoView="" scrollTop="" scrollWithAnimation="" scrollY="true">
+			<view class="address-part">
+				<view class="address-icon-1"></view>
+				<view class="address-part-1" bindtap="getUserLocation">
+					<block wx:if="{{isAdrShow}}">
+						<view class="address-name">{{userAdrInfo.provinceName}}{{userAdrInfo.cityName}}{{userAdrInfo.countyName}}{{userAdrInfo.detailInfo}}</view>
+						<view class="address-phone">{{userAdrInfo.userName}} {{userAdrInfo.telNumber}}</view>
+					</block>
+					<view class="address-name" wx:else>点击添加送货地址</view>
+				</view>
+
+				<view class="address-icon-2"></view>
+			</view>
+
+			<view class="section-1">
+				<view class="promotion-count">
+					<text>餐品详情</text>
+				</view>
+				<block wx:if="{{products.items.length > 0}}">
+					<view class="promotion-swiper">
+						<view hidden="{{!(moreProduct||orderItemIndex<2)||orderItem.promotionType==10}}" wx:for="{{products.items}}" wx:for-index="orderItemIndex" wx:for-item="orderItem" wx:key="orderItemIndex">
+							<view class="promotion-section-1">
+								<view class="product-prime" wx:if="{{orderItem.primeCardName}}">{{orderItem.primeCardName}}</view>
+								<image class="icon-lucky-bag" src="{{luckyBagUrl}}" wx:if="{{luckyBagDelaySwitch.luckyBagOrDelaySwitch&&tools.checkHasLuckbag(orderItem)}}"></image>
+								<view class="product-hui" wx:if="{{!orderItem.primeCardName&&!( luckyBagDelaySwitch.luckyBagOrDelaySwitch&&tools.checkHasLuckbag(orderItem) )&&(orderItem.promotionType==1||orderitemsVo.promotionType==2||orderitemsVo.promotionType==3)}}">惠</view>
+								<view class="promotion-name">{{orderItem.__nameCN__}}</view>
+								<view catchtap="showProMeal" class="pro-info-meal" data-id="{{orderItem.id}}" hidden="{{!orderItem.__mealItems__}}">{{orderItem.__showMealItems__?'收起':'详情'}}</view>
+								<view class="promotion-price">
+									<text class="prime-discount-price" wx:if="{{orderItem.__originPrice__&&!tools.isQzCard(orderItem.primeCardName)}}">￥{{orderItem.__originPrice__}}</text>
+									<text>¥{{orderItem.__price__}}</text>
+									<text class="num">x{{orderItem.quantity}}</text>
+								</view>
+							</view>
+							<view class="pro-info" hidden="{{!orderItem.__showMealItems__}}" wx:if="{{orderItem.__mealItems__}}">
+								<view wx:if="{{orderItem.specialProductFlag==='68'||orderItem.specialProductFlag==='69'}}">
+									<view wx:for="{{orderItem.__mealItems__}}">{{item}}</view>
+								</view>
+								<view wx:else>{{orderItem.__mealItems__}}</view>
+							</view>
+							<view class="pro-info" wx:else>
+								<block wx:for="{{orderItem.specialNeeds}}" wx:for-item="sn">{{sn.laberName}}</block>
+							</view>
+							<view class="pro-info" wx:if="{{orderItem.egiftCardPaymentSupport!=1&&vgoldInfo&&vgoldInfo.showegift}}">不参加周二会员日V金当钱花</view>
+						</view>
+					</view>
+					<view catchtap="togglemoreProduct" class="section-1-unfolding" wx:if="{{products.items.length>2}}">
+						{{!moreProduct?'展开全部':'收起'}}餐品
+						<view class="jiantou-{{moreProduct?'up':'down'}}"></view>
+					</view>
+					<view class="orderDetTo" hidden="{{!products.items_n>0}}">
+						<text>共{{products.items_n}}件，小计：</text>
+						<text class="productRed">¥{{products.items_p}}</text>
+					</view>
+				</block>
+			</view>
+			<block wx:if="{{storeTypeCode!='Q'}}">
+				<view class="section-2 {{!!onSalePrimeCard?'section-2-nomargin':''}}">
+					<text class="section-2-title">就餐方式</text>
+					<view class="section-2-1">
+						<view catchtap="togglePackage" class="section-2-1-l {{!isPackage?'section-2-1-l-border':''}}" data-package="dine">
+							<view class="{{storeTypeCode!='D'&&!onlyPackage?'section-2-1-l-icon':'section-2-1-l-icon-disable'}}"></view>
+							<text class="section-movetext{{!isPackage?'-click':''}}">店内就餐</text>
+						</view>
+						<view catchtap="togglePackage" class="section-2-1-r {{isPackage==true?'section-2-1-r-border':''}}" data-package="takeout">
+							<view class="section-2-1-r-icon"></view>
+							<text class="section-movetext{{isPackage==true?'-click':''}}">打包带走</text>
+							<view class="section-2-1-r-label" wx:if="{{preorder2020nCovMisc==='Y'}}"></view>
+						</view>
+					</view>
+					<view catchtap="showSelectedLocation" class="settlement-location-part" wx:if="{{storeTypeCode!=='B'&&subStoreList&&subStoreList.length>1}}">
+						<text class="section-2-title">取餐位置</text>
+						<view class="settlement-location-storePlace">
+							{{order.store.takeMealPlace}}
+							<image src="https://imgorder.kfc.com.cn/mwos/Version/wechatapp/arrow_down_grey.png"></image>
+						</view>
+					</view>
+				</view>
+				<plastic-bag bind:bagevent="bagListener" isPackage="{{isPackage}}" list="{{orderLabelClass&&orderLabelClass.menuVoList}}"></plastic-bag>
+			</block>
+			<view class="section-3 section-v5" wx:if="{{balancePaymentOpen&&comboPayFlag!==0}}">
+				<view>
+					<text class="productfont">更多支付方式</text>
+					<text class="productRed" style="margin-left:10rpx;">还需￥{{combinedPaymentPrice}}</text>
+				</view>
+				<view class="section-3-5">
+					<view class="section-3-3"></view>
+				</view>
+			</view>
+			<view class="section-3 {{showAccount?'section-v5':''}}" wx:else>
+				<view>
+					<text class="productfont">{{showAccount?'更多':''}}支付方式</text>
+					<text class="productRed" style="margin-left:10rpx;" wx:if="{{!balancePaymentOpen}}">还需  ¥{{sctotalPriceStr}}</text>
+				</view>
+				<view catchtap="togglePay" class="pay-type" wx:if="{{balancePaymentOpen}}">
+					<text class="section-3-4">切换微信支付</text>
+					<view class="pay-type-icon">
+						<image src="https://imgorder.kfc.com.cn/mwos/Version/wechatapp/arrow_down_grey.png"></image>
+					</view>
+				</view>
+				<view class="section-3-5" wx:else>
+					<view class="section-3-3"></view>
+				</view>
+			</view>
+			<view class="classname" hidden="{{isSpecialNeed}}" wx:if="{{storeTypeCode!='Q'}}">
+				<view catchtap="toggleMore" class="section-3">
+					<view class="classname">
+						<text class="section-2-title">更多需要</text>
+					</view>
+					<view class="section-3-2-3 {{showMore?'section-3-2-3-up':''}}"></view>
+				</view>
+				<view class="hide {{showMore?'show':''}}">
+					<view class="section-5">
+						<view class="section-5-1">其他自助点餐要求</view>
+						<view class="section-5-2" wx:if="{{orderLabelClass}}">
+							<view catchtap="labelSelected" class="section-5-2-item {{menuVo.__selected__?'section-5-2-item-on':''}}" data-sysid="{{menuVo.productId}}" wx:for="{{orderLabelClass.menuVoList}}" wx:for-index="labelMenuIndex" wx:for-item="menuVo" wx:key="id">{{menuVo.__nameCn__}}</view>
+						</view>
+						<input bindinput="iremarkInput" class="section-5-2-input" placeholder="请勿超出60个字符" type="text" wx:else></input>
+					</view>
+				</view>
+			</view>
+		</scroll-view>
+	</view>
+	<view class="operate {{isfullScreen == true ? 'operate-full':''}}">
+		<view class="operate-shopcart-ball" hidden="{{!cartBall.show}}" style="left: {{cartBall.x}}px; top: {{cartBall.y}}px;"></view>
+		<view class="operate-shopcart" bindtap="showCartList">
+			<view class="operate-shopcart-icon {{cartNumber !== 0 ? 'operate-shopcart-icon-activity' : '' }}">
+			</view>
+			<view class="operate-shopcart-empty" wx:if="{{cartNumber === 0}}">购物车是空的</view>
+			<view class="operate-shopcart-price" wx:else>
+				<block wx:if="{{cartPrice >= promotion.k*100}}">
+					<view>￥{{priceFormat(cartPrice - promotion.v*100)}}</view>
+					<text>{{priceFormat(cartPrice)}}</text>
+				</block>
+				<view wx:else>￥{{priceFormat(cartPrice)}}</view>
+			</view>
+		</view>
+		<view class="operate-submit {{cartNumber !==0 ? 'operate-submit-activity' : ''}}" bindtap="order">
+			<view>立即购买</view>
+			<view>CheckOut</view>
+		</view>
+
+	</view>

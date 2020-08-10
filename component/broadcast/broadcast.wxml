@@ -1,0 +1,15 @@
+<view class="top-info-container">
+    <view class="icon">
+        <view class="image"></view>
+    </view>
+    <view class="top-info">
+        <swiper autoplay="{{true}}" circular="{{true}}" class="top-info-swiper" duration="{{300}}" interval="{{5000}}" vertical="{{true}}">
+            <swiper-item wx:for="{{broadcastList}}" wx:key="{{index}}">
+                <view class="item">{{item.content}}</view>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view bindtap="_broadcastClose" class="close">
+        <view class="image"></view>
+    </view>
+</view>

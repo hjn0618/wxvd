@@ -1,0 +1,71 @@
+/* pages/order/order.wxss */
+
+.conent
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.address-part {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFF;
+  padding-top: 50rpx;
+}
+
+.address-part-1{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.address-icon-1 {
+  width: 30rpx;
+  margin-left: 0;
+  height: 100%;
+  background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-arrow-down.png) no-repeat center center;
+  background-size: 24rpx 14rpx;
+}
+
+.address-icon-2 {
+  width: 30rpx;
+  float:right;
+  height: 100%;
+  background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-arrow-down.png) no-repeat center center;
+  background-size: 24rpx 14rpx;
+}
+
+.address-name {
+  width: 80%;
+  font-size: 36rpx;
+  line-height: 48rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+.div{
+  width: 90%;
+  display: flex;
+  align-items: center;
+  border-bottom: solid 2rpx #D7D7D7;
+  margin: auto;
+  padding: 20rpx 0;
+  line-height: 60rpx;
+}
+
+.title
+{
+  width: 30%;
+  font-size: 40rpx;
+  text-align: right;
+  margin-right: 20rpx;
+}
+
+.input
+{
+  width: 50%;
+  font-size: 40rpx;
+  text-align: left;
+}

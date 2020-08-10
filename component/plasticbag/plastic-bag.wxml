@@ -1,0 +1,23 @@
+<import src="../../component/loading/loading.wxml"></import>
+<template is="loading" data="{{visiable:visiable}}"></template>
+<view class="bag-part" wx:if="{{isPackage===true&&listBag&&listBag.length>0}}">
+    <view class="bag-part-title bigTitle">购买塑料袋</view>
+    <view class="bag-row" wx:for="{{listBag}}" wx:key="productId">
+        <view>{{item.nameCn}}</view>
+        <view class="right">
+            <view class="price">¥{{tools.dealPrice(item.price)}}</view>
+            <view class="bag-spinner">
+                <view class="minus-section" style="visibility:{{item.curNum>0?'visible':'hidden'}};">
+                    <view catchtap="minus" class="icon-reduce{{item.curNum<=0?'-disabled':''}}" data-item="{{item}}"></view>
+                    <view class="bag-item-num">{{item.curNum}}</view>
+                </view>
+                <view catchtap="plus" class="icon-plus{{item.curNum>=(item.maxQty?item.maxQty:9999)?'-disabled':''}}" data-item="{{item}}"></view>
+            </view>
+        </view>
+    </view>
+    <view class="bag-total" hidden="{{!bagTotalQuantity>0}}">
+        <text>小计：</text>
+        <text class="productRed">¥{{tools.dealPrice(bagTotalPrice)}}</text>
+    </view>
+</view>
+<wxs module="tools" src="../../comm/wxs/tools.wxs" />

@@ -1,0 +1,31 @@
+<template name="luckybagConfirm">
+    <view class="cf-wrapper" style="display:{{showLuckybagConfirm?'flex':'none'}}">
+        <view class="cf-bg"></view>
+        <view class="cf-container">
+            <view class="cf-container-inner">
+                <block wx:if="{{title}}">
+                    <view class="cf-1 luckybag-cf-1">{{title}}</view>
+                    <view class="cf-2 luckybag-cf-2">
+                        <view class="cf-2-1 {{isLeft?'left':''}}">
+                            <view wx:for="{{content}}" wx:for-index="contentIndex" wx:for-item="_content" wx:key="contentIndex">{{_content}}</view>
+                        </view>
+                    </view>
+                </block>
+                <block wx:else>
+                    <view class="cf2-1">
+                        <view catchtap="closex" class="cf2-1-1"></view>
+                    </view>
+                    <view class="cf2-2">
+                        <view class="cf-2-2 {{isLeft?'left':''}}">
+                            <view wx:for="{{content}}" wx:for-index="contentIndex" wx:for-item="_content" wx:key="contentIndex">{{_content}}</view>
+                        </view>
+                    </view>
+                </block>
+                <view class="cf-3">
+                    <view catchtap="cancel" class="cf-v3" wx:if="{{cancel}}">{{cancel}}</view>
+                    <view catchtap="confirm" class="cf-v3 cf-v3-1 luckybag-cf-v3-1">{{confirm}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

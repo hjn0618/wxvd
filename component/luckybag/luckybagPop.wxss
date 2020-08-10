@@ -1,0 +1,296 @@
+.lucky-bag-outer {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.5);
+    overflow: hidden;
+    position: fixed;
+    z-index: 4;
+}
+
+.lucky-bag-wapper {
+    top: 50%;
+    width: 76%;
+    height: auto;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 40rpx;
+    box-shadow: 0 0 56px 0 rgba(255,160,80,0.50);
+    transform: translate3d(0,-50%,0) scale(1);
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(206,47,58);
+}
+
+.lucky-bag-wapper-title {
+    height: 110rpx;
+    position: relative;
+    background: url('https://imgorder.kfc.com.cn/mwos/Version/icon-lucky-bag-pop-top.png') no-repeat;
+    background-size: 100% 100%;
+    border-radius: 40rpx 40rpx 0rpx 0rpx;
+    font-size: 40rpx;
+    color: #FAD7A1;
+    letter-spacing: 0;
+    text-align: center;
+    text-shadow: 0 4rpx 8rpx rgba(0,0,0,0.22);
+    line-height: 110rpx;
+    font-weight: 700;
+}
+
+.lucky-bag-wapper-scroll-view {
+    max-height: 425.54rpx;
+    overflow-y: auto;
+}
+
+.lucky-bag-wapper-scroll-view-ul {
+    flex: 1;
+    overflow-y: auto;
+    margin: 0 auto;
+}
+
+.lucky-bag-wapper-scroll-view-li {
+    width: 87.5%;
+    height: 132rpx;
+    border: 1px solid rgba(144,144,144,0.02);
+    border-radius: 10rpx;
+    display: flex;
+    margin: 0 auto 10rpx auto;
+    justify-content: space-between;
+    box-shadow: 1rpx 2rpx 6rpx 1rpx rgba(0,0,0,0.06);
+    background-color: #ffffff;
+    align-items: center;
+}
+
+.lucky-bag-wapper-scroll-view-li-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lucky-bag-wapper-scroll-view-li-item-img-wapper {
+    display: flex;
+    padding: 2rpx;
+    border: 1px solid #EEEEEE;
+    margin-left: 24rpx;
+    position: relative;
+    align-items: center;
+}
+
+.lucky-bag-wapper-scroll-view-li-item-img-wapper-img {
+    margin-left: 3rpx;
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.lucky-bag-wapper-scroll-view-li-item-img-wapper-text {
+    position: absolute;
+    left: -10rpx;
+    top: -5rpx;
+    width: auto;
+    height: 30rpx;
+    font-size: 16rpx;
+    line-height: 30rpx;
+    background: #D62F35;
+    border-radius: 13rpx;
+    color: #FFFEFF;
+    text-align: center;
+    padding: 0px 10rpx;
+}
+
+.lucky-bag-wapper-scroll-view-li-item-info-wapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+}
+
+.lucky-bag-wapper-scroll-view-li-item-info-wapper-product-info {
+    width: 51%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start!important;
+    margin: 0 9rpx 0 14rpx;
+}
+
+.lucky-bag-wapper-scroll-view-li-item-info-wapper-product-info-name {
+    font-size: 24rpx;
+    font-weight: 700;
+    color: #323434;
+    display: block;
+    text-align: left;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.lucky-bag-wapper-scroll-view-li-item-info-wapper-product-info-price {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 4rpx;
+    font-size: 28rpx;
+    text-align: left;
+    font-weight: 700;
+}
+
+.lucky-bag-wapper-scroll-view-li-item-info-wapper-product-info-price-big {
+    line-height: 40rpx;
+    color: #D62F35;
+}
+
+.lucky-bag-wapper-scroll-view-li-item-info-wapper-product-info-price-small {
+    display: inline-block;
+    font-size: 20rpx;
+    color: #999999;
+    line-height: 32rpx;
+    margin-left: 4rpx;
+    text-decoration: line-through;
+}
+
+.lucky-bag-wapper-scroll-view-li-item-info-wapper-count {
+    padding-right: 28rpx;
+    display: flex;
+    align-items: center;
+}
+
+.lucky-bag-wapper-icon-reduce {
+    width: 32rpx;
+    height: 32rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-reduce.png) no-repeat center center;
+    background-size: 32rpx 32rpx;
+}
+
+.lucky-bag-wapper-icon-plus {
+    width: 32rpx;
+    height: 32rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-plus.png) no-repeat center center;
+    background-size: 32rpx 32rpx;
+}
+
+.lucky-bag-wapper-icon-plus-disabled {
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-plus-disabled.png) no-repeat center center;
+    background-size: 32rpx 32rpx;
+    border-radius: 32rpx;
+}
+
+.lucky-bag-wapper-num {
+    height: 48rpx;
+    line-height: 48rpx;
+    padding: 0 10rpx;
+    width: 44rpx;
+    text-align: center;
+    font-family: "微软雅黑","华文细黑",Arial,Helvetica,sans-serif;
+    color: #323434;
+    font-size: 28rpx;
+}
+
+.lucky-bag-wapper-tips {
+    width: 87.36%;
+    opacity: 0.9;
+    font-size: 22rpx;
+    line-height: 32rpx;
+    color: #FFFEFF;
+    letter-spacing: 0;
+    margin: 10rpx auto;
+    display: flex;
+    justify-content: center;
+}
+
+.lucky-bag-wapper-tips-left {
+    text-align: left;
+}
+
+.lucky-bag-wapper-buy-btn {
+    width: 87.5%;
+    margin: 10rpx auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.lucky-bag-wapper-buy-btn-buy-all {
+    width: 60%;
+    height: 76rpx;
+    background: #FDD063;
+    box-shadow: 0 18rpx 24rpx 0 rgba(114,13,17,0.28),inset 0 -14rpx 16rpx 0 rgba(255,255,255,0.22),inset 0 18rpx 26rpx 0 rgba(255,255,255,0.50);
+    border-radius: 46rpx;
+    font-size: 30rpx;
+    line-height: 76rpx;
+    color: #A54A31;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.lucky-bag-wapper-buy-btn-buy-ok {
+    width: 35%;
+    height: 76rpx;
+    background: #D9494E;
+    box-shadow: 0 18rpx 24rpx 0 rgba(114,13,17,0.28),inset 0 -14rpx 16rpx 0 rgba(255,255,255,0.22),inset 0 18rpx 26rpx 0 rgba(255,255,255,0.50);
+    border-radius: 46rpx;
+    font-size: 30rpx;
+    line-height: 76rpx;
+    color: #FFFEFF;
+    letter-spacing: 0;
+    text-align: center;
+    margin-left: 20rpx;
+}
+
+.lucky-bag-wapper-detail {
+    width: 100%;
+    height: 90rpx;
+    background: url('https://imgorder.kfc.com.cn/mwos/Version/icon-lucky-bag-pop-bottom.png') no-repeat;
+    background-size: 100% 100%;
+    border-radius: 0 0rpx 40rpx 40rpx;
+    display: flex;
+    justify-content: center;
+}
+
+.lucky-bag-wapper-detail-link {
+    width: auto;
+    height: 36rpx;
+    font-size: 24rpx;
+    line-height: 36rpx;
+    color: #FDE3A2;
+    text-align: center;
+    border-bottom: 1px solid #FDE3A2;
+    margin-top: 10rpx;
+}
+
+.lucky-bag-wapper-close {
+    position: absolute;
+    width: 60rpx;
+    height: 60rpx;
+    top: -86rpx;
+    right: 0rpx;
+}
+
+.lucky-bag-bottom {
+    position: absolute;
+    width: 750rpx;
+    height: 750rpx;
+    display: flex;
+    bottom: 0;
+    left: -100%;
+    right: -100%;
+    margin: 0 auto;
+    z-index: -1;
+}
+
+.lucky-bag-bottom-halo {
+    position: absolute;
+    width: 200%;
+    height: 750rpx;
+    display: flex;
+    bottom: 0;
+    left: -100%;
+    right: -100%;
+    margin: 0 auto;
+    z-index: -1;
+}
+
+.lucky-bag-icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-left: -5px;
+}

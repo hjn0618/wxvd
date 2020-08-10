@@ -1,0 +1,24 @@
+<!--pages/order/order.wxml-->
+
+<view class="conent">
+	<view class="address-part">
+		<view class="address-part-1">
+			<view class="address-icon-1"></view>
+			<view class="address-name">浙江省湖州市</view>
+			<view class="address-icon-2"></view>
+		</view>
+		<view class="address-phone">马军巷43幢301室</view>
+	</view>
+	<view class="div">
+		<view class="title">收货人:</view>
+		<input classs="input" type="text"></input>
+	</view>
+	<view class="div">
+		<view class="title">收货地址:</view>
+		<input classs="input" type="text" placeholder="请选择收货地址" bindtap="getUserLocation"></input>
+	</view>
+	<view class="div">
+		<view class="title">详细地址:</view>
+		<input classs="input" type="text"></input>
+	</view>
+</view>

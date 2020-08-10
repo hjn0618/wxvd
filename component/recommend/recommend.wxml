@@ -1,0 +1,81 @@
+<template name="recommend">
+    <view animation="{{recAnimation}}" bindtouchend="dragUpEnd" bindtouchmove="dragUpMove" bindtouchstart="dragUpStart" catchtap="controlShowRecommend" class="recommend-container" style=" padding-top:{{navbarHeight}}px;" wx:if="{{showRecommend}}">
+        <view class="recommend-title">为你推荐</view>
+        <view class="recommend-list">
+            <swiper duration="500" indicatorActiveColor="#fff" indicatorColor="rgba(255, 255, 255, .3)" indicatorDots="true" nextMargin="60rpx" previousMargin="60rpx" style="height:{{recommendSwiperHeight}}rpx;">
+                <swiper-item wx:for="{{recommendList}}" wx:for-index="classIndex" wx:for-item="clazz" wx:key="classIndex">
+                    <view catchtap="doNothing" class="recommend-items">
+                        <block wx:if="{{clazz.menuVoList.length>1}}">
+                            <view class="recommend-subItem" wx:for="{{clazz.menuVoList}}" wx:for-index="itemIndex" wx:key="itemIndex">
+                                <view class="subItem-middle">
+                                    <image class="subItem-image" mode="aspectFill" src="{{item.imageUrl}}"></image>
+                                    <view class="subItem-spot"></view>
+                                </view>
+                                <view class="sub-content">
+                                    <view>
+                                        <view class="subItem-name">{{item.__nameCn__}}</view>
+                                        <view class="sub-price-rec">
+                                            <text class="menu-price-icon">￥</text>
+                                            <text>{{item.__price__}}</text>
+                                        </view>
+                                    </view>
+                                    <view class="section-2-1-1-1">
+                                        <view class="sell-out" wx:if="{{item.disabledFlag==='1'}}">今日售罄</view>
+                                        <view class="recsub-icon-plus icon-plus-disabled" wx:elif="{{item.disabledFlag==='2'}}"></view>
+                                        <block wx:else>
+                                            <block wx:if="{{item.__quantity__>0}}">
+                                                <view catchtap="minusRecommend" class="recsub-icon-reduce {{item.__isMulti__?'icon-reduce-disabled':''}}" data-classindex="{{classIndex}}" data-menuindex="{{itemIndex}}" wx:if="{{item.menuFlag=='P'&&item.condimentRoundList&&!item.__fixCondiment__}}"></view>
+                                                <view catchtap="minusRecommend" class="recsub-icon-reduce {{item.__quantity__>=2?'icon-reduce-disabled':''}}" data-classindex="{{classIndex}}" data-menuindex="{{itemIndex}}" wx:elif="{{item.menuFlag=='G'||item.__tasteList__&&item.__tasteList__.length>0}}"></view>
+                                                <view catchtap="minusRecommend" class="recsub-icon-reduce" data-classindex="{{classIndex}}" data-menuindex="{{itemIndex}}" wx:elif="{{!item.condimentRoundList&&item.menuFlag!='G'||item.__fixCondiment__}}"></view>
+                                                <text class="recsub-num">{{item.__quantity__}}</text>
+                                            </block>
+                                            <view catchtap="showProduct" class="recsub-icon-plus {{item.__disabled__==1?'icon-plus-disabled':''}}" data-classindex="{{classIndex}}" data-menuindex="{{itemIndex}}" wx:if="{{item.menuFlag=='G'||item.__tasteList__&&item.__tasteList__.length>0}}"></view>
+                                            <view catchtap="addRecommend" class="recsub-icon-plus {{item.__disabled__==1?'icon-plus-disabled':''}}" data-classindex="{{classIndex}}" data-menuindex="{{itemIndex}}" wx:else></view>
+                                        </block>
+                                    </view>
+                                </view>
+                            </view>
+                        </block>
+                        <view class="recommend-item-waku" wx:else>
+                            <view class="recommend-item" wx:for="{{clazz.menuVoList}}" wx:for-index="itemIndex" wx:key="itemIndex">
+                                <view class="item-middle">
+                                    <view class="spot"></view>
+                                </view>
+                                <image class="item-image" src="{{item.imageUrl}}"></image>
+                                <view class="item-inner">
+                                    <view class="item-name">{{item.__nameCn__}}</view>
+                                    <view class="price-rec">
+                                        <text class="menu-price-icon">￥</text>
+                                        <text>{{item.__price__}}</text>
+                                    </view>
+                                    <view class="meal-detail {{item.__showDescItem__&&!item.__expandAll__?'meal-detail-ellipsis':''}}" wx:if="{{item.selectDesc}}">
+                          {{item.selectDesc}}
+                          <view catchtap="showRecMealItems" class="meal-detail-toggle absolute" data-classindex="{{classIndex}}" data-menuindex="{{itemIndex}}" wx:if="{{item.__showDescItem__&&!item.__expandAll__}}">【展开详情】</view>
+                                        <view catchtap="showRecMealItems" class="meal-detail-toggle" data-classindex="{{classIndex}}" data-menuindex="{{itemIndex}}" wx:if="{{item.__expandAll__}}">【收起详情】</view>
+                                    </view>
+                                    <view class="section-2-1-1-1">
+                                        <view class="sell-out" wx:if="{{item.disabledFlag==='1'}}">今日售罄</view>
+                                        <view class="rec-icon-plus rec-icon-plus-disabled" wx:elif="{{item.disabledFlag==='2'}}"></view>
+                                        <block wx:else>
+                                            <block wx:if="{{item.__quantity__>0}}">
+                                                <view catchtap="minusRecommend" class="rec-icon-reduce {{item.__quantity__>=2?'rec-icon-reduce-disabled':''}}" data-classindex="{{classIndex}}" data-menuindex="{{itemIndex}}" wx:if="{{item.menuFlag=='G'||item.__tasteList__&&item.__tasteList__.length>0}}"></view>
+                                                <view catchtap="minusRecommend" class="rec-icon-reduce" data-classindex="{{classIndex}}" data-menuindex="{{itemIndex}}" wx:else></view>
+                                                <text class="rec-num">{{item.__quantity__}}</text>
+                                            </block>
+                                            <view catchtap="showProduct" class="rec-icon-plus {{item.__disabled__==1?'rec-icon-plus-disabled':''}}" data-classindex="{{classIndex}}" data-menuindex="{{itemIndex}}" wx:if="{{item.menuFlag=='G'||item.__tasteList__&&item.__tasteList__.length>0}}"></view>
+                                            <view catchtap="addRecommend" class="rec-icon-plus {{item.__disabled__==1?'rec-icon-plus-disabled':''}}" data-classindex="{{classIndex}}" data-menuindex="{{itemIndex}}" wx:else></view>
+                                        </block>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view class="bottom-bar {{showShoppingCart?'bottom-bar-showShoppingcart':''}}">
+            <view>上拉进入菜单</view>
+            <image class="recommend-arrow" src="https://imgorder.kfc.com.cn/mwos/Version/wechatapp/icon-recommend-more.png"></image>
+        </view>
+    </view>
+</template>

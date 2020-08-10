@@ -1,0 +1,79 @@
+<template name="register">
+    <view class="register-section-all" wx:if="{{visible}}">
+        <view class="register-section">
+            <view class="rg-wrapper cf-wrapper" wx:if="{{showProtocol}}">
+                <view class="cf-bg"></view>
+                <view class="rg-container cf-container">
+                    <view class="rg-inner cf-container-inner">
+                        <view class="rg-1">
+                            <text class="rg-t1">用户协议</text>
+                            <view catchtap="closeProtocol" class="rg-1-1"></view>
+                        </view>
+                        <view class="rg-2">
+                            <text class="rg-t2">成为会员，享受以下入会奖励：
+                    1.新用户注册即送积分和会员专享特权；
+                    2.注册当天所有订单消费全部累计积分；
+                    3.各种会员专享特权不断更新中，
+                    等您继续发现哦！</text>
+                        </view>
+                        <view class="rg-3">
+                            <view catchtap="agreeProtocol" class="rg-3-1">我已阅读并同意会员协议</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="register-container">
+                <view class="registertitle">
+                    <view catchtap="closeRegister" class="registertitle-icon"></view>
+                    <view class="registertitle-name">注册会员</view>
+                </view>
+                <view class="rg-section-2">
+                    <view class="rg-section-box">
+                        <view class="rg-section-icon2"></view>
+                        <input disabled class="rg-section-ipt3" maxlength="11" placeholder="请输入手机号码" type="number" value="{{phone}}"></input>
+                    </view>
+                    <view class="rg-section-box">
+                        <view class="rg-section-icon3"></view>
+                        <input bindinput="codeInput" placeholder="请输入验证码" style="flex:1;" type="number"></input>
+                        <view catchtap="sendCode" class="rg-section-v5" wx:if="{{firstCode}}">获取验证码</view>
+                        <view class="rg-section-v5 rg-section-v6" wx:elif="{{waitTime>0}}">重发{{waitTime}}s</view>
+                        <view catchtap="sendCode" class="rg-section-v5" wx:else>重新发送</view>
+                    </view>
+                    <view class="rg-section-box">
+                        <input bindinput="codeInput" placeholder="请输入验证码" style="flex:1;" type="number"></input>
+                    </view>
+                    <view class="rg-section-box">
+                        <view class="rg-section-icon3"></view>
+                        <input bindinput="pwdInput" class="passwordinput" password="{{seePassword?'':'password'}}" placeholder="设置您的账号密码" type="text"></input>
+                        <view catchtap="showpassword" class="see{{seePassword?'':'-no'}}"></view>
+                    </view>
+                    <view class="rg-section-box">
+                        <view class="rg-section-icon4"></view>
+                        <view catchtap="chooseCity" class="rg-section-t1">{{city?city:'请选择城市'}}</view>
+                        <view class="section-3-2-3"></view>
+                    </view>
+                    <view class="rg-section-box">
+                        <view class="rg-section-icon1"></view>
+                        <input bindinput="nameInput" class="rg-section-ipt1" placeholder="请输入您的昵称"></input>
+                    </view>
+                    <view class="gender-part">
+                        <view class="gender-all">性别：</view>
+                        <view catchtap="setGender" class="rg-section-v3  {{selectM=='on'?'rg-section-on':''}}" data-gender="0"></view>
+                        <view class="gender-pre">男</view>
+                        <view catchtap="setGender" class="rg-section-v3 rg-section-v4  {{selectW=='on'?'rg-section-on':''}}" data-gender="1"></view>
+                        <view class="gender-pre">女</view>
+                    </view>
+                    <view catchtap="toggleProtocol" class="rg-section-2-check">
+                        <view class="rg-section-icon5 {{agreeProtocol?'':'rg-section-icon5-un'}}"></view>
+                        <view>同意注册</view>
+                        <view catchtap="showProtocol" class="rg-section-v2">使用条款</view>
+                        <view>,并绑定微信号</view>
+                    </view>
+                    <view catchtap="register" class="rg-section-2-bt">
+                        <text>立即注册</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

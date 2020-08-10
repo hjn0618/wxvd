@@ -1,0 +1,21 @@
+<template name="timepicker">
+    <view class="picker-time-container" style="visibility: {{showTimepicker?'visible':'hidden'}}">
+        <view class="picker-time">
+            <view class="pt-bt-view">
+                <view catchtap="timePickerCancel" class="pt-bt-view-back">
+                    <image src="https://imgorder.kfc.com.cn/mwos/Version/wechatapp/arrow_down_grey.png"></image>
+                </view>
+                <view>请选择预约时间</view>
+                <view catchtap="timePickerConfirm">确定</view>
+            </view>
+            <picker-view bindchange="timeChange" class="pt-view" value="{{timeValue}}">
+                <picker-view-column>
+                    <view class="pt-column-left" wx:for="{{hours}}" wx:key="{{item}}">{{item}}</view>
+                </picker-view-column>
+                <picker-view-column>
+                    <view class="pt-column-right" wx:for="{{minutes}}" wx:key="{{item}}">{{item}}</view>
+                </picker-view-column>
+            </picker-view>
+        </view>
+    </view>
+</template>

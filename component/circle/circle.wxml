@@ -1,0 +1,7 @@
+<view class="page-body">
+    <view class="circle-body">
+        <canvas canvasId="innerCanvass" class="canvass-outer"></canvas>
+        <canvas canvasId="outerCanvass" class="canvass"></canvas>
+        <view class="circle-countdown">{{innerText}}</view>
+    </view>
+</view>

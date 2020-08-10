@@ -1,0 +1,3 @@
+<view catchtap="goShare" class="share-wrapper" wx:if="{{isShow&&sameDay}}">
+    <image alt="" class="share-img" src="{{redPacketData.shareicon}}"></image>
+</view>

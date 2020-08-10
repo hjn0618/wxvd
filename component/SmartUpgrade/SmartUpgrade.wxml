@@ -1,0 +1,16 @@
+<template name="smartUpgrade">
+    <view class="upgrade-container" wx:if="{{showUpgrade}}">
+        <view class="upgrade-v">
+            <view class="spot"></view>
+            <image class="img" src="{{imageResPath}}D/{{upgrade.imageUrl}}"></image>
+            <view class="upgrade-title">
+                <text>{{upgrade.couponTitle}}</text>
+                <text class="upgrade-money">+{{upgrade.__price__}}元</text>
+            </view>
+            <text class="upgrade-description">{{upgrade.calligraphy}}</text>
+            <view catchtap="addUpgrade" class="upgrade-ok" data-classindex="{{upgrade.classindex}}" data-labelindex="{{upgrade.labelindex}}" data-menuindex="{{upgrade.menuindex}}">好的</view>
+            <view catchtap="upgradeNoRemind" class="upgrade-remind">近期不再提醒</view>
+        </view>
+        <view catchtap="closeUpgrade" class="upgrade-close"></view>
+    </view>
+</template>

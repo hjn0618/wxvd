@@ -1,0 +1,107 @@
+.bag-part {
+    background-color: white;
+    margin-bottom: 20rpx;
+    font-size: 28rpx;
+    color: #404040;
+}
+
+.bag-part-title {
+    height: 85rpx;
+    display: flex;
+    align-items: center;
+    border-bottom: 1rpx solid #f1f1f1;
+    font-size: 28rpx;
+    color: #444;
+    font-weight: bold;
+    text-indent: 30rpx;
+}
+
+.bag-total {
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: right;
+    padding-right: 20rpx;
+    border-top: 1rpx solid #f1f1f1;
+    font-weight: 700;
+    font-size: 26rpx;
+    color: #444;
+}
+
+.productRed {
+    color: #e32d39;
+    font-size: 26rpx;
+}
+
+.bag-row {
+    display: flex;
+    height: 100rpx;
+    background: #ffffff;
+    padding-left: 30rpx;
+    padding-right: 20rpx;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bag-row .right {
+    display: flex;
+    align-items: center;
+}
+
+.bag-row .price {
+    margin-right: 17rpx;
+}
+
+.bag-spinner {
+    display: flex;
+    align-items: center;
+}
+
+.minus-section {
+    display: flex;
+    align-items: center;
+}
+
+.symbol {
+    width: 56rpx;
+    height: 56rpx;
+    border: 1rpx solid #dfdfdf;
+    border-radius: 50%;
+    font-size: 22rpx;
+    margin: 0 15rpx;
+    display: block;
+    text-align: center;
+    line-height: 56rpx;
+}
+
+.bag-item-num {
+    display: inline-block;
+    margin: auto 15rpx;
+}
+
+.icon-reduce {
+    width: 60rpx;
+    height: 60rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-reduce.png) no-repeat center center;
+    background-size: 60rpx 60rpx;
+}
+
+.icon-reduce-disabled {
+    width: 60rpx;
+    height: 60rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-reduce-disabled.png) no-repeat center center;
+    background-size: 60rpx 60rpx;
+}
+
+.icon-plus-disabled {
+    width: 60rpx;
+    height: 60rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-plus-disabled.png) no-repeat center center;
+    background-size: 60rpx 60rpx;
+}
+
+.icon-plus {
+    width: 60rpx;
+    height: 60rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-plus.png) no-repeat center center;
+    background-size: 60rpx 60rpx;
+}

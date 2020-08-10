@@ -1,0 +1,11 @@
+<template name="loading">
+    <view class="loading-outer" style="display:{{visiable?'block':'none'}}">
+        <view class="loading-bg"></view>
+        <view class="loading-animate">
+            <view class="loading1"></view>
+            <view class="loading2"></view>
+            <view class="loading3"></view>
+            <view class="loading4"></view>
+        </view>
+    </view>
+</template>

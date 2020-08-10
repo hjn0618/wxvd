@@ -1,0 +1,74 @@
+module.exports = ({
+    dealStoreFlag: (function(code, map) {
+        if (map != null) {
+            return (map[((nt_0 = (code), null == nt_0 ? undefined : 'number' === typeof nt_0 ? nt_0 : "" + nt_0))])
+        };
+        return ("")
+    }),
+    dealPrice: (function(price) {
+        return (Number)(price / 100).toFixed(1)
+    }),
+    splitstring: (function(name) {
+        return (name.split(','))
+    }),
+    setClassVo: (function(classVo) {
+        var newclassVo = [];
+        if (classVo.childClassList && classVo.childClassList.length > 0) {
+            newclassVo.push(({
+                'isHasChild': true,
+                'childClassList': classVo.childClassList,
+            }))
+        } else {
+            newclassVo.push(({
+                'childClassList': [classVo],
+            }))
+        };
+        return (newclassVo)
+    }),
+    minPrice: (function(t, p) {
+        var total = t - p;
+        return (isNaN(total) ? '' : total.toFixed(1))
+    }),
+    payDesc: (function(str) {
+        if (str) {
+            return (str.replace('+', ' + '))
+        }
+    }),
+    isQzCard: (function(str) {
+        if (str) {
+            return (str.indexOf('亲子卡') > -1)
+        } else {
+            return (false)
+        }
+    }),
+    repBBN: (function(str) {
+        if (str) {
+            return (str.replace('BBN', ''))
+        }
+    }),
+    yellowbarH: (function(vgoldbar, smallYellowStripVo, primeVo, smallYellowTitleVo) {
+        var yh = (smallYellowStripVo && (smallYellowStripVo.smallYellowStripSwitch || (primeVo && primeVo.__provincialAmount__)));
+        var wh = (smallYellowTitleVo && smallYellowTitleVo.smallYellowStripSwitch);
+        return (vgoldbar && yh && wh ? 105 : (vgoldbar && yh && !wh || vgoldbar && !yh && wh || !vgoldbar && yh && wh) ? 85 : (vgoldbar || yh || wh) ? 65 : 45)
+    }),
+    checkOrderHasLuckbag: (function(items, type) {
+        var orderItems = items;
+        var flag = false;
+        for (var i = 0; i < orderItems.length; i++) {
+            if (orderItems[((nt_1 = (i), null == nt_1 ? undefined : 'number' === typeof nt_1 ? nt_1 : "" + nt_1))].specialProductFlag && (type ? orderItems[((nt_2 = (i), null == nt_2 ? undefined : 'number' === typeof nt_2 ? nt_2 : "" + nt_2))].specialProductFlag === type : orderItems[((nt_3 = (i), null == nt_3 ? undefined : 'number' === typeof nt_3 ? nt_3 : "" + nt_3))].specialProductFlag === '21' || orderItems[((nt_4 = (i), null == nt_4 ? undefined : 'number' === typeof nt_4 ? nt_4 : "" + nt_4))].specialProductFlag === '22')) {
+                flag = true;
+                break
+            } else {
+                flag = false
+            }
+        };
+        return (flag)
+    }),
+    checkHasLuckbag: (function(orderItem, type) {
+        if (orderItem.specialProductFlag && (type ? orderItem.specialProductFlag === type : orderItem.specialProductFlag === '21' || orderItem.specialProductFlag === '22')) {
+            return (true)
+        } else {
+            return (false)
+        }
+    }),
+});

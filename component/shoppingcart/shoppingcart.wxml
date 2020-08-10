@@ -1,0 +1,107 @@
+<template name="shoppingcart">
+    <import src="../styleTemplate/template.wxml"></import>
+    <block wx:if="{{!sc}}">
+        <view class="shopping-cart-outer {{newShoppingCartStyle?'new-shopping-cart-outer':''}}">
+            <view catchtap="toggleShoppingCart" class="shopping-cart-icon {{newShoppingCartStyle?'new-shopping-cart-icon':''}}" data-type="0">
+                <text class="shopping-cart-num {{newShoppingCartStyle?'new-shopping-cart-num':''}}">{{order.__total__}}</text>
+            </view>
+            <label catchtap="toggleShoppingCart" class="shopping-cart-price {{newShoppingCartStyle?'new-shopping-cart-price':''}}" data-type="0">
+                <text class="shopping-cart-price-icon {{newShoppingCartStyle?'new-shopping-cart-price-icon':''}}">￥</text>
+                <text>{{order.__totalPrice__}}</text>
+            </label>
+            <view catchtap="confirmOrder" class="shopping-cart-right {{newShoppingCartStyle?'new-shopping-cart-right':''}} ">
+                <view>
+                    <view>选好了</view>
+                    <view class="eng">Order</view>
+                </view>
+            </view>
+        </view>
+        <view catchtap="toggleShoppingCart" class="ui-opacity" wx:if="{{arrowup}}"></view>
+        <view class="shopping-cart-fixed {{arrowup?'shopping-cart-fixed-up':''}}">
+            <view class="shopping-cart-fixed-discount" style="margin-top:{{smallYellowStripVo&&(smallYellowStripVo.smallYellowStripSwitch||order.primeVo&&order.primeVo.__provincialAmount__)&&vgoldYellowbar?'-120':smallYellowStripVo&&(smallYellowStripVo.smallYellowStripSwitch||order.primeVo&&order.primeVo.__provincialAmount__)||vgoldYellowbar?'-80':'-40'}}rpx" wx:if="{{smallYellowTitleVo&&smallYellowTitleVo.smallYellowStripSwitch}}">
+                <text class="yellowlabel">{{smallYellowTitleVo.stripTemplate}}</text>
+                <text>{{smallYellowTitleVo.stripTemplate2}}</text>
+            </view>
+            <view class="shopping-cart-fixed-discount" style="margin-top:{{smallYellowTitleVo&&smallYellowTitleVo.smallYellowStripSwitch?'':smallYellowStripVo&&(smallYellowStripVo.smallYellowStripSwitch||order.primeVo&&order.primeVo.__provincialAmount__)?'-80':'-40'}}rpx" wx:if="{{vgoldYellowbar&&vgoldYellowbar.length>0}}">
+                <text class="yellowlabel">周二</text>
+                <block wx:for="{{vgoldYellowbar}}" wx:for-index="i" wx:for-item="vgold" wx:key="i">
+                    <text>{{vgold}}</text>
+                    <image class="yellowlabel_ima" wx:if="{{vgoldYellowbar.length!=i+1}}"></image>
+                </block>
+            </view>
+            <view class="shopping-cart-fixed-discount" style="{{vgoldYellowbar||smallYellowTitleVo&&smallYellowTitleVo.smallYellowStripSwitch?'':'margin-top:-40rpx'}}" wx:if="{{smallYellowStripVo&&smallYellowStripVo.smallYellowStripSwitch}}">
+                <text class="yellowlabel">满赠</text>
+                <text wx:if="{{order.total-smallYellowStripVo.stripAmountThreshold>=0}}">{{smallYellowStripVo.__stripTemplate}}</text>
+                <text wx:else>{{smallYellowStripVo.__stripTemplate}}</text>
+            </view>
+            <view class="shopping-cart-fixed-discount" style="{{vgoldYellowbar||smallYellowTitleVo&&smallYellowTitleVo.smallYellowStripSwitch?'':'margin-top:-40rpx'}}" wx:if="{{smallYellowStripVo&&!smallYellowStripVo.smallYellowStripSwitch&&order.primeVo&&order.primeVo.__provincialAmount__}}">
+                <text class="yellowlabel">优惠</text>已省{{order.primeVo.__provincialAmount__}}元</view>
+            <view class="lucky-bag-count-down-tip" wx:if="{{luckyBagDelaySwitch.luckyBagOrDelaySwitch&&tools.checkOrderHasLuckbag(order.items)}}">
+                <view class="lucky-bag-count-down-tip-content">
+                    <template is="styleTemplate" data="{{styleTemplateContents:styleTemplateContents}}"></template>
+                </view>
+            </view>
+            <view class="shopping-cart-items" style="max-height:{{height/2}}rpx;">
+                <view bindtouchmove="dragMove" bindtouchstart="dragStart" class="shopping-cart-item" id="{{orderItem.id}}" wx:if="{{orderItem.show}}" wx:for="{{order.items}}" wx:for-index="orderItemIndex" wx:for-item="orderItem" wx:key="orderItemIndex">
+                    <view class="shopping-cart-item-left" style="margin-left : {{orderItem.__left__?orderItem.__left__:0}}">
+                        <view class="order-info">
+                            <view class="shopping-cart-item-v">
+                                <view class="shopping-cart-item-1">
+                                    <view class="shopping-cart-item-v1">
+                                        <image class="icon-lucky-bag" src="{{luckyBagUrl}}" wx:if="{{luckyBagDelaySwitch.luckyBagOrDelaySwitch&&tools.checkHasLuckbag(orderItem)}}"></image>
+                                        <text class="shopping-cart-item-1-1">
+                                            <text class="product-hui" wx:if="{{!orderItem.primeCardName&&!( luckyBagDelaySwitch.luckyBagOrDelaySwitch&&tools.checkHasLuckbag(orderItem) )&&(orderItem.promotionType==1||orderitemsVo.promotionType==2||orderitemsVo.promotionType==3)}}">惠</text>{{orderItem.__nameCN__}}</text>
+                                        <block wx:if="{{orderItem.mealFlag||orderItem.condimentItems.length>0||orderItem.specialProductFlag==='68'||orderItem.specialProductFlag==='69'}}">
+                                            <view catchtap="showMealItems" class="shopping-cart-item-4" data-id="{{orderItem.id}}" wx:if="{{orderItem.__showMealItems__}}">收起</view>
+                                            <view catchtap="showMealItems" class="shopping-cart-item-4" data-id="{{orderItem.id}}" wx:else>详情</view>
+                                        </block>
+                                    </view>
+                                    <view class="shopping-cart-item-v1">
+                                        <view class="shopping-cart-prime" wx:if="{{orderItem.primeCardName}}">{{orderItem.primeCardName}}</view>
+                                        <view class="shopping-cart-item-v2" wx:if="{{orderItem.specialNeeds&&orderItem.specialNeeds.length>0||orderItem.menuFlag=='G'}}">
+                                            <text wx:for="{{orderItem.specialNeeds}}" wx:for-index="specialIndex" wx:for-item="specialNeedsItem" wx:key="specialIndex">{{specialNeedsItem.laberName}} </text>
+                                        </view>
+                                    </view>
+                                    <view class="couponMsg" wx:if="{{orderItem.couponMsg}}">{{orderItem.couponMsg}}</view>
+                                </view>
+                                <label class="shopping-cart-item-3">
+                                    <text class="shopping-cart-item-3-1" wx:if="{{orderItem.__originPrice__&&!tools.isQzCard(orderItem.primeCardName)}}">￥{{orderItem.__originPrice__}}</text>
+                                    <text class="shopping-cart-item-3-2">￥{{orderItem.__price__}}</text>
+                                </label>
+                            </view>
+                            <view class="shopping-cart-item-2">
+                                <view class="icon-reduce-sc icon-reduce-sc-disabled" wx:if="{{!orderItem.couponMsg&&tools.isQzCard(orderItem.primeCardName)}}"></view>
+                                <view catchtap="minusProductSc" class="icon-reduce-sc" data-itemid="{{orderItem.id}}" wx:else></view>
+                                <text class="num-sc {{orderItem.couponMsg?'specialRed':''}}">{{orderItem.quantity}}</text>
+                                <view catchtap="addProductSc" class="icon-plus-sc {{orderItem.__disablePlus__||orderItem.__disabled__==1&&!orderItem.__fixCondiment__||orderItem.promotionType&&orderItem.itemType!=7&&orderItem.itemType!=8&&orderItem.itemType!=9?'icon-plus-sc-disabled':''}}" data-itemid="{{orderItem.id}}"></view>
+                            </view>
+                        </view>
+                        <view class="{{orderItem.specialProductFlag==='68'||orderItem.specialProductFlag==='69'?'meal-info-kafei':'meal-info'}}" wx:if="{{orderItem.__showMealItems__}}">
+                            <text decode="{{true}}" wx:for="{{orderItem.__mealItems__}}" wx:key="index">{{item}}&nbsp;</text>
+                        </view>
+                    </view>
+                    <view class="shopping-cart-item-right" style="background:#e7e7e7;display: {{orderItem.__left__?'block;':'none;'}}" wx:if="{{!orderItem.couponMsg&&tools.isQzCard(orderItem.primeCardName)}}">
+                        <text>删除</text>
+                    </view>
+                    <view catchtap="removeProduct" class="shopping-cart-item-right" data-itemid="{{orderItem.id}}" style="display: {{orderItem.__left__?'block;':'none;'}}" wx:else>
+                        <text>删除</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <view class="shopping-cart-outer {{newShoppingCartStyle?'new-shopping-cart-outer':''}}" wx:else>
+        <label class="shopping-cart-price {{newShoppingCartStyle?'new-shopping-cart-price':''}}">
+            <text class="shopping-cart-price-icon {{newShoppingCartStyle?'new-shopping-cart-price-icon':''}}">￥</text>
+            <text>{{donate>0?donate:order.__totalPrice__}}</text>
+            <text class="shopping-cart-price-tip" wx:if="{{order.primeVo&&order.primeVo.__provincialAmount__}}">已省{{order.primeVo.__provincialAmount__}}元</text>
+        </label>
+        <view catchtap="submitOrder" class="shopping-cart-right {{newShoppingCartStyle?'new-shopping-cart-right':''}}">
+            <view>
+                <view>{{newShoppingCartStyle?'立即支付':'去支付'}}</view>
+                <view class="eng">Checkout</view>
+            </view>
+        </view>
+    </view>
+</template>
+<wxs module="tools" src="../../comm/wxs/tools.wxs" />

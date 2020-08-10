@@ -1,0 +1,50 @@
+<view class="plate-bg" style="pointer-events: none">
+    <view class="{{isMove?'plate-container':'plate-container move-left'}}" style="pointer-events: auto">
+        <view class="sure-button">
+            <view catchtap="plateSureButonClick" style="margin-right: 24rpx;">确定</view>
+        </view>
+        <view class="plate-row plate-row-top">
+            <view catchtap="plateTitleTap" class="plate-title" data-plate="{{item}}" hoverClass="plate-title-hover" wx:for="{{plateList1}}" wx:key="index">{{item}}
+      </view>
+        </view>
+        <view class="plate-row">
+            <view catchtap="plateTitleTap" class="plate-title" data-plate="{{item}}" hoverClass="plate-title-hover" wx:for="{{plateList2}}" wx:key="index">{{item}}
+      </view>
+        </view>
+        <view class="plate-row">
+            <view catchtap="plateTitleTap" class="plate-title" data-plate="{{item}}" hoverClass="plate-title-hover" wx:for="{{plateList3}}" wx:key="index">{{item}}
+      </view>
+        </view>
+        <view class="plate-row plate-row-bottom">
+            <view catchtap="plateTitleTap" class="plate-title" data-plate="{{item}}" hoverClass="plate-title-hover" wx:for="{{plateList4}}" wx:key="index">{{item}}
+      </view>
+        </view>
+    </view>
+    <view class="{{isMove?'plate-container-right':'plate-container-right move-left'}}" style="pointer-events: auto">
+        <view class="sure-button">
+            <view catchtap="licensePlateSureButonClick" style="margin-right: 24rpx;">确定</view>
+        </view>
+        <view class="plate-row plate-row-top">
+            <view catchtap="licensePlateTitleTap" class="plate-title" data-plate="{{item}}" hoverClass="plate-title-hover" wx:for="{{licensePlateNumList1}}" wx:key="index">{{item}}
+      </view>
+        </view>
+        <view class="plate-row">
+            <view catchtap="licensePlateTitleTap" class="plate-title  {{item=='I'?'plate-title-disable':''}}" data-plate="{{item}}" hoverClass="{{item=='I'?'plate-title-hover-i':'plate-title-hover'}}" wx:for="{{licensePlateNumList2}}" wx:key="index">{{item}}
+      </view>
+        </view>
+        <view class="plate-row">
+            <view catchtap="licensePlateTitleTap" class="plate-title" data-plate="{{item}}" hoverClass="plate-title-hover" wx:for="{{licensePlateNumList3}}" wx:key="index">{{item}}
+      </view>
+        </view>
+        <view class="plate-row plate-row-bottom">
+            <view catchtap="licensePlateTitleTap" class="plate-title" data-plate="{{item}}" hoverClass="plate-title-hover" wx:for="{{licensePlateNumList4}}" wx:key="index">
+                <view wx:if="{{item==='dele'}}">
+                    <image class="dele-image" src="https://imgorder.kfc.com.cn/mwos/Version/icon-plateNum-del.png"></image>
+                </view>
+                <view wx:else>
+          {{item}}
+        </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,5 @@
+<view class="restriction-quantity" wx:if="{{isluckyBagBreakfast}}">
+    <text class="restriction-quantity-text">剩余</text>
+    <text class="restriction-quantity-text restriction-quantity-quantity">{{item.restrictionQuantity-item.__quantity__}}</text>
+    <text class="restriction-quantity-text">件</text>
+</view>

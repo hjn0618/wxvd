@@ -1,0 +1,30 @@
+<return-app-button></return-app-button>
+<view style="height:{{navbarHeight}}px" wx:if="{{navbarHeight>0}}">
+    <view class="nav-header">
+        <view class="status-bar" style="height:{{statusBarHeight}}px"></view>
+        <view class="title-bar" style="height:{{navbarHeight-statusBarHeight}}px">
+            <view class="nav-back">
+                <view bindtap="_navback" class="ico-back" hidden="{{showBack=='1'}}"></view>
+            </view>
+            <view class="nav-title">
+                <block wx:if="{{isMenu}}">
+                    <image class="menuaddres1" src="{{imageResPath}}icon-location.png"></image>
+                    <view catchtap="menuBack" class="menutitle">
+                        <view>{{tools.splitstring(title)[0]}}</view>
+                        <view>{{tools.splitstring(title)[1]}}</view>
+                    </view>
+                    <view class="menuaddres2">▼</view>
+                </block>
+                <view class="deftitle" wx:else>{{title?title:deftitle}}</view>
+            </view>
+            <view class="nav-right">
+                <view catchtap="recommend" wx:if="{{hasRecommend}}">
+                    <image class="k-recommend {{showRecommend?'k-recommend-animation':''}}" src="{{imageResPath}}icon-recommend10.png"></image>
+                    <image class="k-recommend-fix" src="{{imageResPath}}wechatapp/icon-recommend02.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<slot></slot>
+<wxs module="tools" src="../../comm/wxs/tools.wxs" />

@@ -1,0 +1,88 @@
+.top-info-container {
+    display: flex;
+    width: 750rpx;
+    height: 74rpx;
+    background: #F5F5F5;
+}
+
+.top-info-container .top-info-swiper {
+    height: inherit;
+}
+
+.top-info-container .icon {
+    width: 84rpx;
+    height: 74rpx;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.top-info-container .icon .image {
+    width: 41rpx;
+    height: 37rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/Version/ico-notice_grey.png) no-repeat center center;
+    background-size: 100% 100%;
+}
+
+.top-info-container .top-info {
+    height: 74rpx;
+    flex: 1;
+}
+
+.top-info-container .close {
+    width: 52rpx;
+    height: 74rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.top-info-container .close .image {
+    width: 24rpx;
+    height: 24rpx;
+    position: relative;
+}
+
+.top-info-container .close .image::before {
+    content: "";
+    position: absolute;
+    height: 24rpx;
+    width: 1.5rpx;
+    background: rgba(0,0,0,0.5);
+    overflow: hidden;
+    padding: 0;
+    left: 12rpx;
+    transform: rotate(45deg);
+}
+
+.top-info-container .close .image::after {
+    content: "";
+    position: absolute;
+    height: 24rpx;
+    width: 1.5rpx;
+    background: rgba(0,0,0,0.5);
+    overflow: hidden;
+    padding: 0;
+    left: 12rpx;
+    transform: rotate(-45deg);
+}
+
+.top-info-container .top-info {
+    height: 74rpx;
+    flex: 1;
+    opacity: 0.5;
+    font-size: 12px;
+    color: #000000;
+    letter-spacing: 0;
+    margin-left: 10rpx;
+}
+
+.top-info-container .top-info .item {
+    height: 74rpx;
+    width: 100%;
+    line-height: 36rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    word-break: break-all;
+}

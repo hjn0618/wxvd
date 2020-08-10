@@ -1,0 +1,8 @@
+<view animation="{{animationFade}}" class="tooltip-wrapper" wx:if="{{isShow}}">
+    <view class="tooltip-content">
+        <text class="message">{{noChooseTip}}</text>
+        <view catchtap="close" class="close">
+            <view class="k-close"></view>
+        </view>
+    </view>
+</view>

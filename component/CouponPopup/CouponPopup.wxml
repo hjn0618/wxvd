@@ -1,0 +1,10 @@
+<view class="background" wx:if="{{showCouponPopup}}">
+    <view class="content-view">
+        <image class="main-image" mode="aspectFill" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1571306645852&di=c2ad4e7650e63883b2f8c954a5bc900c&imgtype=jpg&src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D4219048477%2C4189651248%26fm%3D214%26gp%3D0.jpg" wx:if="{{couponType==='0'}}"></image>
+        <image class="main-image" mode="aspectFill" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1571306828949&di=478308d1c0b45879092c487ec744fcbe&imgtype=0&src=http%3A%2F%2Fimgs.soufun.com%2Fnews%2F2015_09%2F17%2Fnews%2F1442462636380_000.jpg" wx:if="{{couponType==='1'}}"></image>
+        <image class="main-image" mode="aspectFill" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1571306871403&di=f9ff0db41f14460b9ae98fa6d3dd2061&imgtype=0&src=http%3A%2F%2Fresource.ccplay.cc%2Fmedia%2Fimages%2Ftopic%2F2017%2F05%2F20%2F1501-36-067%2F1.png" wx:if="{{couponType==='2'}}"></image>
+        <image catchtap="draw" class="draw-image" mode="aspectFill" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1571306580435&di=9e942486c78a6a570052245dbfb56613&imgtype=0&src=http%3A%2F%2Fossweb-img.qq.com%2Fimages%2Fchanpin%2Ftps%2Fpublic%2Fa20150202lucky%2Fbtn.jpg" wx:if="{{couponType==='0'}}"></image>
+    </view>
+    <image catchtap="close" class="colse-image" mode="aspectFill" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1571307192111&di=745b1e37fce1fd0508e02b0ee56b3ae6&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F00%2F29%2F47%2F2256d25bd2b4b27.jpg"></image>
+  {{couponType}}
+</view>

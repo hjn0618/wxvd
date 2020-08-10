@@ -1,0 +1,20 @@
+<template name="notice">
+    <view class="cf-wrapper" style="display:{{showNotice?'flex':'none'}}">
+        <view class="cf-bg"></view>
+        <view class="nt-container cf-container">
+            <view class="cf-container-inner">
+                <view class="nt-1">
+                    <view class="nt-1-title">{{noticeTitle}}</view>
+                    <view catchtap="noticeCancelTap" class="nt-1-1"></view>
+                </view>
+                <view class="nt-2">
+                    <text class="nt-t2">{{noticeContent}}</text>
+                </view>
+                <view class="cf-3">
+                    <view catchtap="noticeCancelTap" class="cf-v3" wx:if="{{noticeCancel}}">{{noticeCancel}}</view>
+                    <view catchtap="noticeConfirmTap" class="cf-v3 cf-v3-1">{{noticeConfirm}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

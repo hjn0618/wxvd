@@ -1,0 +1,89 @@
+.ico-back {
+    width: 50rpx;
+    height: 100%;
+    background: url("https://imgorder.kfc.com.cn/mwos/Version/icon-back.png") no-repeat right center;
+    background-size: 36rpx 36rpx;
+}
+
+.nav-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #D62F35;
+    z-index: 2;
+}
+
+.nav-title {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 32rpx;
+    color: white;
+}
+
+.deftitle {
+    margin: 0 auto;
+    max-width: 330rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.title-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-right,.nav-back {
+    width: 70rpx;
+    height: 100%;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-right>view {
+    position: relative;
+    right: 87pt;
+    top: 0;
+    height: 56rpx;
+}
+
+.menutitle>view {
+    max-width: 300rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.menutitle>view:last-child {
+    font-size: 20rpx;
+}
+
+.menuaddres1 {
+    height: 28rpx;
+    width: 26rpx;
+    margin-right: 6rpx;
+}
+
+.menuaddres2 {
+    font-size: 22rpx;
+    margin-left: 8rpx;
+}
+
+.k-recommend,.k-recommend-fix {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 56rpx;
+    height: 56rpx;
+}
+
+.k-recommend-animation {
+    transform: rotate(-50deg);
+    transition: transform .3s ease-out;
+    transition: transform .3s ease-out,-webkit-transform .3s ease-out;
+}

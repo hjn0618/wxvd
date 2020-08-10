@@ -1,0 +1,74 @@
+<scroll-view  style='height:100vh;width:100vw'scrollWithAnimation bindscrolltoupper="scrollUpper" scrollIntoView="{{targetId}}" scrollY="{{!showAuthorization}}" upperThreshold="{{userInfoHeight}}">
+<view class="shade" wx:if="{{auther}}">
+		</view>
+	<view class="home-container" >
+		
+		<view class="h-v1">
+		</view>
+		<view class="h-v2" id="banners">
+			<swiper autoplay="true" bindanimationfinish="" circular="true" class="h-v2-1" duration="500" indicatorActiveColor="#fff" indicatorColor="rgb(212, 203, 201)" indicatorDots="{{bannerVos.length>1}}" interval="3000" wx:if="{{bannerVos&&bannerVos.length>0}}">
+				<swiper-item wx:for="{{bannerVos}}" wx:for-index="bannerIndex" wx:for-item="bannerVo" wx:key="bannerIndex">
+					<image catchtap="bannerClick" class="home-image-bk" data-index="{{bannerIndex}}" data-title="{{bannerVo.titleCn}}" src="{{imageResPath}}{{bannerVo.imageUrl}}"></image>
+				</swiper-item>
+			</swiper>
+		</view>
+		<view class="h-v-new">
+			<view class="h-v1-1">
+				<view>{{wel}}
+					<block wx:if="{{userInfoReady}}">,
+						<block wx:if="{{nickName}}"> {{userInfo.nickName}}</block>
+						<open-data type="userNickName" wx:else></open-data>
+					</block>
+				</view>
+			</view>
+			<!-- <view wx:if="{{NearbyStore!==''}}">
+        <image class="icon-address" src="{{imageResPath}}wechatapp/icon-address.png"></image>附近门店：{{NearbyStore}} 约{{distance}}</view> -->
+		</view>
+		<view class="h-v3">
+			<view bindtap="preOrder" class="h-v3-1">
+				<image src="{{imageResPath}}icon-tableware.png"></image>
+				<view>
+					<view>开始点餐</view>
+					<view class="eng">Order Now</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="h-v4">
+			<view class="flex-wrp h-v4-new3">
+				<block wx:for="{{serviceBases}}" wx:for-index="idx" wx:for-item="serviceBase" wx:key="idx">
+					<view catchtap="pageNavTo" data-index="{{idx}}">
+						<view>
+							<image mode="aspectFit" src="{{imageResPath}}{{serviceBase.imageUrl}}"></image>
+						</view>
+						<text>{{serviceBase.titleCn}}</text>
+					</view>
+				</block>
+			</view>
+
+			<view class="flex-wrp h-v4-new2" wx:if="{{bannerVFIs.length>0}}">
+				<block wx:for="{{bannerVFIs}}" wx:for-index="idx" wx:for-item="bannerVFI" wx:key="idx">
+					<view bindtap="enterChickenshon" class="alignLeft" data-index="idx">
+						<image mode="aspectFit" src="{{imageResPath}}{{bannerVFI.imageUrl}}"></image>
+					</view>
+				</block>
+			</view>
+
+			<block wx:if="{{serviceMores.length>0}}">
+				<view class="more-service">更多服务</view>
+				<view class="flex-wrp h-v4-new4">
+					<block wx:for="{{serviceMores}}" wx:for-index="idx" wx:for-item="serviceMore" wx:key="idx">
+						<view bindtap="" data-index="idx">
+							<view>
+								<image mode="aspectFit" src="{{imageResPath}}{{serviceMore.imageUrl}}"></image>
+							</view>
+							<text>{{serviceMore.titleCn}}</text>
+						</view>
+					</block>
+
+				</view>
+			</block>
+		</view>
+
+	</view>
+</scroll-view>

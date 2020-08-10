@@ -1,0 +1,2765 @@
+@import "../../component/shoppingcart/shoppingcart.wxss";
+
+@import "../../component/notice/notice.wxss";
+
+@import "../../component/loadingText/loadingText.wxss";
+
+@import "../../component/Privacy/privacy.wxss";
+
+page {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+
+.settlement-container {
+    background-color: #F5F5F5;
+    flex: 1;
+    overflow: hidden;
+    overflow-y: auto;
+    font-family: "微软雅黑", "华文细黑", Arial, Helvetica, sans-serif;
+    height: initial;
+}
+
+.section-1 {
+    background-color: #fff;
+    margin: 20rpx 30rpx 0rpx 30rpx;
+    border-radius: 24rpx;
+    position: relative;
+
+}
+
+.promotion-count {
+    height: 76rpx;
+    line-height: 76rpx;
+    font-size: 28rpx;
+    color: #444;
+    font-weight: bold;
+    text-indent: 30rpx;
+    display: flex;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.promotion-count-icon {
+    height: 36rpx;
+    line-height: 38rpx;
+    min-width: 36rpx;
+    border-radius: 18rpx;
+    background-color: #ff7b0f;
+    color: #fff;
+    text-indent: 0;
+    text-align: center;
+    margin-top: 10rpx;
+    margin-left: 10rpx;
+    font-size: 20rpx;
+}
+
+.promotion-title {
+    margin: 0 30rpx;
+    padding-top: 24rpx;
+    line-height: 32rpx;
+    font-size: 24rpx;
+}
+
+.promotion-quantity-limitted {
+    font-size: 22rpx;
+    color: #808080;
+}
+
+.promotion-quantity-limittest {
+    width: 240rpx;
+    height: 16rpx;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAAAQCAYAAAAoEfIQAAAAAXNSR0IArs4c6QAAEL9JREFUaAXt2mWsLEW3BuA6cHB3h4O7u7u7W4CDuwVIgPAPAiEhQIIFCO7ubgd3d3d3d+b2U5fVqek9vfc+QPJ994aVzEx3dXV11ZJ3vat6hnQqSf3Is88+m2abbbY0xhhjtPZ677330lRTTZVGHXXUus93332XxhprrK62+uLfOPjqq6/SKKOMksYff/yRHuXbb79N4403Xp/7vvnmmzT66KOnMcccs8+1ZgN1vfLKK1knQ4YMaV7+R84/+OCDNPnkk6ehQ4d2jffTTz+l77//Pk0yySRd7c2T33//Pf3yyy9Z/641z5v9nRuXzaaYYoquy+5l3xlmmKGrve2EfSaccMK2y63t1jzppJNmO7R2qi588skn2faDsVV/4/x/uTb0xx9/TGeddVZaZ5110vTTT99nXc8880zSZ7HFFutzLRouv/zyNHz48C7DXXnllWnJJZdMs846a3Rr/X3uuefSm2++2XqdYY1FHnzwwRxoK664Yj6///77E+M3Zdppp63vce3jjz9O5557bjrggAMyAET/zz//PJ1++ulpsskmSzvuuGM0t/7++uuv6eKLL06HHHJIq7NZiyAfrAC65ZZbru5unjvttFN26LqxOnj99dfTY489lrbbbruyuev4008/TVdccUUaNmxYWmONNfK11157Ld14441pqaWWynYsgUfAEfN96aWX0nrrrZfP4wvoWe+uu+6amwC5+Tbljz/+SNddd13iL0sssURaddVVm11az+++++706KOPZnDdZptt0thjj93a1zOWWWaZNPvss+c+119/ffbP5g3zzjtvmmOOOZrNI33+xBNPJGsbSAAcH2qTG264od9xFl544TT11FOnd999N3344Ydtw9TtwH2hhRZKQxlj5ZVXTpdccklaf/310wQTTJCVGT057AMPPJCRL9ooj+JCIPcZZ5yRA2PcccdNO++8c55ErwUxABQNkUmBg4xDZLjbbrstLb/88nXW7y/bWrCMNPPMM8eQ6dVXX82KiKB3gSEsWPYO8ayrrroqrb766unFF19MDz30UHa+uP5XfwHKO++8k+aZZ54BhxBATz31VFcAD3hTo4N1AI3nn38+B6HgWWCBBepe7IUh3XzzzXmNnIUuBIpgJz/8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) no-repeat right center;
+    background-size: 240rpx 16rpx;
+}
+
+.promotion-swiper {
+    width: 100%;
+}
+
+.promotion-swiper-item {
+    display: flex;
+}
+
+.promotion-swiper-item-new {
+    display: flex;
+    width: 50% !important;
+}
+
+.promotion-swiper-item-1 {
+    width: 100%;
+    display: flex;
+}
+
+.promotion-item-img {
+    width: 179rpx;
+    height: 125rpx;
+    margin: 42rpx 0 0 30rpx;
+}
+
+.promotion-section-1 {
+    display: flex;
+    align-items: center;
+    margin: 20rpx 24rpx;
+    justify-content: space-between;
+}
+
+.icon-lucky-bag {
+    display: block;
+    width: 72rpx;
+    height: 48rpx;
+    margin: 5rpx 10rpx 0 0rpx;
+}
+
+.promotion-name {
+    font-size: 28rpx;
+    max-width: 340rpx;
+    color: #404040;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.product-prime {
+    min-width: 72rpx;
+    height: 32rpx;
+    margin-right: 16rpx;
+    line-height: 32rpx;
+    border-radius: 16rpx;
+    background: linear-gradient(90deg, #FEF1CB 0%, #ECD494 100%);
+    font-size: 16rpx;
+    color: #4E3522;
+    text-align: center;
+}
+
+.product-hui {
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 16rpx;
+    line-height: 32rpx;
+    border-radius: 8rpx;
+    background: #FAAC2A;
+    font-size: 20rpx;
+    color: #fff;
+    text-align: center;
+}
+
+.promotion-price {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    font-size: 28rpx;
+    color: #404040;
+    text-align: right;
+    width: 150rpx;
+}
+
+.prime-discount-price {
+    font-size: 24rpx;
+    color: #AAA;
+    text-decoration: line-through;
+    margin-right: 17rpx;
+}
+
+.promotion-price-1 {
+    flex: 1;
+    color: #ff0303;
+}
+
+.icon-plus-new {
+    width: 50rpx;
+    height: 50rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-plus.png) no-repeat right center;
+    background-size: 50rpx 50rpx;
+}
+
+.wx-swiper-dot-active::before,
+.wx-swiper-dot::before {
+    display: none;
+}
+
+.wx-swiper-dot {
+    width: 30rpx !important;
+    height: 15rpx !important;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-swiper.png) no-repeat center center;
+    background-size: 11rpx 11rpx;
+}
+
+.wx-swiper-dot-active {
+    width: 30rpx !important;
+    height: 15rpx !important;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-swiper-on.png) no-repeat center center;
+    background-size: 14rpx 15rpx;
+}
+
+.section-2 {
+    padding: 0 30rpx;
+    margin: 20rpx 30rpx 0rpx 30rpx;
+    border-radius: 24rpx;
+    padding-top: 12rpx;
+    background-color: #fff;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-2-title {
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #444;
+}
+
+.section-2-1 {
+    display: flex;
+    padding: 20rpx 0;
+}
+
+.section-2-1-l {
+    display: flex;
+    height: 80rpx;
+    flex-direction: row;
+    flex: 1;
+    align-content: center;
+    justify-content: center;
+    border-top: 1px solid #e0dede;
+    border-left: 1px solid #e0dede;
+    border-bottom: 1px solid #e0dede;
+    border-radius: 10rpx 0 0 10rpx;
+}
+
+.section-2-1-r {
+    display: flex;
+    position: relative;
+    height: 80rpx;
+    flex-direction: row;
+    flex: 1;
+    align-content: center;
+    justify-content: center;
+    border-top: 1px solid #e0dede;
+    border-right: 1px solid #e0dede;
+    border-bottom: 1px solid #e0dede;
+    border-radius: 0 10rpx 10rpx 0;
+}
+
+.section-2-1-l-1 {
+    width: 60rpx;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAArCAMAAAD12NAnAAAAe1BMVEUAAABmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmY+mZAPAAAAKHRSTlMAoODR7HBQYK8P+Nu5OvHpQCYKxaaVL4Ec48BlIBUEjoVtzHhXSn2yhcIbzQAAAddJREFUSMed1duWqjAQBNAGIkiCIDcFERFvU///hUd4GTom4Tj7TV1lhK5Geou3sFF7cvFQemaVTAtXUvlkc8TOlUzwisw6hcaVPGSwupNT4ckxNGizM63YwHgPs5LWPPAgA5msJnd4xZ8aVKvJK8zUZS15gmfCZmK2henL8wDKXwq2Y//Rv550TQWgDZYyQA6Fdp35x00TKEO9tH2nELAZ3z/qeZAyIoPLFf7y93V4aq3y5d7amoQ1IdJ35EU2P8tj9tjw35Rl9r3Ml4cecNQ6NZBdieJ3AqjZZyNCYqzrXqDSpnRwJDuE1q0Y4FrMaJnMbtqZO9c2L5NKaXdI+nYyXXShFMTUUIGNgsemq1+KXiHbCGsETPvfyUbxCxNIdvP7Q5mMxdSqLinrfA5u+aO05nNoBPBzyI+YZOH52WIy5HkFpGwlX9oc9sjwlj4ucY2J119CgTcxz0TfM7YDz9rr5oKej9V1PqaIvDqMtGSISE86GsRnf2cvawRbsxvqnC/dwE50SmP6FaNizbxv7Cq+STJx/ENxR55sb+y5NFyswbhEM9/yRKQTfEGmIjlTidtp4gtGvgmzTJ1ON5SEhP4iASnR0/d6oahDVnnfqlqMRGOL77Ub+geqUExcstXqbAAAAABJRU5ErkJggg==) no-repeat center center;
+    background-size: 60rpx auto;
+}
+
+.section-2-1-r-1 {
+    width: 60rpx;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAABDBJREFUSA2lVdtvlEUUPzPft/fucmt3FbCptlSqBlutUBRj0cqLMSER/wgffPGBGDEmaDQ+eyHRNxONiRgvb5rWB5UHJGCxL4ZaQiUBpJftlu7y7XeZGX9nvv0W1zaYyNnMN2fOmfmdM+cyKwg0N3ZgUjX9CebvlJxsZmrg9KlnGcflDwMPTp9hdkPSShFdOElkDOn+w6S1JnzIaIWhyclkKZXL27OzI3vbTlpwtsbCzEcfkpdObWhg9/yX8eFwaEN9rumT/9LLJDOZyWSDBedrzD359IVNle7BouMkus55Pl6Wu7d2ylsrGSpaLpV+H/jph0PJBgvOC+MHlWJxEzlb1x82BmE4Gx8p9ZRtSDSHRCE00EkHMDfWaDHwKwkwz5I/l8bHs0ZFhY2AWS/w0/cfIT34Ai/bJIQAL6wBt7ubTBCWzPh422HL6Jp3j7Nti4edxfbJfzCGIQZftMkjeEwtUNwXGgwDA7DjlIrN+WZ9J4TzGLHnlEv3upUyTt2GcNgaAbBB1VgCz95zxfBwe3oiYTL3Jih8L5odeWxOFrr60rsGHFnIk8wXiGeRSpGQkgyGcGwESdUbpBt10nZm/qaVGc8js3YDtWrIlXL4vl9/mXER781BrdGv6nXyps8nRv/vbJ3VJLheZ1zEu+ffSLJQoLveeZNWPvmU8vv3caIoWlqiroNP2a21zz4nt1ym/Ng+u/7r2BsdEKigPha4xhVlijp05GzZTIUnHqfo+oINzfW336XKsVeRsBItvX+CcntHKT/8MF09+ho3TedhrJARG3eptEbhdhJ75M/+QV3PHLQeUxRZL23YkMDcnj1WrldXKVpY6DzMK9MCR747w4LkZR96kBo//kxXXzlK2QeGKPvICEWLi7T2/SR5Z8/R0nsfoNm20c6PT1Dp+efWgcPzPhYKVMrrqKy31u24AwGy6u+aPpNzJTnnlDRRfvRRlxsEzwASGJD2fTvHa/CQ6zCMyzOdJpHNgMeMh84OxJ7X/m8zCn3wBR0/biuHZkf3e9rzILs9qSgyKgxM5DdNcLNhgkbd+Kjt5mrNeLWqCapVw1jJpePOMMYhxPq/KH5LbnVqvB8RRgbhFvofGIzVIvu2QCEatRVcyyXHTdkhwUs2KNCdqJBbBB5A/BoqFZFCqDSqSYP30Z2g9mYLDlBPh0FR4JBGw4Ss5n2tbRYcBtg7w/9KrGZPeTDPoMKQiNCbjtuwQnxicClXhNJFkWlFCYorE4ftnh1T31g7yXr75FcW9NqhI1Z/93cncTk2jMcLN8AbtGIV+Fhw3L/qff3t9tTQbpffdIFOTAhG7eFkLdlhyNpUrRE3k1quUnTxUmSEWE509uIXxw5MIHbDcHEHpdxeIZ1eQPTAnSxpysKrDAIc/7k6TghPAySiaYehRYTlMkXhnwjjFSeVOt9/+tQUG/gbUCgFFgqe2CAAAAAASUVORK5CYII=) no-repeat center center;
+    background-size: 50rpx auto;
+}
+
+.section-2-1-l-icon {
+    width: 70rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-settle-t.svg) no-repeat center center;
+    background-size: 70rpx auto;
+}
+
+.section-2-1-l-icon-disable {
+    width: 70rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/Version/wechatapp/icon-settle-t-disable.png) no-repeat center center;
+    background-size: 70rpx auto;
+}
+
+.section-2-1-r-icon {
+    width: 66rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-settle-w.svg) no-repeat center center;
+    background-size: 66rpx auto;
+}
+
+.section-2-1-l-border {
+    border: 1.2px solid #d62f35;
+    border-radius: 4px 0 0 4px;
+    background: #FCF0F1 url(https://imgorder.kfc.com.cn/mwos/Version/package-selected-red.png) no-repeat right bottom;
+    background-size: 52rpx auto;
+}
+
+.section-2-1-r-border {
+    border: 1.2px solid #d62f35;
+    border-radius: 0 4px 4px 0;
+    background: #FCF0F1 url(https://imgorder.kfc.com.cn/mwos/Version/package-selected-red.png) no-repeat right bottom;
+    background-size: 52rpx auto;
+}
+
+.section-2-1-r-label {
+    position: absolute;
+    right: -1.2px;
+    top: -8rpx;
+    width: 246rpx;
+    height: 32rpx;
+    display: flex;
+    justify-content: flex-end;
+    background: url(https://imgorder.kfc.com.cn/mwos/Version/package-tip-small.png) no-repeat right top;
+    background-size: 246rpx 32rpx;
+}
+
+.section-3-b {
+    height: 116rpx;
+    padding: 0 30rpx;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    line-height: 116rpx;
+    align-items: center;
+    font-size: 28rpx;
+}
+
+.section-3 {
+    height: 116rpx;
+    padding: 0 30rpx;
+    border-bottom: 1px solid #f1f1f1;
+    margin-top: 20rpx;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    line-height: 116rpx;
+    align-items: center;
+    font-size: 28rpx;
+    margin: 20rpx 30rpx 0rpx 30rpx;
+    border-radius: 24rpx;
+}
+
+.section-3-t {
+    margin-top: 20rpx;
+    height: 88rpx;
+    padding: 0 30rpx;
+    border-bottom: 1px solid #f1f1f1;
+    background-color: #fff;
+    line-height: 88rpx;
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #444;
+}
+
+.phonelist {
+    height: 100rpx;
+    border-bottom: 1px solid #e0dede;
+    display: flex;
+    justify-content: space-between;
+    line-height: 100rpx;
+    align-items: center;
+    font-size: 28rpx;
+}
+
+.section-3-1 {
+    color: #808080;
+}
+
+.section-3-2 {
+    display: flex;
+    height: 100%;
+}
+
+.section-3-2-2 {
+    padding: 0 20rpx;
+}
+
+.section-3-2-3 {
+    width: 24rpx;
+    height: 100%;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-arrow-down.png) no-repeat center center;
+    background-size: 24rpx 14rpx;
+}
+
+.section-3-2-3-up {
+    width: 24rpx;
+    height: 100%;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-arrow-up.png) no-repeat center center;
+    background-size: 24rpx 14rpx;
+}
+
+.section-3-3 {
+    width: 199rpx;
+    height: 100%;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-wechat-pay.png) no-repeat center center;
+    background-size: 199rpx 49rpx;
+}
+
+.section-3-3-image {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.section-3-4 {
+    font-size: 27rpx;
+    color: #808080;
+}
+
+.section-3-5 {
+    display: flex;
+    font-size: 27rpx;
+    height: 100rpx;
+    color: #e32d39;
+}
+
+.section-4 {
+    height: 116rpx;
+    padding: 0 30rpx;
+    margin: 20rpx 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon-checked {
+    width: 54rpx;
+    height: 54rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-checked.png) no-repeat center center;
+    background-size: 54rpx 54rpx;
+    margin: 0 45rpx 0 10rpx;
+}
+
+.icon-unchecked {
+    width: 54rpx;
+    height: 54rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-unchecked.png) no-repeat center center;
+    background-size: 54rpx 54rpx;
+    margin: 0 45rpx 0 10rpx;
+}
+
+.section-5 {
+    display: flex;
+    flex-direction: column;
+    padding: 0 30rpx;
+    font-size: 26rpx;
+    background-color: #fff;
+}
+
+.productfont {
+    font-size: 26rpx;
+}
+
+.section-5-1 {
+    margin-top: 30rpx;
+    color: #808080;
+}
+
+.icon-reduce {
+    width: 70rpx;
+    height: 70rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-reduce.png) no-repeat center center;
+    background-size: 70rpx 70rpx;
+}
+
+.icon-plus {
+    width: 60rpx;
+    height: 60rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-plus.png) no-repeat center center;
+    background-size: 60rpx 60rpx;
+}
+
+.icon-plus-disabled {
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-plus-disabled.png) no-repeat center center;
+    background-size: 70rpx 70rpx;
+}
+
+.num {
+    height: 70rpx;
+    line-height: 70rpx;
+    padding-left: 19rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #808080;
+}
+
+.hide {
+    max-height: 0;
+    display: none;
+}
+
+.show {
+    display: block;
+    transform: scaleY(1);
+    max-height: initial;
+}
+
+.section-5-2-input {
+    border: 1rpx solid #999;
+    border-radius: 10rpx;
+    height: 65rpx;
+    line-height: 65rpx;
+    margin: 10rpx 0 35rpx 0;
+    padding: 0 30rpx;
+    background-color: #f7f6f6;
+    color: #bebcbc;
+    font-size: 27rpx;
+}
+
+.section-5-2 {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10rpx 0 30rpx;
+}
+
+.section-5-2-item {
+    border: 1rpx solid #cbcaca;
+    border-radius: 6rpx;
+    padding: 12rpx 18rpx;
+    margin: 12rpx 18rpx;
+    white-space: nowrap;
+    color: #d3d2d2;
+}
+
+.section-5-2-item-on {
+    border: 1px solid #bf2a2f;
+    color: #bf2a2f;
+}
+
+.section-1-unfolding {
+    height: 50rpx;
+    line-height: 50rpx;
+    margin: 0 35rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: #808080;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-1-unfolding-1 {
+    height: 70rpx;
+    line-height: 70rpx;
+    margin: 0 35rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: #8a8a8a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jiantou-down {
+    width: 24rpx;
+    height: 24rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-arrow-down.png) no-repeat center center;
+    background-size: 24rpx 14rpx;
+    margin-left: 10rpx;
+}
+
+.jiantou-up {
+    width: 24rpx;
+    height: 24rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-arrow-up.png) no-repeat center center;
+    background-size: 24rpx 14rpx;
+    margin-left: 10rpx;
+}
+
+.section-6 {
+    padding: 10rpx 30rpx;
+    font-size: 27rpx;
+    background-color: #fff;
+}
+
+.section-v1 {
+    align-items: center;
+    height: 70rpx;
+    display: flex;
+}
+
+.section-v1-1 {
+    width: 70rpx;
+    height: 100%;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-phone.png) no-repeat center center;
+    background-size: 28rpx 40rpx;
+    border-right: 1rpx solid #bbb;
+}
+
+.section-v2 {
+    padding: 10rpx 30rpx;
+    font-size: 27rpx;
+    background-color: #fff;
+}
+
+.section-v2-1 {
+    margin-top: 30rpx;
+    color: #808080;
+}
+
+.section-v2-2 {
+    margin-bottom: 0;
+}
+
+.section-v3 {
+    color: #d93035;
+    margin-top: 0;
+}
+
+.section-v3-click {
+    display: none;
+}
+
+.section-v4 {
+    height: 60rpx;
+    padding: 20rpx 30rpx;
+    border-bottom: 1px solid #e0dede;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 28rpx;
+}
+
+.section-v4-1 {
+    flex: 1;
+    border: 1px solid #a0a0a0;
+    margin-right: 30rpx;
+    height: 60rpx;
+    display: flex;
+    border-radius: 10rpx;
+    align-items: center;
+}
+
+.section-v4-2 {
+    background: #d93035;
+    color: #fff;
+    width: 180rpx;
+    text-align: center;
+    border-radius: 10rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+}
+
+.section-v1-2 {
+    width: 200rpx;
+    text-align: right;
+    font-size: 28rpx;
+}
+
+.section-v1-3 {
+    width: 170rpx;
+    text-align: right;
+    height: 70rpx;
+    font-size: 28rpx;
+}
+
+.section-v11::after {
+    width: 40rpx;
+    height: 40rpx;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAB1UlEQVRIS7XWP0/CQBgG8OctmshAdDIxAXUXEhJjBBcd/AB8A3VxZnVlcjHGmUG+gSRG4+DQzaKDGmriSARdiVEXgb7mxCqUUs7j2rF/7pfn7t73SgjpekmtLrdB+2C+mLcrB16GwnCfk9k1h/gSoGh3fGcvUa3s91ra4XoyswHC+R/6w7GTT9iVIxfXCgvUAH32p+3J6fBu4sEqijva4EYqs82gYwaXIkxFX5yZARTitlXQAruomy0Q/1nzsWEvKoMz8+lY8DB0BN4GsKkMj0KH4JPEnVzcvj5TgmVRL94hzM5Xr8pKu/q/qEAY/DrZQnru0aop1bEqajidjfjDzZ1S59KJSk+1blQKDgMdCYeFBsJhokPhsFFfuLmYnnmLTdUINC37kyDq1K9kgr7v61wC/YhN5eB07hwjYsrgKuhA4qdUNkfACYF3ZHBV1AfOlAi01X0QjI+DDsD1ZLYGwsJfP/XHx0X74MbSSpqNiVvvhvAm14F64GyeDRz67UQXZ5ooE7dz3oYvu/t9D4l6MmOCaH3YIAKPV62SCuIfBoAoo/dYtDnwAvM9QCbA5YRtmbrQ36l2y0isn4AMcDnSgtl7cOtEf+Hvv38AulNJdy7dqYLG+wKJ8FFuh+HquQAAAABJRU5ErkJggg==) no-repeat center center;
+    background-size: 30rpx 30rpx;
+    content: "";
+}
+
+.section-v5 {
+    margin-top: 0;
+}
+
+.section-t1 {
+    width: 40rpx;
+    text-align: center;
+    color: #d93035;
+}
+
+.section-movetext {
+    font-size: 28rpx;
+    text-align: center;
+    color: #808080;
+    line-height: 80rpx;
+    margin-left: 12rpx;
+}
+
+.section-movetext-click {
+    font-size: 28rpx;
+    text-align: center;
+    color: #d93035;
+    line-height: 80rpx;
+    margin-left: 12rpx;
+}
+
+.phonelist-right {
+    background: #e02d3f;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    width: 150rpx;
+    text-align: center;
+}
+
+.phonelist-left {
+    width: 100%;
+    display: flex;
+    text-indent: 30rpx;
+    background: #fff url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-unchecked.png) no-repeat center right;
+    background-size: 40rpx 40rpx;
+    background-position: 690rpx 30rpx;
+}
+
+.phonelist-left-choose {
+    width: 100%;
+    display: flex;
+    text-indent: 30rpx;
+    background: #fff url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-checked.png) no-repeat center right;
+    background-size: 40rpx 40rpx;
+    background-position: 690rpx 30rpx;
+}
+
+.promotion-num {
+    color: #d93035;
+    font-size: 36rpx;
+}
+
+.promotion-orgPrice {
+    text-decoration: line-through;
+    font-size: 24rpx;
+    color: #AAAAAA;
+    margin: 6rpx 10rpx 0 0;
+}
+
+.pro-suggest {
+    color: #ff0505;
+    margin-left: 20rpx;
+    font-size: 18rpx;
+}
+
+.section-1-allpart {
+    flex: 1;
+    display: flex;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.address-part {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #FFF;
+    height: 140rpx;
+    padding-top: 8rpx;
+}
+
+.address-part-1{
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    height: 120rpx;
+}
+
+.address-icon-1 {
+    width: 20%;
+    height: 100%;
+    background: url(https://imgorder.kfc.com.cn/mwos/Version/wechatapp/icon-zjs.png) no-repeat center center;
+    background-size: 180rpx 124rpx;
+}
+
+.address-icon-2 {
+    width: 15%;
+    height: 100%;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-arrow-right.png) no-repeat center center;
+    background-size: 14rpx 24rpx;
+}
+
+.address-name {
+    font-size: 36rpx;
+    line-height: 48rpx;
+    font-weight: bold;
+    color: #333333;
+}
+
+.address-phone {
+    font-size: 24rpx;
+    line-height: 48rpx;
+    color: #999999;
+}
+
+.ximg>image {
+    width: 90rpx;
+    height: 90rpx;
+    border: none;
+    margin-right: 20rpx;
+}
+
+.section-2-1>text {
+    line-height: 50rpx;
+    margin-left: 20rpx;
+    font-size: 26rpx;
+    color: #808080;
+}
+
+.chooseicon {
+    margin-left: 14rpx;
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.st-v2-on {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACqUlEQVRYhb3XT2hUVxTH8c+8jCH+SdQYURApMdkJGqSJm26KLkQFETd2EVHI0ipaUAtddNGFtrTaVUtbd4IuFF20ImhwoxRCCGVQQUzoqkVxYzI2CaiMi3dHM8m81zd/4m83nHPP9zfvvHfvPbnHff0yagX24FP0oRsrQ2wSf+Mv3MUfeJmlaC6DgV6cxmdYntHsf7iMcxhPS4xSYm04i4cYqgEu5A6FtedCrZoM9OBP8T9vrQE8X604FWr1ZjWwDffFfW6W+nAv1E410ItbWNdEeFnrQu2KJzHXwFJcxdpFgJe1FtcCa4GBr7F1EeFlbQmsCgM9OPEB4GWdEFpRNnAGSz6ggSWBKUK7eJNpujoPD2rfuSMpfBDteexW2yaTDX7kkK5jR5VevwbFO8PzU5Zjd4REi3XDDw/qOnYU5PJ5Hfv3kctVS90Rid/KROXa2rR0rq4Nfvzzd7+nR0b9+8UpSqVq6Vsi8ReQCN/w4/c2/vqzljWddcH/OX5SaXY2aUlPhI7q9JwNP3xn2UC/1k3dNv7yU6qJOuDQkXwalkomr99QevMGUk3UCUf8GU4lBYu3hz398qtUE43AMRVhIi0jzUSDcJjIo4Dt/2dCifVnv5FradG6qdtHVy7Jd3U1AodChAU7RFUTd4Y9PfP+STQBDsMRborvcNlMzGlHg/Bp3IxQxJWsq4q33z+JBuDEl9Zi+Vbci0dqOBGXDXxspvCgXvgrbMaT8j4wjvO1VJgeGa0XDhfwhIU3okK9FWtQQZUbEczgAJ4vIvx5YExXM0Dcil14tgjwZ6F2xaRU7SwYwyea245CqDk2P5B0GI2Ld8dvxW9svXoVamyXMCOmzYaz4tFsM34zp28ZNIOLYe3pUKuqskzHZa3AXpXj+aoQe6FyPP9dxvH8Lcjq+84yw7WjAAAAAElFTkSuQmCC) no-repeat center left;
+    background-size: 50rpx 50rpx;
+    color: #d93035;
+}
+
+.st-v2-un {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACr0lEQVRYhcXXy2tVVxQG8F9OUVPfgsU4lCQKLVhRFKQqiCKStlBoO9CJVPwHOvExUkfqSP8BS1VQB+rEByI+IFoqQosEbktNQjsrxYGv1hTFx2Ctg1Gv1xOTHD8I++7ss9f37bUfa622RqOhIqbic6zGIszDjBy7hz9xE1dwFv9WMdpWQUAXtmEDplQU+x+OYR8GWn1YtBhrx140sAWT0ZtiVqADk/KvI/+3Lb+ZnHMaKaL9TSRv8kAnTghXP8Vh7MGtVqsZhm7swCaxyJv4VhNvNPPAYvyU5P1Yju9GQC7nbc65f6Wta2m7pYAunMccXMAS3BgB8au4gWW4mjbPJ0dTAR8Kt38k9vFLPBgFeYnbWIvLaftkcr0mYBc+FS77Bo/GgLzEI3wltnFhcuHFIezE7/hA7Nto3N4Ky/AznuBjDJQe2I4JODSO5NL2j8m1nfDANPwt7u58b3k4xgBdYiseYm6BHvHC9dZALjl6k7OnwJocOFcDeYmSa00hTiVxOOrC9WwXFuIGMLKXbrT4I9vOAtOzc7dGAXeynd4qGtaCAvfz98waeWdle7/AYHbm1yig5Bos0Jed5TUKKLn6ClzKTk+NAkquS+/zKR5CRyFi/nG0iTRqvLEjuY7hQRmOu/Cb8Q/HS8WL+xSfoL98BwawX1zL4yJzGWtMwxGxyAMib3wtI+oTBccJTBxD8ok4hQXJsascGC5gCF+LHG4VTotqaLSYjYsiL7ydHA+bCSC2Yj3+wTr8IvbtXbFUnKeVaXO9V25Zs1jwq6hy+sS1vI4fRLFRFd04mHPnpa0VafsltKoN27Eb34sc7pnI78+IwmXQi6g2S4T1z/CFWHEbHovDvRP/NyOpUpx2Yys2iseqCoZwVNSF/a0+rCKgxFSxuuHleRlB73q5PD+jYnn+HNRnpz/smLXEAAAAAElFTkSuQmCC) no-repeat center left;
+    background-size: 50rpx 50rpx;
+}
+
+.condi-edit {
+    width: 32rpx;
+    height: 32rpx;
+    text-align: right;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAB1UlEQVRIS7XWP0/CQBgG8OctmshAdDIxAXUXEhJjBBcd/AB8A3VxZnVlcjHGmUG+gSRG4+DQzaKDGmriSARdiVEXgb7mxCqUUs7j2rF/7pfn7t73SgjpekmtLrdB+2C+mLcrB16GwnCfk9k1h/gSoGh3fGcvUa3s91ra4XoyswHC+R/6w7GTT9iVIxfXCgvUAH32p+3J6fBu4sEqijva4EYqs82gYwaXIkxFX5yZARTitlXQAruomy0Q/1nzsWEvKoMz8+lY8DB0BN4GsKkMj0KH4JPEnVzcvj5TgmVRL94hzM5Xr8pKu/q/qEAY/DrZQnru0aop1bEqajidjfjDzZ1S59KJSk+1blQKDgMdCYeFBsJhokPhsFFfuLmYnnmLTdUINC37kyDq1K9kgr7v61wC/YhN5eB07hwjYsrgKuhA4qdUNkfACYF3ZHBV1AfOlAi01X0QjI+DDsD1ZLYGwsJfP/XHx0X74MbSSpqNiVvvhvAm14F64GyeDRz67UQXZ5ooE7dz3oYvu/t9D4l6MmOCaH3YIAKPV62SCuIfBoAoo/dYtDnwAvM9QCbA5YRtmbrQ36l2y0isn4AMcDnSgtl7cOtEf+Hvv38AulNJdy7dqYLG+wKJ8FFuh+HquQAAAABJRU5ErkJggg==) no-repeat center center;
+    background-size: 30rpx 30rpx;
+}
+
+.orderDetTo {
+    margin-top: 20rpx;
+    border-top: 1px solid #f1f1f1;
+    padding: 26rpx 30rpx;
+    text-align: right;
+    font-weight: bold;
+    font-size: 26rpx;
+    color: #444;
+}
+
+.productRed {
+    color: #e32d39;
+    font-size: 26rpx;
+}
+
+.account-invalid-v {
+    padding: 0 10rpx;
+    border: 1px solid #D62F35;
+    border-radius: 15rpx;
+    height: 30rpx;
+    line-height: 30rpx;
+    font-size: 24rpx;
+    color: #D62F35;
+    text-align: center;
+}
+
+.pro-info {
+    margin: -20rpx 20rpx 20rpx 34rpx;
+    font-size: 22rpx;
+    color: #808080;
+}
+
+.pro-info-meal {
+    font-size: 24rpx;
+    text-decoration: underline;
+    color: #808080;
+    line-height: 24rpx;
+    padding-left: 8rpx;
+}
+
+.donate {
+    border-bottom: 1px solid #e0dede;
+    margin-top: 20rpx;
+    background-color: #fff;
+}
+
+.donate-banner {
+    height: 150rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/Version/wechatapp/donate-banner.png) center no-repeat;
+    background-size: 100%;
+}
+
+.donate-b {
+    padding: 0 30rpx;
+}
+
+.donate-bt {
+    display: flex;
+    height: 100rpx;
+    justify-content: space-between;
+}
+
+.donate-bb {
+    display: flex;
+    line-height: 90rpx;
+    height: 90rpx;
+    border-top: 1px dashed #e0dede;
+    font-size: 24rpx;
+}
+
+.donate-bb-text {
+    color: #e32d39;
+}
+
+.donate-bt-m-in {
+    display: flex;
+    width: 82rpx;
+    height: 50rpx;
+    border: 1px solid #e0dede;
+    border-radius: 10rpx;
+    margin: 0 10rpx;
+    align-items: center;
+    justify-content: center;
+    font-size: 28rpx;
+}
+
+.donate-bt-m-in .small-font {
+    margin-top: 20rpx;
+}
+
+.donate-bb-section {
+    width: 60rpx;
+    height: 100%;
+    background: url("https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-check-on.png") no-repeat left center;
+    background-size: 48rpx 38rpx;
+}
+
+.donate-bb-section-un {
+    width: 60rpx;
+    height: 100%;
+    background: url("https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-check-un.png") no-repeat left center;
+    background-size: 40rpx 40rpx;
+}
+
+.donate-bt-m {
+    display: flex;
+    height: 100%;
+    width: 280rpx;
+    align-items: center;
+    margin-left: -100rpx;
+}
+
+.donate-bt-r {
+    line-height: 100rpx;
+}
+
+.donate-bt-l {
+    width: 360rpx;
+    font-size: 24rpx;
+}
+
+.donate-bt-l view {
+    margin-top: 15rpx;
+}
+
+.donate-bbb {
+    border-top: 1px solid #f1f1f1;
+    padding: 26rpx 30rpx;
+    text-align: right;
+    font-weight: bold;
+    font-size: 26rpx;
+    color: #444;
+}
+
+.donate-bbb-text {
+    color: #d93035;
+}
+
+.small-font {
+    font-size: 12px;
+    transform: scale(0.70);
+    transform-origin: 0 0;
+}
+
+.icon-reduce {
+    width: 60rpx;
+    height: 60rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-reduce.png) no-repeat center center;
+    background-size: 60rpx 60rpx;
+}
+
+.icon-reduce-disabled {
+    width: 60rpx;
+    height: 60rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-reduce-disabled.png) no-repeat center center;
+    background-size: 60rpx 60rpx;
+}
+
+.icon-plus-disabled {
+    width: 60rpx;
+    height: 60rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-plus-disabled.png) no-repeat center center;
+    background-size: 60rpx 60rpx;
+}
+
+.donateDia {
+    text-align: left;
+    font-size: 28rpx;
+    padding: 70rpx 20rpx;
+}
+
+.text3 input {
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+}
+
+.text-1 {
+    color: #a5a5a5;
+    font-size: 34rpx;
+    text-align: center;
+}
+
+.donateDiaI {
+    display: flex;
+    margin: 68rpx auto;
+    font-size: 36rpx;
+    font-weight: bold;
+}
+
+.donateDiaI text {
+    margin: auto 0;
+    color: #d2d2d2;
+}
+
+.text3 {
+    border: 1rpx solid #d2d2d2;
+    border-radius: 14rpx;
+    width: 180rpx;
+    height: 80rpx;
+    color: #969393;
+    margin-left: 12rpx;
+}
+
+.text-2 text {
+    padding: 15rpx 60rpx;
+    color: #a5a5a5;
+    text-align: left;
+    font-size: 30rpx;
+}
+
+.rg-container {
+    margin: 100rpx 40rpx 0 40rpx;
+    height: 76%;
+}
+
+.rg-1 {
+    height: 140rpx;
+    line-height: 114rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-popup-top.png) no-repeat top center;
+    background-size: 100rpx 20rpx;
+    font-size: 30rpx;
+    color: #444;
+    border-radius: 15rpx 15rpx 0 0;
+    font-weight: bold;
+}
+
+.rg-1-1 {
+    width: 40rpx;
+    height: 40rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-close2.png) no-repeat center center;
+    background-size: 30rpx 30rpx;
+    position: absolute;
+    top: 10rpx;
+    right: 10rpx;
+}
+
+.rg-2 {
+    border-top: 1px solid #e6e3e3;
+    text-align: left;
+    font-size: 28rpx;
+    padding: 30rpx 50rpx;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.rg-t2 {
+    color: #a5a5a5;
+    line-height: 50rpx;
+}
+
+.rg-1-title {
+    margin-top: -70rpx;
+}
+
+.promotion-section-2 {
+    display: flex;
+    align-items: center;
+}
+
+.donatePopMain {
+    padding: 30rpx 60rpx;
+    width: 350rpx;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.donatePopMain .title {
+    font-size: 36rpx;
+}
+
+.donatePopMain .beizhu {
+    font-size: 24rpx;
+    line-height: 60rpx;
+}
+
+.section-2-nomargin {
+    margin-top: 0;
+}
+
+.prime-v {
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/pic_prime_big.png) no-repeat left top;
+    height: 100rpx;
+    background-size: cover;
+}
+
+.prime-v-black-big {
+    margin: 10rpx 6rpx 0;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/pic_prime_bigbg_black.png) no-repeat left top;
+    height: 258rpx;
+    background-size: 100% 100%;
+}
+
+.prime-v-black-normal {
+    margin: 10rpx 6rpx 0;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/pic_prime_normalbg_black.png) no-repeat left top;
+    height: 127rpx;
+    background-size: 100% 100%;
+}
+
+.prime-card-black-font {
+    color: #F8CA7F !important;
+}
+
+.prime-card-v {
+    display: flex;
+    padding: 40rpx 30rpx 2rpx;
+}
+
+.prime-card-v-black {
+    padding: 40rpx 40rpx 5rpx;
+}
+
+.prime-card-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.prime-card-v-1 {
+    display: flex;
+    align-items: center;
+}
+
+.prime-card-name {
+    font-size: 28rpx;
+    color: #4E3522;
+}
+
+.prime-card-cutOff {
+    font-size: 24rpx;
+    color: #1E1710;
+}
+
+.prime-card-cutPrice {
+    margin: 0 4rpx;
+    font-size: 24rpx;
+    color: #D62F35;
+}
+
+.prime-card-content {
+    font-size: 22rpx;
+    color: #808080;
+    margin-top: 8rpx;
+    margin-bottom: 20rpx;
+}
+
+.prime-card-content-wcolor {
+    color: #fff !important;
+}
+
+.prime-card-right {
+    display: flex;
+    align-items: flex-start;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.prime-card-v-2 {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 24rpx;
+}
+
+.prime-card-notice {
+    text-decoration: underline;
+    font-size: 22rpx;
+    color: #fff;
+    padding: 8rpx 0 8rpx;
+}
+
+.prime-card-v-3 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+}
+
+.prime-card-price {
+    font-size: 28rpx;
+    color: #B59542;
+}
+
+.prime-card-period {
+    flex: 1;
+    white-space: nowrap;
+    font-size: 24rpx;
+    color: #404040;
+}
+
+.prime-card-line {
+    width: 100%;
+    height: 0;
+    border-top: 1rpx dotted #DDD;
+}
+
+.prime-wow-v {
+    height: 100rpx;
+    display: flex;
+    padding: 0 24rpx;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    margin: 20rpx 0;
+}
+
+.prime-wow-v-black {
+    margin-left: 40rpx;
+    margin-right: 35rpx;
+}
+
+.prime-wow-v-left {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.prime-wow-title {
+    font-size: 28rpx;
+    color: #444;
+    font-weight: bold;
+    margin-right: 10rpx;
+}
+
+.prime-wow-v-right {
+    display: flex;
+    align-items: center;
+}
+
+.prime-wow-price {
+    font-size: 28rpx;
+    color: #D62F35;
+    margin-right: 12rpx;
+}
+
+.prime-card-image {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.prime-wow-image {
+    width: 24rpx;
+    height: 24rpx;
+}
+
+.prime-wow-tip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10rpx;
+    color: #fff !important;
+    line-height: 1;
+    font-size: 24rpx;
+    padding: 20rpx;
+    bottom: 90%;
+    margin-bottom: 14rpx;
+    white-space: nowrap;
+    font-weight: normal;
+    transform: translateX(-50%);
+    left: 91%;
+}
+
+.prime-wow-tip::before {
+    border: 5rpx solid transparent;
+    border-top: 8rpx solid #333;
+    width: 0;
+    height: 0;
+    position: absolute;
+    content: ' ';
+    top: 100%;
+    left: 50%;
+}
+
+.pm-container {
+    position: absolute;
+    background: #fff;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.pm-items {
+    overflow-y: auto;
+    margin-top: 20rpx;
+    padding: 0 32rpx;
+}
+
+.pm-item-v {
+    display: flex;
+    margin-bottom: 20rpx;
+    padding: 20rpx 32rpx;
+    position: relative;
+}
+
+.pm-item-v-bg-long-sel {
+    min-height: 216rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/pic_dashen_sel.png) no-repeat left top;
+    background-size: 100% 100%;
+}
+
+.pm-item-v-bg-long-normal {
+    min-height: 216rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/pic_dashen.png) no-repeat left top;
+    background-size: 100% 100%;
+}
+
+.pm-item-v-bg-long-unable {
+    min-height: 216rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/pic_dashen_grey.png) no-repeat left top;
+    background-size: 100% 100%;
+}
+
+.pm-item-v-bg-short-sel {
+    height: 180rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/pic_other_sel.png) no-repeat left top;
+    background-size: 100% 100%;
+}
+
+.pm-item-v-bg-short-normal {
+    height: 180rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/pic_other.png) no-repeat left top;
+    background-size: 100% 100%;
+}
+
+.pm-item-v-bg-short-unable {
+    min-height: 180rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/pic_other_grey.png) no-repeat left top;
+    background-size: 100% 100%;
+}
+
+.pm-item-v-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.pm-item-v-low {
+    height: 220rpx;
+}
+
+.pm-item-v-name {
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #4E3522;
+}
+
+.pm-item-v-cutOff {
+    font-size: 24rpx;
+    color: #1E1710;
+}
+
+.pm-item-v-cutPrice {
+    margin: 0 4rpx;
+    font-size: 24rpx;
+    color: #D62F35;
+}
+
+.pm-item-v-offer {
+    margin-bottom: 4rpx;
+    font-size: 24rpx;
+    color: #4E3522;
+}
+
+.pm-item-v-offer-bottom {
+    margin-bottom: 16rpx;
+}
+
+.pm-item-v-offer-invalid {
+    color: rgba(78, 53, 34, 0.50);
+    opacity: 0.4;
+}
+
+.pm-item-v-time {
+    font-size: 20rpx;
+    color: #AAAAAA;
+    margin-bottom: 20rpx;
+    position: absolute;
+    bottom: 0;
+}
+
+.pm-item-v-help {
+    position: absolute;
+    width: 32rpx;
+    height: 32rpx;
+    top: 16rpx;
+    right: 18rpx;
+}
+
+.pm-item-v-confirm {
+    height: 96rpx;
+    line-height: 96rpx;
+    color: #fff;
+    background-color: #D62F35;
+    font-size: 36rpx;
+    border-radius: 16rpx;
+    text-align: center;
+    margin: 24rpx 32rpx;
+}
+
+.pm-item-v-right {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    padding-right: 8rpx;
+}
+
+.pm-choose-button {
+    padding-top: 17rpx;
+    width: 48rpx;
+    height: 48rpx;
+}
+
+.pm-choose-unselected {
+    border: 1px solid #CEAE5C;
+    border-radius: 50%;
+}
+
+.pm-choose-onselected {
+    border-radius: 50%;
+    background: #CEAE5C;
+    position: relative;
+}
+
+.pm-choose-onselected::after {
+    content: '\00a0';
+    position: absolute;
+    display: inline-block;
+    width: 16rpx;
+    height: 9rpx;
+    top: 15rpx;
+    left: 15rpx;
+    transform: rotate(-45deg);
+    border: 5rpx solid #FFFFFF;
+    border-top-width: 0;
+    border-right-width: 0;
+}
+
+.fontWeight {
+    font-weight: bold;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.text2em {
+    text-indent: 2em;
+}
+
+.padding2em {
+    padding-left: 2em;
+}
+
+.padding1em {
+    padding-left: 1em;
+}
+
+.fontNormal {
+    font-weight: normal;
+}
+
+.settlement-location-part {
+    height: 88rpx;
+    margin: 20rpx 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rg-1-2title {
+    height: 40rpx;
+}
+
+.vgold {
+    padding: 20rpx 30rpx;
+    border-top: 1px solid #f5f4f4;
+    border-bottom: 1px solid #f5f4f4;
+    background-color: #fff;
+}
+
+.vgold1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 28rpx;
+}
+
+.vgold1-1 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10rpx;
+}
+
+.vgold1-1>.vcoin {
+    display: flex;
+    padding: 2rpx 16rpx 2rpx 0;
+    align-items: center;
+    background-color: #FFFC841A;
+    color: #F38017;
+    border-radius: 20rpx 6rpx;
+    border: 1px solid #F38017;
+    font-size: 20rpx;
+}
+
+.vgold1-1>image {
+    width: 30rpx;
+    height: 30rpx;
+    margin-left: 12rpx;
+}
+
+.vcoin::before {
+    width: 40rpx;
+    height: 28rpx;
+    content: "";
+    background: url("https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-kgold.png") no-repeat center center;
+    background-size: 28rpx 28rpx;
+}
+
+.vgold_mes {
+    width: 32rpx;
+    height: 28rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-kgold.png) no-repeat center bottom;
+    background-size: 28rpx 28rpx;
+}
+
+.vgold1-2 {
+    display: flex;
+    font-size: 24rpx;
+    color: #1C1C1C;
+    align-items: center;
+}
+
+.noUseVgold {
+    border: 1px solid #D62F35;
+    border-radius: 40rpx;
+    padding: 0 18rpx;
+    font-size: 20rpx;
+    color: #D62F35;
+    margin-right: 10rpx;
+}
+
+.vgold1-2 view {
+    display: flex;
+    align-items: center;
+}
+
+.vgold2 {
+    display: flex;
+    padding-left: 20rpx;
+    background: #F5F5F5;
+    margin-top: 20rpx;
+    align-items: center;
+    font-size: 28rpx;
+    height: 88rpx;
+}
+
+.vgold2-1 {
+    display: flex;
+    align-items: center;
+    background: white;
+    line-height: 60rpx;
+    padding: 0 20rpx;
+    font-size: 24rpx;
+    margin: 0 10rpx;
+}
+
+.vgold2-1::after {
+    content: "";
+    width: 26rpx;
+    height: 16rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-arrow-down.png) no-repeat right bottom;
+    background-size: 20rpx 12rpx;
+}
+
+.cf-1-noborder {
+    border: none;
+}
+
+.cf-container-vgold {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: #fff;
+    z-index: 2;
+    width: 100%;
+}
+
+.cf-container-vgold>view {
+    display: flex;
+    justify-content: space-between;
+    background-color: #F5F5F5;
+    line-height: 70rpx;
+    font-size: 28rpx;
+    padding: 0 30rpx;
+    color: #d93035;
+}
+
+.cf-container-vgold>view>view:nth-child(2) {
+    color: #808080;
+}
+
+.cf-container-vgold picker-view {
+    width: 100%;
+    height: 300rpx;
+    text-align: center;
+}
+
+.cf-container-vgold picker-view view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 40px;
+    font-size: 32rpx;
+}
+
+.vgoldDisable {
+    color: #808080;
+}
+
+.vgoldDisable::before,
+.vgoldDisable::after {
+    content: '不可用';
+    font-size: 20rpx;
+    color: #C4C4C4;
+    background: #F3F3F3;
+    border-radius: 18rpx;
+    line-height: 36rpx;
+    padding: 0 16rpx;
+    margin: 0 20rpx;
+}
+
+.vgoldDisable::after {
+    background: white;
+    color: white;
+}
+
+.vgold-text {
+    color: #808080;
+    font-size: 28rpx;
+    text-align: left;
+    margin: -20rpx 40rpx 40rpx 40rpx;
+}
+
+.vgold-title {
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #404040;
+    text-align: center;
+    margin-bottom: 40rpx;
+}
+
+.wow-vgold {
+    margin: -14rpx 0 16rpx 0;
+    padding-left: 26rpx;
+    font-size: 22rpx !important;
+    color: #8a8a8a;
+}
+
+.pay-type {
+    display: flex;
+    line-height: 28rpx;
+}
+
+.pay-type-icon image {
+    height: 28rpx;
+    width: 28rpx;
+    margin-left: 8rpx;
+}
+
+.plate-warning-v {
+    height: 80rpx;
+    display: flex;
+    background-color: #FFF3E9;
+    font-size: 28rpx;
+    line-height: 80rpx;
+    color: #FC841A;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24rpx;
+}
+
+.plate-warning-cancel {
+    width: 42rpx;
+    height: 42rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/Version/common_clear_yellow.png) no-repeat center center;
+    background-size: 30rpx 30rpx;
+}
+
+.plate-content {
+    font-size: 28rpx;
+    margin-right: 20rpx;
+}
+
+.plate-province-button {
+    position: relative;
+    width: 70rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 28rpx;
+    color: #333333;
+    font-weight: bold;
+}
+
+.plate-province-button::after {
+    position: absolute;
+    content: "";
+    right: 18rpx;
+    top: 28rpx;
+    width: 0;
+    height: 0;
+    border-width: 8rpx 8rpx 0;
+    border-style: solid;
+    border-color: #333333 transparent transparent;
+}
+
+.settlement-location-storePlace {
+    display: flex;
+    font-size: 28rpx;
+    color: #404040;
+    height: 64rpx;
+    line-height: 64rpx;
+    align-items: center;
+}
+
+.settlement-location-storePlace image {
+    width: 34rpx;
+    height: 30rpx;
+    margin-left: 10rpx;
+}
+
+.location-view {
+    overflow-y: auto;
+    position: relative;
+}
+
+.selection-location-title-view {
+    text-align: center;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #404040;
+    border-bottom: 1rpx solid #EEEEEE;
+}
+
+.selection-location-substore {
+    margin-left: 40rpx;
+    padding-right: 40rpx;
+    display: flex;
+    height: 116rpx;
+    line-height: 116rpx;
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #404040;
+    border-bottom: 1rpx solid #EEEEEE;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tableware-content {
+    border-bottom: 2rpx solid #ffffff;
+    border-top: 2rpx solid #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    position: relative;
+}
+
+.tableware-content .title-wrap {
+    width: 400rpx;
+}
+
+.tableware-content .title-wrap .title {
+    display: block;
+    font-size: 28rpx;
+    color: #404040;
+    font-weight: bold;
+}
+
+.tableware-content .title-wrap .desc {
+    display: block;
+    font-size: 20rpx;
+    color: #808080;
+}
+
+.tableware-content .tableware-choose {
+    display: flex;
+    align-items: center;
+}
+
+.tableware-content .tableware-choose .text {
+    font-size: 28rpx;
+    color: #808080;
+    padding: 0 8rpx;
+    position: relative;
+}
+
+.tableware-content.active {
+    border-bottom: 2rpx solid #D62F35;
+    border-top: 2rpx solid #D62F35;
+}
+
+.tableware-content.active .tableware-choose .text {
+    color: #D62F35;
+}
+
+.tableware-content .tableware-choose .chooseicon {
+    margin-left: 0;
+}
+
+.donateOnePop image {
+    width: 100%;
+    border-radius: 10rpx 10rpx 0 0;
+}
+
+.donateOnePop .cf-v3:first-child {
+    color: gray;
+}
+
+.donateOnePop .cf-3 {
+    margin-top: 30rpx;
+}
+
+.donateOnePop .cf-1 {
+    font-size: 40rpx;
+    color: #4A4A4A;
+    border: none;
+    padding-top: 16rpx;
+}
+
+.donateOnePop .content {
+    font-size: 32rpx;
+    color: #4A4A4A;
+    padding: 30rpx 0;
+}
+
+.chepai {
+    justify-content: flex-end;
+}
+
+.tmp-popup-title {
+    display: flex;
+    justify-content: space-between;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-weight: bold;
+    padding: 0 32rpx;
+    font-size: 32rpx;
+}
+
+.tmp-tab {
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    overflow: hidden;
+    padding: 0 32rpx;
+}
+
+.tabqz {
+    position: relative;
+    min-width: 280rpx;
+    height: 64rpx;
+    line-height: 64rpx;
+    font-size: 28rpx;
+    text-align: center;
+    border-radius: 45rpx;
+    padding: 0 10rpx;
+    margin: 0 30rpx 36rpx 0;
+}
+
+.tabqz .icon-sell-out {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 58rpx;
+    height: 48rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/Version/icon-sell-out.png) center center no-repeat;
+    background-size: 58rpx auto;
+}
+
+.tabqz-on {
+    color: #FFFFFF;
+    background: #D62F35;
+}
+
+.tabqz-un {
+    color: #999999;
+    border: 1rpx solid #CCCCCC;
+}
+
+.tabqz-sq {
+    background: #ECECEC;
+    color: #BCBCBC;
+}
+
+.tmp-popup-sure {
+    background: #D62F35;
+    box-shadow: 0 0 0 0 #EEEEEE;
+    border-radius: 44px;
+    line-height: 88rpx;
+    text-align: center;
+    margin: 10rpx 32rpx 48rpx 32rpx;
+    color: #fff;
+}
+
+.icon-close2 {
+    width: 60rpx;
+    height: 100rpx;
+    background: url("https://imgorder.kfc.com.cn/mwos/wechatAppImages/icon-close2.png") no-repeat right center;
+    background-size: 30rpx 30rpx;
+}
+
+.change-font {
+    background: linear-gradient(to right, #EEC17B, #CC9966);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 700;
+}
+
+.prime-card-font {
+    margin: 0 4rpx;
+    font-size: 24rpx;
+}
+
+.renewfloat {
+    margin-bottom: 20rpx;
+    padding: 0 20rpx 20rpx 20rpx;
+    background: #fff;
+}
+
+.renew-top {
+    margin-top: -30rpx;
+    height: 54rpx;
+    font-size: 20rpx;
+    color: #D62F35;
+}
+
+.renew {
+    position: relative;
+    display: flex;
+    font-size: 28rpx;
+    justify-content: space-between;
+    align-items: center;
+    background: #F5F5F5;
+    border-radius: 10rpx;
+    line-height: 90rpx;
+    padding: 0 24rpx;
+}
+
+.renew-get {
+    font-weight: 700;
+    color: #D62F35;
+}
+
+.renew-price {
+    font-weight: 700;
+    color: #333333;
+    margin-right: 10rpx;
+}
+
+.renew-triangle {
+    position: absolute;
+    top: -36rpx;
+    left: 46rpx;
+    width: 0;
+    height: 0;
+    border-width: 20rpx;
+    border-style: solid;
+    border-color: transparent #F5F5F5 transparent transparent;
+    transform: rotate(90deg);
+}
+
+.renew-bottom {
+    position: fixed;
+    bottom: 126rpx;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    display: flex;
+}
+
+.renew-bottom>view {
+    display: flex;
+    margin: 0 auto;
+    font-size: 24rpx;
+    opacity: 0.88;
+    background: #3D3D3D;
+    border-radius: 36rpx;
+    color: #FFFFFF;
+    padding: 18rpx 36rpx 20rpx 36rpx;
+    letter-spacing: 4rpx;
+}
+
+.renew-bottom>view::after {
+    content: "";
+    width: 24rpx;
+    height: 24rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/Version/renew-down.png) no-repeat right bottom;
+    background-size: 20rpx 16rpx;
+}
+
+.renew-bottom>view>text:nth-child(2) {
+    color: #e0ba45;
+}
+
+.renew-pop {
+    padding: 32rpx;
+}
+
+.renew-pop1 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 270rpx;
+    border-radius: 8rpx;
+    box-shadow: 0 4rpx 20rpx 0 #e0e0e0;
+}
+
+.renew-pop1 image {
+    width: 226rpx;
+    height: 226rpx;
+}
+
+.renew-pop1>view {
+    margin-left: 10rpx;
+}
+
+.renew-pop1>view>view:nth-child(1) {
+    font-weight: bold;
+    font-size: 32rpx;
+    color: #333333;
+    width: 400rpx;
+    line-height: 40rpx;
+    max-height: 80rpx;
+    overflow: hidden;
+}
+
+.renew-pop1>view>view:nth-child(2) {
+    display: flex;
+    margin-top: 12rpx;
+}
+
+.renew-pop1>view>view:nth-child(2)>view {
+    line-height: 34rpx;
+    padding: 0 16rpx;
+    border: 2rpx solid #FFA156;
+    border-radius: 17rpx;
+    font-size: 20rpx;
+    color: #FF7D12;
+}
+
+.renew-pop1>view>view:nth-child(3) {
+    font-weight: bold;
+    margin-top: 26rpx;
+    font-size: 48rpx;
+    color: #D62F35;
+}
+
+.renew-pop2 {
+    line-height: 60rpx;
+    font-size: 24rpx;
+    color: #666666;
+    border-radius: 8rpx;
+    text-align: right;
+    margin-top: -38rpx;
+    background: #FAFAFA;
+    padding-right: 40rpx;
+    box-shadow: 0 4rpx 20rpx 0 #e0e0e0;
+}
+
+.renew-cp {
+    display: flex;
+    margin: 70rpx 32rpx 32rpx 32rpx;
+}
+
+.renew-cp>view {
+    flex: 1;
+    border-radius: 44rpx;
+    line-height: 88rpx;
+    text-align: center;
+    font-size: 32rpx;
+}
+
+.renew-cp>view:nth-child(1) {
+    position: relative;
+    border: 2rpx solid #CCCCCC;
+    color: #333333;
+    margin-right: 16rpx;
+}
+
+.renew-cp>view:nth-child(1)>view {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -26rpx;
+    font-size: 20rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.renew-cp>view:nth-child(1)>view>view {
+    margin: 0 auto;
+}
+
+.renew-cp>view:nth-child(1)>view>view:nth-child(1) {
+    line-height: 40rpx;
+    padding: 0 14rpx;
+    color: #FFFFFF;
+    background: rgba(0, 0, 0, 0.65);
+    border-radius: 20rpx;
+}
+
+.renew-cp>view:nth-child(1)>view>view:nth-child(2) {
+    width: 0;
+    height: 0;
+    border: 14rpx solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.65);
+    margin-top: -2rpx;
+}
+
+.renew-cp>view:nth-child(2) {
+    background: #D62F35;
+    margin-left: 16rpx;
+    color: #FFFFFF;
+}
+
+.renew-pop-line {
+    padding: 0 24rpx;
+    z-index: 1;
+    margin-top: -48rpx;
+}
+
+.renew-pop-line>image {
+    width: 100%;
+    height: 24rpx;
+}
+
+.tradeup-popup-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.60);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 103;
+    font-family: "Microsoft YaHei";
+}
+
+.tradeup-popup-box {
+    display: flex;
+    flex-direction: column;
+    min-height: 660rpx;
+    max-height: 884rpx;
+    overflow: auto;
+    width: 640rpx;
+    background-color: #FFFFFF;
+    border-radius: 16rpx;
+    transition: all 0.6s ease;
+}
+
+.tradeup-popup-box .k-block {
+    position: relative;
+}
+
+.tradeup-popup-box .k-block:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.tradeup-popup-title {
+    position: relative;
+    text-align: center;
+    height: 156rpx;
+    width: 100%;
+    flex-shrink: 0;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAUAQMAAABBDgrWAAAABlBMVEUAAADZMDWuykWgAAAAAXRSTlMAQObYZgAAABJJREFUGNNj+P//AwOcGOXBCAArnK/J5QBP7wAAAABJRU5ErkJggg==) no-repeat center top;
+    background-size: 100rpx 20rpx;
+}
+
+.tradeup-popup-title text {
+    line-height: 140rpx;
+    font-size: 32rpx;
+    color: #333333;
+}
+
+.tradeup-popup-title .highlight {
+    color: #fda04e;
+}
+
+.tradeup-popup-title .k-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 28rpx;
+    color: #D7D7D7;
+    width: 60rpx;
+    height: 60rpx;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAMAAABxCz6aAAAAOVBMVEUAAACZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZku8lwOAAAAEnRSTlMAHA/c2BXLCSLhxcDR5CayoUaP4fbGAAAAi0lEQVQY02XQSw7DIAwEUDtA+AWS+P6HLZjCiNY7nkYyHiJP2yi8pu5WzUu3lLpZkZt8lhJgoUj21DWGZVGtaZLIwzhK+i4+khhWM5IOpa5nU7WzG9Qy22XIzhzGXSKXox+0Itb9Ba1dUZhr4dPty9vTjfWw8fmpOAgnwaAoaarW9ExDeQ9xHgbN/AFLegYSIJb3dAAAAABJRU5ErkJggg==) no-repeat center center;
+    background-size: 26rpx 28rpx;
+}
+
+.tradeup-popup-content {
+    flex: 1;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.tradeup-popup-content .hide {
+    max-height: 0;
+    display: none;
+}
+
+.tradeup-popup-content .show {
+    display: block;
+    transform: scaleY(1);
+    max-height: initial;
+    padding: 0 20rpx;
+    margin-top: 32rpx;
+}
+
+.tradeup-popup-content .show:first-child {
+    margin-top: 0;
+}
+
+.tradeup-popup-promotion-title {
+    line-height: 38rpx;
+    height: 38rpx;
+    color: #999999;
+}
+
+.tradeup-popup-promotion-title-name {
+    display: inline;
+    font-size: 28rpx;
+    color: #404040;
+}
+
+.tradeup-popup-promotion-quantity-limitted {
+    display: inline;
+    font-size: 20rpx;
+    color: #808080;
+}
+
+.tradeup-popup-promotion-swiper {
+    width: 100%;
+    padding-top: 8rpx;
+}
+
+.tradeup-popup-promotion-section-1 {
+    font-size: 26px;
+    height: 96rpx;
+    color: #808080;
+}
+
+.tradeup-popup-promotion-section-1 .k-plus {
+    padding: 16rpx;
+    border: 1px solid #dfdfdf;
+    border-radius: 40rpx;
+    font-size: 24px;
+}
+
+.tradeup-popup-ximg {
+    height: 96rpx;
+}
+
+.tradeup-popup-ximg image {
+    width: 96rpx;
+    height: 96rpx;
+    border: none;
+    margin-right: 14rpx;
+}
+
+.tradeup-popup-promotion-name {
+    font-size: 28rpx;
+    color: #333333;
+    text-align: left;
+}
+
+.tradeup-popup-promotion-price {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 28rpx;
+    color: #222;
+    text-align: right;
+    margin-right: 20rpx;
+    flex: 1;
+}
+
+.tradeup-popup-promotion-price .del {
+    text-decoration: line-through;
+    font-size: 24rpx;
+    color: #AAAAAA;
+    margin-left: 16rpx;
+}
+
+.tradeup-popup-promotion-num {
+    margin-left: 16rpx;
+    font-size: 32rpx;
+    color: #D62F35;
+}
+
+.tradeup-popup-promotion-num:before {
+    font-size: 26rpx;
+}
+
+.tradeup-popup-promotion-new-num {
+    margin-left: 16rpx;
+    font-size: 28rpx;
+    color: #000000;
+}
+
+.tradeup-popup-promotion-new-num:before {
+    font-size: 24rpx;
+}
+
+.tradeup-popup-free {
+    color: #ff0505;
+}
+
+.tradeup-popup-promotion-check {
+    display: flex;
+    font-size: 50px;
+    color: #e2e1e1;
+}
+
+.tradeup-popup-promotion-check.on {
+    color: #d93035;
+}
+
+.tradeup-popup-promotion-check:before {
+    border: 1px solid #e2e1e1;
+    border-radius: 50%;
+    color: #ffffff;
+}
+
+.tradeup-popup-promotion-check.k-location-3::before {
+    color: #f0f0f0;
+    background-color: #e32d39;
+}
+
+.tradeup-popup-pro-suggest {
+    color: #ff0505;
+    margin-left: 20rpx;
+    font-size: 18px;
+}
+
+.tradeup-popup-meal-info {
+    margin: -20rpx 0 10rpx 0;
+    font-size: 22rpx !important;
+    color: #8a8a8a;
+}
+
+.tradeup-popup-section-1-unfolding {
+    display: flex;
+    justify-content: center;
+    padding-top: 32rpx;
+    line-height: 24rpx;
+    margin: 0 35rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #999999;
+}
+
+.tradeup-popup-section-1-unfolding .k-down {
+    color: grey;
+    margin-left: 5rpx;
+}
+
+.tradeup-popup-section-1-unfolding-1 {
+    line-height: 24rpx;
+    margin: 0 35rpx;
+    text-align: center;
+    font-size: 24rpx;
+}
+
+.tradeup-popup-section-1-unfolding-1 .k-up {
+    color: grey;
+    margin-left: 5rpx;
+}
+
+.tradeup-popup-orderDetTo {
+    margin-top: 20rpx;
+    border-top: 1px solid #f1f1f1;
+    padding: 26rpx 20rpx;
+    font-weight: 700;
+    font-size: 26rpx;
+    text-align: right;
+}
+
+.tradeup-popup-orderDetTo .k-money {
+    color: #e32d39;
+    font-size: 32rpx;
+}
+
+.tradeup-popup-productRed {
+    color: #e32d39;
+}
+
+.tradeup-popup-ico-money11:before {
+    font-size: 22rpx !important;
+}
+
+.tradeup-popup-ico-money11.blod:before {
+    font-weight: bold;
+}
+
+.tradeup-popup-bottom {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 64rpx 48rpx 0;
+    width: 100%;
+    height: 192rpx;
+    flex-shrink: 0;
+}
+
+.bottom-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12rpx;
+    width: 252rpx;
+    height: 88rpx;
+    font-size: 32rpx;
+}
+
+.bottom-button-left {
+    box-sizing: border-box;
+    border: 1px solid #D7D7D7;
+    color: #D62F35;
+}
+
+.bottom-button-right {
+    color: #FFFFFF;
+    background-color: #D62F35;
+}
+
+.bottom-button-disable {
+    background-color: #D7D7D7;
+}
+
+.scale-anime {
+    transform: scale(0);
+}
+
+.heigt-change-anime-0 {
+    height: 0 !important;
+}
+
+.scale-move-anime-0 {
+    transform: scale(0);
+    transform-origin: 0 0;
+}
+
+.rg-2-padding {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.privacy-title {
+    font-size: 36rpx;
+    color: #444;
+    font-weight: 500;
+}
+
+.privacy-content {
+    font-size: 32rpx;
+    color: #333333;
+}
+
+.rember {
+    width: 100%;
+    font-size: 24rpx;
+    margin-top: 48rpx;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.privacy-checkbox-on {
+    width: 36rpx;
+    height: 36rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/Version/checkbox-on.png) no-repeat center center;
+    background-size: 32rpx 32rpx;
+}
+
+.privacy-checkbox-off {
+    width: 36rpx;
+    height: 36rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/Version/checkbox-off.png) no-repeat center center;
+    background-size: 32rpx 32rpx;
+}
+
+.privacy-read {
+    margin-left: 16rpx;
+    line-height: 36rpx;
+    text-align: left;
+    color: #666666;
+    font-weight: 400;
+}
+
+.privacy-link {
+    color: #d93035;
+}
+
+.rg-3 {
+    display: flex;
+    justify-content: center;
+    margin: 80rpx 0 48rpx;
+    padding: 0 50rpx;
+}
+
+.privacy-button {
+    flex: 1;
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    font-size: 32rpx;
+    border-radius: 10rpx;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.privacy-button-sure {
+    background: #e32d39;
+}
+
+.privacy-button-cancel {
+    background: #DDDDDD;
+}
+
+.sp-opacity {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    z-index: 99;
+    align-items: center;
+}
+
+.sp-container {
+    display: flex;
+    border-radius: 16rpx;
+    margin: 50rpx 30rpx 0;
+    height: 800rpx;
+    background-color: #FFF;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.sp-container-inner {
+    flex: 1;
+    margin: 10rpx 0;
+    overflow: scroll;
+    height: 88%;
+}
+
+.sp-button-container {
+    width: 100%;
+    height: 92rpx;
+    border-top: 1rpx solid #DDD;
+    text-align: center;
+    font-size: 32rpx;
+    display: flex;
+}
+
+.sp-button-cancel {
+    line-height: 92rpx;
+    width: 50%;
+    color: #333;
+    border-right: 1rpx solid #DDD;
+}
+
+.sp-button-agree {
+    line-height: 92rpx;
+    width: 50%;
+    color: #D62F35;
+}
+
+.booking-tip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24rpx 32rpx;
+    background-color: #FFF1CD;
+    margin: 0 0 20rpx 0;
+}
+
+.booking-tip-content {
+    display: flex;
+    width: 590rpx;
+    justify-content: flex-start;
+    font-size: 24rpx;
+    line-height: 34rpx;
+    color: #FC9030;
+}
+
+.booking-tip-close {
+    display: block;
+    width: 24rpx;
+    height: 24rpx;
+}
+
+.lucky-bag-count-down {
+    position: absolute;
+    display: flex;
+    min-width: 432rpx;
+    height: 120rpx;
+    bottom: 120rpx;
+    left: 24rpx;
+    background: rgba(0, 0, 0, 0.70);
+    border-radius: 26rpx;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24rpx;
+    margin-bottom: 20rpx;
+}
+
+.lucky-bag-count-down-content {
+    opacity: 0.9;
+    font-size: 28rpx;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    line-height: 40rpx;
+}
+
+.time {
+    color: #CB804B !important;
+    font-weight: 700;
+}
+
+.lucky-bag-count-down-close {
+    width: 32rpx;
+    height: 32rpx;
+    margin-left: 20rpx;
+}
+
+
+/* 底部菜单操作 */
+
+.operate {
+    height: 110rpx;
+    display: flex;
+    box-shadow: 0 -12rpx 24rpx 0 rgba(0, 0, 0, 0.08);
+}
+
+.operate-full {
+    padding-bottom: 30rpx;
+}
+
+.operate-shopcart {
+    display: flex;
+    width: 74%;
+    padding: 10rpx;
+    background: #FFFFFF !important;
+
+}
+
+.operate-submit {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+
+    font-size: 30rpx;
+    background: rgb(221, 221, 221);
+    color: #aaa;
+    line-height: 33rpx;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 8px !important;
+    justify-content: center !important;
+    border-radius: 58rpx !important;
+}
+
+.operate-submit-activity {
+    background: #D62F35 !important;
+    color: #fff;
+}
+
+
+.operate-shopcart-icon {
+    width: 80rpx;
+    height: 80rpx;
+    padding-left: 36rpx;
+    background: url(https://imgorder.kfc.com.cn/mwos/Version/icon-shopping-red.png) no-repeat center center;
+    background-size: 80rpx 80rpx;
+    position: relative;
+
+}
+
+.operate-shopcart-icon-activity {
+    background-size: 80rpx 80rpx;
+}
+
+
+.operate-shopcart-icon>span {
+    padding: 2rpx 14rpx;
+    border-radius: 30%;
+    background: #D62F35;
+    color: white;
+    font-size: 22rpx;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    right: -10rpx;
+}
+
+.operate-shopcart-ball {
+    width: 36rpx;
+    height: 36rpx;
+    position: fixed;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    background: #D62F35;
+}
+
+.operate-shopcart-empty {
+    color: #a9a9a9;
+    line-height: 88rpx;
+    font-size: 30rpx;
+}
+
+.operate-shopcart-price {
+    display: flex;
+}
+
+.operate-shopcart-price>view {
+    font-size: 40rpx;
+    line-height: 88rpx;
+    margin-left: 35rpx;
+    color: #D62F35;
+}
+
+.operate-shopcart-price>text {
+    font-size: 24rpx;
+    line-height: 92rpx;
+    margin-left: 15rpx;
+    color: #aaa;
+    text-decoration: line-through;
+}
